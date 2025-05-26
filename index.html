@@ -71,10 +71,19 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-size: 24px;
             font-weight: 700;
             color: var(--primary-blue);
             text-decoration: none;
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
         }
 
         .download-btn {
@@ -130,6 +139,17 @@
             height: auto;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-mockup {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hero-mockup img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(0, 122, 255, 0.2));
         }
 
         .placeholder-image {
@@ -216,8 +236,10 @@
 
         .steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .step {
@@ -361,7 +383,81 @@
             text-decoration: underline;
         }
 
+        /* App Icon Section */
+        .app-icon-section {
+            padding: 60px 0;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .app-icon-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .app-icon-large {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 122, 255, 0.2);
+        }
+
+        .app-info {
+            text-align: left;
+            max-width: 400px;
+        }
+
+        .app-info h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 10px;
+        }
+
+        .app-info p {
+            color: var(--medium-gray);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Screenshots Section */
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .screenshot-item {
+            text-align: center;
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 122, 255, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .screenshot-item img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 122, 255, 0.25);
+        }
+
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .screenshots-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -370,6 +466,15 @@
 
             .hero {
                 padding: 100px 0 60px;
+            }
+
+            .app-icon-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .app-info {
+                text-align: center;
             }
 
             .features-grid {
@@ -387,6 +492,11 @@
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
+            }
+
+            .screenshots-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
         }
 
@@ -417,7 +527,10 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="#" class="logo">BlueScore</a>
+                <a href="#" class="logo">
+                    <img src="BlueScore-iOS.png" alt="BlueScore App Icon">
+                    BlueScore
+                </a>
                 <a href="#download" class="download-btn">Download Now</a>
             </div>
         </div>
@@ -430,12 +543,25 @@
             <p>Stop guessing the weather. BlueScore finds and ranks destinations based on your perfect weather preferences – up to 100 points for the ideal match.</p>
             
             <div class="hero-image">
-                <div class="placeholder-image">
-                    <p>Hero Screenshot: App interface showing weather-ranked destinations with scores</p>
+                <div class="hero-mockup">
+                    <img src="iphone-mockup-of-a-man-listening-to-a-podcast-with-his-iphone-xs-max-24814.png" alt="BlueScore app running on iPhone showing weather-ranked travel destinations">
                 </div>
             </div>
             
             <a href="#download" class="download-btn">Start Planning Your Perfect Trip</a>
+        </div>
+    </section>
+
+    <!-- App Icon Section -->
+    <section class="app-icon-section">
+        <div class="container">
+            <div class="app-icon-container">
+                <img src="BlueScore-iOS.png" alt="BlueScore App Icon" class="app-icon-large">
+                <div class="app-info">
+                    <h3>BlueScore for iOS</h3>
+                    <p>The smart way to find your perfect travel destination based on weather preferences. Available now for iPhone and iPad with seamless iCloud sync.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -508,12 +634,18 @@
                 
                 <div class="step fade-in-up">
                     <div class="step-number">4</div>
+                    <h3>Apply Smart Filters</h3>
+                    <p>Narrow down results by setting max driving time to an airport, beach, or golf course</p>
+                </div>
+                
+                <div class="step fade-in-up">
+                    <div class="step-number">5</div>
                     <h3>Get Weather Rankings</h3>
                     <p>BlueScore ranks all destinations by weather match</p>
                 </div>
                 
                 <div class="step fade-in-up">
-                    <div class="step-number">5</div>
+                    <div class="step-number">6</div>
                     <h3>Book with Confidence</h3>
                     <p>Review details, pick the highest score, and book worry-free</p>
                 </div>
@@ -545,6 +677,16 @@
                     <h3>👨‍👩‍👧‍👦 Families</h3>
                     <p>Just right temperatures, zero rain = happy kids</p>
                 </div>
+                
+                <div class="audience-card fade-in-up">
+                    <h3>🎒 Backpackers</h3>
+                    <p>Skip the storms. Island-hop with sunshine as your compass.</p>
+                </div>
+                
+                <div class="audience-card fade-in-up">
+                    <h3>🌅 Everyday Escapees</h3>
+                    <p>Swap clouds for clarity. Pick sunshine, spontaneity, and dinner under the sky.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -553,15 +695,24 @@
     <section class="features" style="background: var(--light-gray);">
         <div class="container">
             <h2>See BlueScore in Action</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 40px;">
-                <div class="placeholder-image">
-                    <p>Screenshot: Weather filter interface showing temperature, wind, and precipitation settings</p>
+            <div class="screenshots-grid">
+                <div class="screenshot-item fade-in-up">
+                    <img src="0_Simulator Screenshot - iPhone 16 Pro Max - 2025-05-26 at 20.52.54.png" alt="BlueScore welcome screen and tutorial">
                 </div>
-                <div class="placeholder-image">
-                    <p>Screenshot: Results list showing destinations ranked by weather score</p>
+                <div class="screenshot-item fade-in-up">
+                    <img src="1_Simulator Screenshot - iPhone 16 Pro Max - 2025-05-26 at 18.59.34.png" alt="Weather filter settings interface">
                 </div>
-                <div class="placeholder-image">
-                    <p>Screenshot: Detailed destination view with weather forecast, beaches, and airports</p>
+                <div class="screenshot-item fade-in-up">
+                    <img src="2_Simulator Screenshot - iPhone 16 Pro Max - 2025-05-26 at 20.51.47.png" alt="Travel date selection">
+                </div>
+                <div class="screenshot-item fade-in-up">
+                    <img src="3_Simulator Screenshot - iPhone 16 Pro Max - 2025-05-26 at 20.58.56.png" alt="Search results with weather scores">
+                </div>
+                <div class="screenshot-item fade-in-up">
+                    <img src="4_Simulator Screenshot - iPhone 16 Pro Max - 2025-05-26 at 20.56.45.png" alt="Detailed destination view with weather forecast">
+                </div>
+                <div class="screenshot-item fade-in-up">
+                    <img src="5_Simulator Screenshot - iPhone 16 Pro Max - 2025-05-26 at 20.59.30.png" alt="Destination details with beaches and amenities">
                 </div>
             </div>
         </div>

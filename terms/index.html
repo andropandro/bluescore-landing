@@ -1,99 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Terms of Use – BlueScore</title>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #f5f7fa;
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-      color: #333;
-    }
-    h1, h2 {
-      color: #222;
-    }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    h2 {
-      margin-top: 2rem;
-      font-size: 1.2rem;
-    }
-    p, ul {
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Use - BlueScore</title>
+    <meta name="description" content="BlueScore Terms of Use - Learn about the terms and conditions for using our weather and travel app.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.bluescore.cloud/terms/">
+    <meta property="og:title" content="Terms of Use - BlueScore">
+    <meta property="og:description" content="BlueScore Terms of Use - Learn about the terms and conditions for using our weather and travel app.">
+    <meta property="og:image" content="https://www.bluescore.cloud/BlueScore-iOS.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.bluescore.cloud/terms/">
+    <meta property="twitter:title" content="Terms of Use - BlueScore">
+    <meta property="twitter:description" content="BlueScore Terms of Use - Learn about the terms and conditions for using our weather and travel app.">
+    <meta property="twitter:image" content="https://www.bluescore.cloud/BlueScore-iOS.png">
+
+    <style>
+        :root {
+            --primary-blue: #007AFF;
+            --secondary-blue: #5AC8FA;
+            --dark-blue: #0051D5;
+            --light-gray: #F2F2F7;
+            --medium-gray: #8E8E93;
+            --dark-gray: #1C1C1E;
+            --white: #FFFFFF;
+            --gradient: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background: linear-gradient(135deg, #f8faff 0%, #e8f4fd 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 122, 255, 0.3);
+        }
+
+        .header-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .header-content p {
+            color: var(--medium-gray);
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .content h2 {
+            color: var(--primary-blue);
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 40px 0 20px 0;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .content h2:first-child {
+            margin-top: 0;
+        }
+
+        .content h3 {
+            color: var(--dark-gray);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 30px 0 15px 0;
+        }
+
+        .content p {
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .content ul {
+            margin: 20px 0;
+            padding-left: 25px;
+        }
+
+        .content li {
+            margin-bottom: 10px;
+            color: #555;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .app-name {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        .contact-info {
+            background: var(--gradient);
+            color: white;
+            padding: 20px 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 10px;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--medium-gray);
+        }
+
+        .footer a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--dark-blue);
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header {
+                padding: 25px;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .content {
+                padding: 30px;
+            }
+
+            .content h2 {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .content {
+                padding: 25px;
+            }
+
+            .content h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Terms of Use</h1>
-  <p>Last updated: May 26, 2025</p>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img src="BlueScore-iOS.png" alt="BlueScore App Icon" class="app-icon">
+            <div class="header-content">
+                <h1>Terms of Use</h1>
+                <p>Terms and conditions for using BlueScore</p>
+            </div>
+        </div>
 
-  <h2>Use of BlueScore</h2>
-  <p>By using BlueScore, you agree to the following terms:</p>
+        <!-- Main Content -->
+        <div class="content">
+            <h2>USE OF <span class="app-name">BLUESCORE</span></h2>
+            <p>By using <span class="app-name">BlueScore</span>, you agree to the following terms:</p>
 
-  <h2>License and Permitted Use</h2>
-  <p>BlueScore is provided for personal, non-commercial use only. You may not copy, modify, distribute, sell, or create derivative works based on the app. The app is protected by copyright and other intellectual property rights.</p>
+            <h2>LICENSE AND PERMITTED USE</h2>
+            <p><span class="app-name">BlueScore</span> is provided for personal, non-commercial use only. You may not copy, modify, distribute, sell, or create derivative works based on the app. The app is protected by copyright and other intellectual property rights.</p>
 
-  <h2>App Purpose and Content</h2>
-  <p>BlueScore is a weather and travel app that helps users find destinations based on weather conditions. Weather and location data comes from external sources, including:</p>
-  <ul>
-    <li>MET Norway API (weather data)</li>
-    <li>GeoNames API (location information)</li>
-    <li>OpenStreetMap/Overpass API (geographical data)</li>
-    <li>WeatherAPI.com (additional weather data)</li>
-    <li>Apple Maps & CoreLocation (map data and location information)</li>
-    <li>Other public data services</li>
-  </ul>
-  <p>We do not guarantee that all information is completely accurate or up-to-date. Weather data are forecasts and may differ from actual conditions.</p>
+            <h2>APP PURPOSE AND CONTENT</h2>
+            <p><span class="app-name">BlueScore</span> is a weather and travel app that helps users find destinations based on weather conditions. Weather and location data comes from the following external sources:</p>
+            <ul>
+                <li>MET Norway API (weather data)</li>
+                <li>GeoNames API (location information)</li>
+                <li>OpenStreetMap/Overpass API (geographical data)</li>
+                <li>WeatherAPI.com (additional weather data)</li>
+                <li>Apple Maps & CoreLocation (map data and location information)</li>
+                <li>Other public data services</li>
+            </ul>
+            <p>We do not guarantee that all information is completely accurate or up-to-date. Weather data are forecasts and may differ from actual conditions.</p>
 
-  <h2>Pro Version and Purchase Terms</h2>
-  <p>The app offers a Pro version through one-time purchase via the App Store. All purchases are made according to Apple's standard terms for App Store purchases. Refunds are handled according to Apple's policies. Pro features include extended search options, more destinations, and customization possibilities.</p>
+            <h2>PRO VERSION AND PURCHASE TERMS</h2>
+            <p>The app offers a Pro version through one-time purchase via the App Store. All purchases are made according to Apple's standard terms for App Store purchases. Refunds are handled according to Apple's policies. Pro features include extended search options, more destinations, and customization possibilities.</p>
 
-  <h2>Logging and Support</h2>
-  <p>The app automatically creates technical log files on your device for debugging. These files contain no personal information and may be shared voluntarily for support purposes. All data is stored locally on your device.</p>
+            <h2>LOGGING AND SUPPORT</h2>
+            <p>The app automatically creates technical log files on your device for debugging. These files contain no personal information and may be shared voluntarily for support purposes. All data is stored locally on your device.</p>
 
-  <h2>User Responsibility and Limitations</h2>
-  <ul>
-    <li>The app is intended as an information source for travel decisions and should not be the sole basis for important decisions.</li>
-    <li>Always use professional weather forecasts for safety-critical situations.</li>
-    <li>The app may not be used in systems where incorrect information could cause personal injury or property damage.</li>
-    <li>Automatic or systematic data retrieval from external APIs via the app is prohibited.</li>
-    <li>Reverse engineering of the app is not permitted.</li>
-  </ul>
+            <h2>USER RESPONSIBILITY AND LIMITATIONS</h2>
+            <ul>
+                <li>The app is intended as an information source for travel decisions and should not be the sole basis for important decisions</li>
+                <li>Always use professional weather forecasts for safety-critical situations</li>
+                <li>The app may not be used in systems where incorrect information could cause personal injury or property damage</li>
+                <li>Automatic or systematic data retrieval from external APIs via the app is prohibited</li>
+                <li>Reverse engineering of the app is not permitted</li>
+            </ul>
 
-  <h2>Limitation of Liability</h2>
-  <p>BlueScore is provided as is without warranties of any kind. We are not responsible for:</p>
-  <ul>
-    <li>Damages resulting from the use of weather information</li>
-    <li>Service interruptions from external data providers</li>
-    <li>Loss of data stored on your device</li>
-    <li>Inaccuracies in weather or location data</li>
-    <li>Consequential or indirect damages</li>
-  </ul>
-  <p>Our total liability is limited to the amount you have paid for the app in the last 12 months.</p>
+            <h2>LIMITATION OF LIABILITY</h2>
+            <p><span class="app-name">BlueScore</span> is provided as is without warranties of any kind. We are not responsible for:</p>
+            <ul>
+                <li>Damages resulting from the use of weather information</li>
+                <li>Service interruptions from external data providers</li>
+                <li>Loss of data stored on your device</li>
+                <li>Inaccuracies in weather or location data</li>
+                <li>Consequential or indirect damages</li>
+            </ul>
+            <p>Our total liability is limited to the amount you have paid for the app in the last 12 months.</p>
 
-  <h2>Third-Party Services</h2>
-  <p>The app relies on external APIs and services that may have their own terms of use. By using the app, you agree that these services may be subject to changes, limitations, or interruptions beyond our control.</p>
+            <h2>THIRD-PARTY SERVICES</h2>
+            <p>The app relies on external APIs and services that may have their own terms of use. By using the app, you agree that these services may be subject to changes, limitations, or interruptions beyond our control.</p>
 
-  <h2>Intellectual Property Rights</h2>
-  <p>All text, graphics, user interface, images, and code in the app are owned by us or our licensors and are protected by copyright and other intellectual property laws.</p>
+            <h2>INTELLECTUAL PROPERTY RIGHTS</h2>
+            <p>All text, graphics, user interface, images, and code in the app are owned by us or our licensors and are protected by copyright and other intellectual property laws.</p>
 
-  <h2>Updates and Changes</h2>
-  <p>We may update the app at any time to improve functionality, security, or compatibility. Significant changes to these terms will be communicated via app updates or other appropriate means. Continued use after changes implies that you accept the new terms.</p>
+            <h2>UPDATES AND CHANGES</h2>
+            <p>We may update the app at any time to improve functionality, security, or compatibility. Significant changes to these terms will be communicated via app updates or other appropriate means. Continued use after changes implies that you accept the new terms.</p>
 
-  <h2>Termination</h2>
-  <p>You may stop using the app at any time by uninstalling it. We may terminate access to the app in case of violation of these terms. Upon termination, your rights to use the app cease, but liability limitations and other provisions that by their nature must survive continue to apply.</p>
+            <h2>TERMINATION</h2>
+            <p>You may stop using the app at any time by uninstalling it. We may terminate access to the app in case of violation of these terms. Upon termination, your rights to use the app cease, but liability limitations and other provisions that by their nature must survive continue to apply.</p>
 
-  <h2>Applicable Law and Dispute Resolution</h2>
-  <p>These terms are governed by Swedish law. Disputes should be resolved primarily through negotiation. If this is not possible, disputes will be decided by a Swedish court.</p>
+            <h2>APPLICABLE LAW AND DISPUTE RESOLUTION</h2>
+            <p>These terms are governed by Swedish law. Disputes should be resolved primarily through negotiation. If this is not possible, disputes will be decided by a Swedish court.</p>
 
-  <h2>App Store Provisions</h2>
-  <p>This app is distributed via the App Store and therefore you also agree to Apple's terms of use and App Store provisions that apply parallel to these terms.</p>
+            <h2>APP STORE PROVISIONS</h2>
+            <p>This app is distributed via the App Store and therefore you also agree to Apple's terms of use and App Store provisions that apply parallel to these terms.</p>
+
+            <div class="contact-info">
+                <h3>Contact</h3>
+                <p>For questions about these terms or the app, please contact:</p>
+                <p><strong>Email:</strong> <a href="mailto:hello@bluescore.cloud">hello@bluescore.cloud</a></p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2025 BlueScore. All rights reserved.</p>
+            <p>
+                <a href="../">Home</a> •
+                <a href="https://www.bluescore.cloud/privacypolicy/">Privacy Policy</a> •
+                <a href="https://www.bluescore.cloud/terms/">Terms of Use</a> •
+                <a href="https://www.bluescore.cloud/support/">Support</a>
+            </p>
+        </div>
+    </div>
 </body>
 </html>

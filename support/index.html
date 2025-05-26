@@ -1,40 +1,371 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Support – BlueScore</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #f5f7fa;
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-      color: #333;
-    }
-    h1, h2 {
-      color: #222;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - BlueScore</title>
+    <meta name="description" content="BlueScore Support - Get help with the weather and travel app, troubleshooting, and contact information.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.bluescore.cloud/support/">
+    <meta property="og:title" content="Support - BlueScore">
+    <meta property="og:description" content="BlueScore Support - Get help with the weather and travel app, troubleshooting, and contact information.">
+    <meta property="og:image" content="https://www.bluescore.cloud/BlueScore-iOS.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.bluescore.cloud/support/">
+    <meta property="twitter:title" content="Support - BlueScore">
+    <meta property="twitter:description" content="BlueScore Support - Get help with the weather and travel app, troubleshooting, and contact information.">
+    <meta property="twitter:image" content="https://www.bluescore.cloud/BlueScore-iOS.png">
+
+    <style>
+        :root {
+            --primary-blue: #007AFF;
+            --secondary-blue: #5AC8FA;
+            --dark-blue: #0051D5;
+            --light-gray: #F2F2F7;
+            --medium-gray: #8E8E93;
+            --dark-gray: #1C1C1E;
+            --white: #FFFFFF;
+            --gradient: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background: linear-gradient(135deg, #f8faff 0%, #e8f4fd 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 122, 255, 0.3);
+        }
+
+        .header-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .header-content p {
+            color: var(--medium-gray);
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .content h2 {
+            color: var(--primary-blue);
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 40px 0 20px 0;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .content h2:first-child {
+            margin-top: 0;
+        }
+
+        .content h3 {
+            color: var(--dark-gray);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 30px 0 15px 0;
+        }
+
+        .content p {
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .content ul {
+            margin: 20px 0;
+            padding-left: 25px;
+        }
+
+        .content ol {
+            margin: 20px 0;
+            padding-left: 25px;
+        }
+
+        .content li {
+            margin-bottom: 10px;
+            color: #555;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .support-section {
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .contact-info {
+            background: var(--gradient);
+            color: white;
+            padding: 20px 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 10px;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--light-gray);
+            border-radius: 8px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+        }
+
+        .faq-answer {
+            color: #555;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--medium-gray);
+        }
+
+        .footer a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--dark-blue);
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header {
+                padding: 25px;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .content {
+                padding: 30px;
+            }
+
+            .content h2 {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .content {
+                padding: 25px;
+            }
+
+            .content h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Support för BlueScore</h1>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img src="BlueScore-iOS.png" alt="BlueScore App Icon" class="app-icon">
+            <div class="header-content">
+                <h1>Support</h1>
+                <p>Get help with BlueScore weather and travel app</p>
+            </div>
+        </div>
 
-  <h2>Vanliga frågor</h2>
-  <p><strong>Hur fungerar appen?</strong><br>
-  BlueScore hjälper dig att hitta resmål utifrån din väderprofil. Du anger vilket väder du önskar – appen listar platser som bäst matchar detta under kommande dagar.</p>
+        <!-- Main Content -->
+        <div class="content">
+            <h2>Getting Started</h2>
+            <p>BlueScore helps you find the perfect travel destination based on weather conditions. Here's how to get the most out of the app:</p>
+            
+            <div class="support-section">
+                <h3>Quick Start Guide</h3>
+                <ol>
+                    <li>Set your travel dates (within the next 10 days)</li>
+                    <li>Define your ideal weather preferences for different times of day</li>
+                    <li>Select countries you're considering</li>
+                    <li>Apply filters for airports, beaches, or golf courses if needed</li>
+                    <li>Review the weather rankings and choose your destination</li>
+                </ol>
+            </div>
 
-  <p><strong>Hur ofta uppdateras väderdata?</strong><br>
-  Väderdata uppdateras flera gånger per dag baserat på tillgänglig väderleverantör.</p>
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">How accurate are the weather forecasts?</div>
+                <div class="faq-answer">BlueScore uses multiple reliable weather data sources including MET Norway API, WeatherAPI.com, and other professional meteorological services. Weather forecasts are most accurate for the next 3-5 days and become less precise for longer periods.</div>
+            </div>
 
-  <p><strong>Behöver jag skapa ett konto?</strong><br>
-  Nej. BlueScore kräver ingen inloggning.</p>
+            <div class="faq-item">
+                <div class="faq-question">Why can I only search for dates within 10 days?</div>
+                <div class="faq-answer">Weather forecasts beyond 10 days become significantly less reliable. BlueScore focuses on providing accurate, actionable weather information for near-term travel planning.</div>
+            </div>
 
-  <h2>Kontakta oss</h2>
-  <p>Har du frågor eller förslag?</p>
-  <p>
-    Email: <a href="mailto:hello@bluescore.cloud">hello@bluescore.cloud</a>
-  </p>
+            <div class="faq-item">
+                <div class="faq-question">What's the difference between the free and Pro version?</div>
+                <div class="faq-answer">The Pro version includes extended search options, access to more destinations, advanced filtering capabilities, and additional customization features. You can upgrade through a one-time purchase in the App Store.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How does BlueScore calculate weather scores?</div>
+                <div class="faq-answer">BlueScore analyzes your weather preferences (temperature, precipitation, wind, etc.) for different times of day and compares them against forecasted conditions for each destination. Locations that best match your criteria receive higher scores.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I use BlueScore offline?</div>
+                <div class="faq-answer">BlueScore requires an internet connection to fetch current weather data and location information. However, recently viewed data is cached locally for quick access.</div>
+            </div>
+
+            <h2>Troubleshooting</h2>
+            
+            <h3>App Not Loading Weather Data</h3>
+            <ul>
+                <li>Check your internet connection</li>
+                <li>Ensure you have the latest version of the app</li>
+                <li>Try closing and reopening the app</li>
+                <li>Restart your device if the problem persists</li>
+            </ul>
+
+            <h3>Location Search Issues</h3>
+            <ul>
+                <li>Make sure location services are enabled for BlueScore</li>
+                <li>Try searching with different spelling or nearby city names</li>
+                <li>Check if the location is supported in your selected countries</li>
+            </ul>
+
+            <h3>Performance Issues</h3>
+            <ul>
+                <li>Clear the app cache in Settings</li>
+                <li>Ensure you have sufficient storage space</li>
+                <li>Close other apps running in the background</li>
+                <li>Update to the latest iOS version</li>
+            </ul>
+
+            <h2>Sharing Log Files for Support</h2>
+            <p>If you're experiencing technical issues, you can help us troubleshoot by sharing log files:</p>
+            <ol>
+                <li>Open BlueScore and go to Settings</li>
+                <li>Tap "Send Support Email"</li>
+                <li>The log files will be automatically attached</li>
+                <li>Describe your issue in the email</li>
+                <li>Send the email to our support team</li>
+            </ol>
+            <p><strong>Note:</strong> Log files contain only technical information and no personal data.</p>
+
+            <h2>Feature Requests and Feedback</h2>
+            <p>We love hearing from our users! If you have ideas for new features or improvements, please don't hesitate to reach out. Your feedback helps us make BlueScore better for everyone.</p>
+
+            <div class="contact-info">
+                <h3>Contact Support</h3>
+                <p>Need more help? Our support team is here to assist you:</p>
+                <p><strong>Email:</strong> <a href="mailto:hello@bluescore.cloud">hello@bluescore.cloud</a></p>
+                <p><strong>Response Time:</strong> We typically respond within 24-48 hours</p>
+                <p><strong>Languages:</strong> English, Swedish, Danish, Norwegian, German, French, Spanish, Italian</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2025 BlueScore. All rights reserved.</p>
+            <p>
+                <a href="../">Home</a> •
+                <a href="https://www.bluescore.cloud/privacypolicy/">Privacy Policy</a> •
+                <a href="https://www.bluescore.cloud/terms/">Terms of Use</a> •
+                <a href="https://www.bluescore.cloud/support/">Support</a>
+            </p>
+        </div>
+    </div>
 </body>
 </html>

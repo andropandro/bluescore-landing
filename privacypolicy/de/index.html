@@ -1,1 +1,346 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutzrichtlinie - BlueScore</title>
+    <meta name="description" content="BlueScore Datenschutzrichtlinie - Erfahren Sie, wie wir Ihre Privatsphäre schützen und Daten in unserer Wetter- und Reise-App verwalten.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.bluescore.cloud/privacypolicy/de/">
+    <meta property="og:title" content="Datenschutzrichtlinie - BlueScore">
+    <meta property="og:description" content="BlueScore Datenschutzrichtlinie - Erfahren Sie, wie wir Ihre Privatsphäre schützen und Daten in unserer Wetter- und Reise-App verwalten.">
+    <meta property="og:image" content="https://www.bluescore.cloud/BlueScore-iOS.png">
 
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.bluescore.cloud/privacypolicy/de/">
+    <meta property="twitter:title" content="Datenschutzrichtlinie - BlueScore">
+    <meta property="twitter:description" content="BlueScore Datenschutzrichtlinie - Erfahren Sie, wie wir Ihre Privatsphäre schützen und Daten in unserer Wetter- und Reise-App verwalten.">
+    <meta property="twitter:image" content="https://www.bluescore.cloud/BlueScore-iOS.png">
+
+    <style>
+        :root {
+            --primary-blue: #007AFF;
+            --secondary-blue: #5AC8FA;
+            --dark-blue: #0051D5;
+            --light-gray: #F2F2F7;
+            --medium-gray: #8E8E93;
+            --dark-gray: #1C1C1E;
+            --white: #FFFFFF;
+            --gradient: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background: linear-gradient(135deg, #f8faff 0%, #e8f4fd 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 122, 255, 0.3);
+        }
+
+        .header-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .header-content p {
+            color: var(--medium-gray);
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .content h2 {
+            color: var(--primary-blue);
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 40px 0 20px 0;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .content h2:first-child {
+            margin-top: 0;
+        }
+
+        .content h3 {
+            color: var(--dark-gray);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 30px 0 15px 0;
+        }
+
+        .content p {
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .content ul {
+            margin: 20px 0;
+            padding-left: 25px;
+        }
+
+        .content li {
+            margin-bottom: 10px;
+            color: #555;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .last-updated {
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            font-weight: 600;
+            color: var(--medium-gray);
+            text-align: center;
+        }
+
+        .contact-info {
+            background: var(--gradient);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 12px;
+            margin-top: 15px;
+            line-height: 1.3;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 3px;
+            color: white;
+            font-size: 1.1rem;
+            line-height: 1.2;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            line-height: 1.2;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--medium-gray);
+        }
+
+        .footer a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--dark-blue);
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header {
+                padding: 25px;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .content {
+                padding: 30px;
+            }
+
+            .content h2 {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .content {
+                padding: 25px;
+            }
+
+            .content h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img src="../BlueScore-iOS.png" alt="BlueScore App Icon" class="app-icon">
+            <div class="header-content">
+                <h1>Datenschutzrichtlinie</h1>
+                <p>Ihre Privatsphäre ist uns wichtig</p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <div class="last-updated">
+                Zuletzt aktualisiert: 26. Mai 2025
+            </div>
+
+            <h2>Überblick</h2>
+            <p>BlueScore wurde mit Respekt für Ihre Privatsphäre entwickelt. Wir sammeln nur die Daten, die für die Funktionalität der App notwendig sind, und speichern alle Informationen lokal auf Ihrem Gerät.</p>
+
+            <h2>Gesammelte Informationen</h2>
+            <ul>
+                <li>Ihre Ortssuchen</li>
+                <li>Wetterdaten für ausgewählte Orte</li>
+                <li>App-Einstellungen und Präferenzen</li>
+                <li>Technische Protokolldaten für Fehlersuche und Support</li>
+            </ul>
+
+            <h2>Nicht Gesammelte Informationen</h2>
+            <ul>
+                <li>Persönlich identifizierbare Informationen</li>
+                <li>Kontoinformationen oder Benutzerdaten</li>
+                <li>Bilder, Mediendateien oder persönliche Inhalte</li>
+                <li>Kontinuierliche Standortdaten im Hintergrund</li>
+                <li>Persönliche Nachrichten oder Kommunikation</li>
+            </ul>
+
+            <h2>Protokolldateien und Fehlersuche</h2>
+            <p>Die App erstellt automatisch Protokolldateien auf Ihrem Gerät, um bei der Fehlersuche und dem Support zu helfen. Diese Protokolldateien enthalten:</p>
+            <ul>
+                <li>Technische Informationen über die App-Funktionen</li>
+                <li>Fehlermeldungen und Leistungsdaten</li>
+                <li>Zeitstempel von Aktivitäten</li>
+                <li>Geräteinformationen (iOS-Version, App-Version)</li>
+            </ul>
+            <p>Eine neue Protokolldatei wird bei jedem App-Start erstellt, und maximal fünf vorherige Protokolldateien werden automatisch gespeichert. Die Protokolldateien enthalten KEINE persönlichen Informationen wie Namen, besuchte Orte oder persönliche Einstellungen. Sensible Informationen wie API-Schlüssel werden automatisch herausgefiltert.</p>
+
+            <h2>Teilen von Protokolldateien</h2>
+            <p>Sie können freiwillig Protokolldateien mit unserem Support-Team über die App-Einstellungen teilen. Dies geschieht nur, wenn Sie aktiv eine E-Mail mit den angehängten Protokolldateien senden. Keine Protokolldateien werden automatisch oder ohne Ihre Zustimmung gesendet.</p>
+
+            <h2>Datenverarbeitung</h2>
+            <p>Alle Informationen werden lokal auf Ihrem Gerät gespeichert. Keine Daten werden an unsere Server gesendet oder mit Dritten geteilt, außer wenn Sie freiwillig Protokolldateien für den Support teilen.</p>
+
+            <h2>Dienste von Drittanbietern</h2>
+            <p>Wir nutzen die folgenden externen Dienste, um Wetter- und Ortsinformationen abzurufen:</p>
+            <ul>
+                <li>MET Norway API (Wetterdaten)</li>
+                <li>GeoNames API (Ortsinformationen)</li>
+                <li>OpenStreetMap/Overpass API (geografische Daten)</li>
+                <li>WeatherAPI.com (zusätzliche Wetterdaten)</li>
+                <li>Apple Maps & CoreLocation (Ortsinformationen)</li>
+                <li>Andere öffentliche Datendienste</li>
+            </ul>
+            <p>Diese Anfragen erfolgen ohne Weitergabe Ihrer persönlichen Informationen. Nur Ortsnamen und Koordinaten werden gesendet, um öffentliche Wetter- und geografische Informationen abzurufen.</p>
+
+            <h2>Analysen und Statistiken</h2>
+            <p>Die App sammelt KEINE Nutzungsstatistiken, Analysen oder Telemetrie. Alle Informationen bleiben auf Ihrem Gerät.</p>
+
+            <h2>Cache und Temporäre Daten</h2>
+            <p>Zur Verbesserung der Leistung speichert die App vorübergehend Wetterdaten und Ortsinformationen lokal. Dieser Cache:</p>
+            <ul>
+                <li>Wird nur auf Ihrem Gerät gespeichert</li>
+                <li>Wird automatisch nach einer bestimmten Zeit gelöscht</li>
+                <li>Kann manuell über die App-Einstellungen gelöscht werden</li>
+                <li>Enthält keine persönlichen Informationen</li>
+            </ul>
+
+            <h2>Ihre Rechte</h2>
+            <ul>
+                <li>Sie können alle gespeicherten Informationen durch Deinstallation der App löschen</li>
+                <li>Sie können Cache und Protokolldateien über die App-Einstellungen löschen</li>
+                <li>Sie können wählen, keine Protokolldateien für den Support zu teilen</li>
+                <li>Sie kontrollieren, welche Informationen lokal gespeichert werden</li>
+            </ul>
+
+            <div class="contact-info">
+                <h3>Kontakt</h3>
+                <p>Bei Fragen zum Datenschutz oder zur Datenverarbeitung kontaktieren Sie bitte:</p>
+                <p><strong>E-Mail:</strong> <a href="mailto:hello@bluescore.cloud">hello@bluescore.cloud</a></p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2025 Anders Westin</p>
+            <p>E-Mail: anders@bluescore.cloud</p>
+            <p>Alle Rechte vorbehalten.</p>
+            <p>
+                <a href="../../">Startseite</a> •
+                <a href="https://www.bluescore.cloud/privacypolicy/de/">Datenschutzrichtlinie</a> •
+                <a href="https://www.bluescore.cloud/terms/">Nutzungsbedingungen</a> •
+                <a href="https://www.bluescore.cloud/support/">Support</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html> 

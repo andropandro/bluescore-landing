@@ -1,1 +1,346 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de Confidentialité - BlueScore</title>
+    <meta name="description" content="Politique de Confidentialité BlueScore - Découvrez comment nous protégeons votre vie privée et gérons les données dans notre application météo et voyage.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.bluescore.cloud/privacypolicy/fr/">
+    <meta property="og:title" content="Politique de Confidentialité - BlueScore">
+    <meta property="og:description" content="Politique de Confidentialité BlueScore - Découvrez comment nous protégeons votre vie privée et gérons les données dans notre application météo et voyage.">
+    <meta property="og:image" content="https://www.bluescore.cloud/BlueScore-iOS.png">
 
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.bluescore.cloud/privacypolicy/fr/">
+    <meta property="twitter:title" content="Politique de Confidentialité - BlueScore">
+    <meta property="twitter:description" content="Politique de Confidentialité BlueScore - Découvrez comment nous protégeons votre vie privée et gérons les données dans notre application météo et voyage.">
+    <meta property="twitter:image" content="https://www.bluescore.cloud/BlueScore-iOS.png">
+
+    <style>
+        :root {
+            --primary-blue: #007AFF;
+            --secondary-blue: #5AC8FA;
+            --dark-blue: #0051D5;
+            --light-gray: #F2F2F7;
+            --medium-gray: #8E8E93;
+            --dark-gray: #1C1C1E;
+            --white: #FFFFFF;
+            --gradient: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background: linear-gradient(135deg, #f8faff 0%, #e8f4fd 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 122, 255, 0.3);
+        }
+
+        .header-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .header-content p {
+            color: var(--medium-gray);
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .content h2 {
+            color: var(--primary-blue);
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 40px 0 20px 0;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .content h2:first-child {
+            margin-top: 0;
+        }
+
+        .content h3 {
+            color: var(--dark-gray);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 30px 0 15px 0;
+        }
+
+        .content p {
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .content ul {
+            margin: 20px 0;
+            padding-left: 25px;
+        }
+
+        .content li {
+            margin-bottom: 10px;
+            color: #555;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .last-updated {
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            font-weight: 600;
+            color: var(--medium-gray);
+            text-align: center;
+        }
+
+        .contact-info {
+            background: var(--gradient);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 12px;
+            margin-top: 15px;
+            line-height: 1.3;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 3px;
+            color: white;
+            font-size: 1.1rem;
+            line-height: 1.2;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            line-height: 1.2;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--medium-gray);
+        }
+
+        .footer a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--dark-blue);
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header {
+                padding: 25px;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .content {
+                padding: 30px;
+            }
+
+            .content h2 {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .content {
+                padding: 25px;
+            }
+
+            .content h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img src="../BlueScore-iOS.png" alt="Icône de l'app BlueScore" class="app-icon">
+            <div class="header-content">
+                <h1>Politique de Confidentialité</h1>
+                <p>Votre vie privée nous tient à cœur</p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <div class="last-updated">
+                Dernière mise à jour : 26 mai 2025
+            </div>
+
+            <h2>Aperçu</h2>
+            <p>BlueScore est développé dans le respect de votre vie privée. Nous ne collectons que les données nécessaires au fonctionnement de l'application et stockons toutes les informations localement sur votre appareil.</p>
+
+            <h2>Informations Collectées</h2>
+            <ul>
+                <li>Recherches de lieux que vous effectuez</li>
+                <li>Données météo pour les lieux sélectionnés</li>
+                <li>Paramètres et préférences de l'application</li>
+                <li>Données de journal techniques pour le dépannage et le support</li>
+            </ul>
+
+            <h2>Informations Non Collectées</h2>
+            <ul>
+                <li>Informations personnellement identifiables</li>
+                <li>Informations de compte ou données utilisateur</li>
+                <li>Images, fichiers média ou contenu personnel</li>
+                <li>Données de localisation continues en arrière-plan</li>
+                <li>Messages personnels ou communications</li>
+            </ul>
+
+            <h2>Fichiers de Journal et Dépannage</h2>
+            <p>L'application crée automatiquement des fichiers de journal sur votre appareil pour aider au dépannage et au support. Ces fichiers de journal contiennent :</p>
+            <ul>
+                <li>Informations techniques sur les fonctions de l'application</li>
+                <li>Messages d'erreur et données de performance</li>
+                <li>Horodatages des activités</li>
+                <li>Informations sur l'appareil (version iOS, version de l'application)</li>
+            </ul>
+            <p>Un nouveau fichier de journal est créé à chaque démarrage de l'application et un maximum de cinq fichiers de journal précédents sont sauvegardés automatiquement. Les fichiers de journal ne contiennent AUCUNE information personnelle comme les noms, les lieux visités ou les paramètres personnels. Les informations sensibles comme les clés API sont filtrées automatiquement.</p>
+
+            <h2>Partage des Fichiers de Journal</h2>
+            <p>Vous pouvez choisir volontairement de partager les fichiers de journal avec notre équipe de support via les paramètres de l'application. Cela ne se produit que lorsque vous choisissez activement d'envoyer un e-mail avec les fichiers de journal en pièces jointes. Aucun fichier de journal n'est envoyé automatiquement ou sans votre consentement.</p>
+
+            <h2>Gestion des Données</h2>
+            <p>Toutes les informations sont stockées localement sur votre appareil. Aucune donnée n'est envoyée à nos serveurs ou partagée avec des tiers, sauf lorsque vous choisissez volontairement de partager les fichiers de journal pour le support.</p>
+
+            <h2>Services Tiers</h2>
+            <p>Nous utilisons les services externes suivants pour récupérer des informations météo et de lieu :</p>
+            <ul>
+                <li>MET Norway API (données météo)</li>
+                <li>GeoNames API (informations de lieu)</li>
+                <li>OpenStreetMap/Overpass API (données géographiques)</li>
+                <li>WeatherAPI.com (données météo supplémentaires)</li>
+                <li>Apple Maps & CoreLocation (informations de lieu)</li>
+                <li>Autres services de données publiques</li>
+            </ul>
+            <p>Ces demandes sont effectuées sans partager vos informations personnelles. Seuls les noms de lieux et les coordonnées sont envoyés pour récupérer des informations météo et géographiques publiques.</p>
+
+            <h2>Analyse et Statistiques</h2>
+            <p>L'application ne collecte PAS de statistiques d'utilisation, d'analyses ou de télémétrie. Toutes les informations restent sur votre appareil.</p>
+
+            <h2>Cache et Données Temporaires</h2>
+            <p>Pour améliorer les performances, l'application stocke temporairement des données météo et des informations de lieu localement. Ce cache :</p>
+            <ul>
+                <li>Est stocké uniquement sur votre appareil</li>
+                <li>Est effacé automatiquement après un certain temps</li>
+                <li>Peut être effacé manuellement via les paramètres de l'application</li>
+                <li>Ne contient aucune information personnelle</li>
+            </ul>
+
+            <h2>Vos Droits</h2>
+            <ul>
+                <li>Vous pouvez supprimer toutes les informations stockées en désinstallant l'application</li>
+                <li>Vous pouvez effacer le cache et les fichiers de journal via les paramètres de l'application</li>
+                <li>Vous pouvez choisir de ne pas partager les fichiers de journal pour le support</li>
+                <li>Vous contrôlez quelles informations sont stockées localement</li>
+            </ul>
+
+            <div class="contact-info">
+                <h3>Contact</h3>
+                <p>Pour toute question concernant la confidentialité ou la gestion des données, veuillez contacter :</p>
+                <p><strong>E-mail :</strong> <a href="mailto:hello@bluescore.cloud">hello@bluescore.cloud</a></p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2025 Anders Westin</p>
+            <p>E-mail : anders@bluescore.cloud</p>
+            <p>Tous droits réservés.</p>
+            <p>
+                <a href="../../">Accueil</a> •
+                <a href="https://www.bluescore.cloud/privacypolicy/fr/">Politique de Confidentialité</a> •
+                <a href="https://www.bluescore.cloud/terms/">Conditions d'Utilisation</a> •
+                <a href="https://www.bluescore.cloud/support/">Support</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html> 

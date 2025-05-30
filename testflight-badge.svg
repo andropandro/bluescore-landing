@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="135" height="40" viewBox="0 0 135 40">
+  <defs>
+    <linearGradient id="buttonGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background with rounded corners -->
+  <rect x="0.5" y="0.5" width="134" height="39" rx="6" ry="6" 
+        fill="url(#buttonGradient)" 
+        stroke="#a6a6a6" 
+        stroke-width="1"/>
+  
+  <!-- TestFlight Icon -->
+  <g transform="translate(8, 8)">
+    <!-- TestFlight plane icon -->
+    <circle cx="12" cy="12" r="12" fill="#007AFF"/>
+    <path d="M8 12 L16 8 L12 16 L8 12 Z" fill="white"/>
+    <path d="M6 14 L10 12 L6 10" fill="white" stroke="white" stroke-width="1" stroke-linejoin="round"/>
+  </g>
+  
+  <!-- Text -->
+  <g transform="translate(34, 0)">
+    <!-- "Join Beta via" text -->
+    <text x="0" y="13" font-family="-apple-system, SF Pro Display, Helvetica, Arial, sans-serif" 
+          font-size="7" fill="white" font-weight="400">Join Beta via</text>
+    
+    <!-- "TestFlight" text -->
+    <text x="0" y="28" font-family="-apple-system, SF Pro Display, Helvetica, Arial, sans-serif" 
+          font-size="15" fill="white" font-weight="600">TestFlight</text>
+  </g>
+</svg> 

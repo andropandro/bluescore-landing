@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support - BlueScore</title>
-    <meta name="description" content="BlueScore Support - Get help with the weather and travel app, troubleshooting, and contact information.">
+    <title>BlueScore - Weather-Ranked Travel Destinations</title>
+    <meta name="description" content="Find your perfect travel destination based on weather preferences. BlueScore ranks destinations up to 100 points based on how well the forecast matches your ideal weather conditions.">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.bluescore.cloud/support/">
-    <meta property="og:title" content="Support - BlueScore">
-    <meta property="og:description" content="BlueScore Support - Get help with the weather and travel app, troubleshooting, and contact information.">
-    <meta property="og:image" content="https://www.bluescore.cloud/BlueScore-iOS.png">
+    <meta property="og:url" content="https://bluescore.app/">
+    <meta property="og:title" content="BlueScore - Weather-Ranked Travel Destinations">
+    <meta property="og:description" content="Find your perfect travel destination based on weather preferences. BlueScore ranks destinations up to 100 points based on how well the forecast matches your ideal weather conditions.">
+    <meta property="og:image" content="https://bluescore.app/images/og-image.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.bluescore.cloud/support/">
-    <meta property="twitter:title" content="Support - BlueScore">
-    <meta property="twitter:description" content="BlueScore Support - Get help with the weather and travel app, troubleshooting, and contact information.">
-    <meta property="twitter:image" content="https://www.bluescore.cloud/BlueScore-iOS.png">
+    <meta property="twitter:url" content="https://bluescore.app/">
+    <meta property="twitter:title" content="BlueScore - Weather-Ranked Travel Destinations">
+    <meta property="twitter:description" content="Find your perfect travel destination based on weather preferences. BlueScore ranks destinations up to 100 points based on how well the forecast matches your ideal weather conditions.">
+    <meta property="twitter:image" content="https://bluescore.app/images/twitter-image.png">
 
     <style>
         :root {
@@ -42,336 +42,935 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: var(--dark-gray);
-            background: linear-gradient(135deg, #f8faff 0%, #e8f4fd 100%);
-            min-height: 100vh;
+            background: var(--white);
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
 
         /* Header */
-        .header {
+        header {
+            padding: 20px 0;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 30px 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-decoration: none;
         }
 
-        .app-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 16px;
-            box-shadow: 0 8px 25px rgba(0, 122, 255, 0.3);
+        .logo img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
         }
 
-        .header-content h1 {
-            font-size: 3rem;
+        .download-btn {
+            background: var(--gradient);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 122, 255, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, #f8faff 0%, #e8f4fd 100%);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 800;
+            margin-bottom: 20px;
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 8px;
         }
 
-        .header-content p {
+        .hero p {
+            font-size: 1.25rem;
             color: var(--medium-gray);
-            font-size: 1.2rem;
-            font-weight: 500;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* Main Content */
-        .content {
+        .hero-image {
+            margin: 60px 0;
+            position: relative;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-mockup {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hero-mockup img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(0, 122, 255, 0.2));
+        }
+
+        .placeholder-image {
+            background: var(--light-gray);
+            border: 2px dashed var(--medium-gray);
+            border-radius: 20px;
+            padding: 60px 20px;
+            color: var(--medium-gray);
+            font-style: italic;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8faff 0%, #e8f4fd 100%);
+            position: relative;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23007AFF" fill-opacity="0.02"><circle cx="30" cy="30" r="2"/></g></svg>') repeat;
+            pointer-events: none;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: var(--dark-gray);
+            position: relative;
+            z-index: 1;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
+            padding: 40px 30px;
             border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 40px rgba(0, 122, 255, 0.08), 0 5px 15px rgba(0, 0, 0, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .content h2 {
-            color: var(--primary-blue);
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 40px 0 20px 0;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--light-gray);
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .content h2:first-child {
-            margin-top: 0;
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 122, 255, 0.15), 0 10px 30px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 1);
         }
 
-        .content h3 {
-            color: var(--dark-gray);
-            font-size: 1.4rem;
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 28px;
+            box-shadow: 0 8px 25px rgba(0, 122, 255, 0.25);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.05);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
             font-weight: 600;
-            margin: 30px 0 15px 0;
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+            line-height: 1.3;
         }
 
-        .content p {
-            margin-bottom: 20px;
-            color: #555;
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        .content ul {
-            margin: 20px 0;
-            padding-left: 25px;
-        }
-
-        .content ol {
-            margin: 20px 0;
-            padding-left: 25px;
-        }
-
-        .content li {
-            margin-bottom: 10px;
+        .feature-card p {
             color: #555;
             line-height: 1.7;
             font-size: 1.05rem;
         }
 
-        .support-section {
+        /* How it Works */
+        .how-it-works {
+            padding: 80px 0;
             background: var(--light-gray);
-            padding: 20px;
-            border-radius: 12px;
-            margin: 20px 0;
-            border-left: 4px solid var(--primary-blue);
         }
 
-        .contact-info {
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: var(--dark-gray);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .step {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
             background: var(--gradient);
             color: white;
-            padding: 8px 16px;
-            border-radius: 12px;
-            margin-top: 15px;
-            line-height: 1.3;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 0 auto 20px;
         }
 
-        .contact-info h3 {
-            margin-bottom: 3px;
-            color: white;
-            font-size: 1.1rem;
-            line-height: 1.2;
-        }
-
-        .contact-info a {
-            color: white;
-            text-decoration: none;
+        .step h3 {
+            font-size: 1.25rem;
             font-weight: 600;
-            font-size: 1rem;
-            line-height: 1.2;
+            margin-bottom: 10px;
+            color: var(--dark-gray);
         }
 
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        .faq-item {
-            margin-bottom: 20px;
-            padding: 15px;
-            background: var(--light-gray);
-            border-radius: 8px;
-        }
-
-        .faq-question {
-            font-weight: 600;
-            color: var(--primary-blue);
-            margin-bottom: 8px;
-        }
-
-        .faq-answer {
-            color: #555;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 40px 20px;
+        .step p {
             color: var(--medium-gray);
         }
 
-        .footer a {
-            color: var(--primary-blue);
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: 500;
-            transition: color 0.3s ease;
+        /* Target Audience */
+        .target-audience {
+            padding: 80px 0;
+            background: var(--white);
         }
 
-        .footer a:hover {
-            color: var(--dark-blue);
+        .target-audience h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: var(--dark-gray);
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .audience-card {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .audience-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .audience-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .audience-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            background: var(--dark-gray);
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            opacity: 0.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .app-store-btn {
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+
+        .app-store-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .app-store-btn img {
+            height: 60px;
+            width: auto;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            background: var(--dark-gray);
+            color: white;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            opacity: 0.6;
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: var(--secondary-blue);
+            text-decoration: none;
+        }
+
+        footer a:hover {
             text-decoration: underline;
         }
 
+        /* App Icon Section */
+        .app-icon-section {
+            padding: 60px 0;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .app-icon-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .app-icon-large {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 122, 255, 0.2);
+        }
+
+        .app-info {
+            text-align: left;
+            max-width: 400px;
+        }
+
+        .app-info h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 10px;
+        }
+
+        .app-info p {
+            color: var(--medium-gray);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Screenshots Section */
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .screenshot-item {
+            text-align: center;
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 122, 255, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .screenshot-item img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 122, 255, 0.25);
+        }
+
+        /* Languages Section */
+        .languages-section {
+            padding: 60px 0;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .languages-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .languages-container h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 30px;
+        }
+
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .language-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 15px 10px;
+            background: var(--light-gray);
+            border-radius: 12px;
+            font-weight: 500;
+            color: var(--dark-gray);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .language-item:hover {
+            transform: translateY(-2px);
+            background: rgba(0, 122, 255, 0.1);
+        }
+
+        .language-flag {
+            font-size: 1.2rem;
+        }
+
         /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                padding: 15px;
-            }
-
-            .header {
-                padding: 25px;
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .header-content h1 {
-                font-size: 2.2rem;
-            }
-
-            .content {
-                padding: 30px;
-            }
-
-            .content h2 {
-                font-size: 1.6rem;
+        @media (max-width: 1024px) {
+            .screenshots-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
             }
         }
 
-        @media (max-width: 480px) {
-            .header-content h1 {
-                font-size: 1.8rem;
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
             }
 
-            .content {
-                padding: 25px;
+            .hero {
+                padding: 140px 0 60px;
             }
 
-            .content h2 {
-                font-size: 1.4rem;
+            .app-icon-container {
+                flex-direction: column;
+                gap: 30px;
             }
+
+            .app-info {
+                text-align: center;
+            }
+
+            .features {
+                padding: 60px 0;
+            }
+
+            .features h2 {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .feature-card {
+                padding: 30px 25px;
+                margin: 0 10px;
+                box-shadow: 0 12px 35px rgba(0, 122, 255, 0.1), 0 4px 12px rgba(0, 0, 0, 0.08);
+            }
+
+            .feature-card:hover {
+                transform: translateY(-4px);
+            }
+
+            .feature-icon {
+                width: 65px;
+                height: 65px;
+                margin-bottom: 20px;
+                font-size: 26px;
+            }
+
+            .feature-card h3 {
+                font-size: 1.3rem;
+                margin-bottom: 12px;
+            }
+
+            .feature-card p {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .audience-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .screenshots-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .languages-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <img src="BlueScore-iOS.png" alt="BlueScore App Icon" class="app-icon">
+    <!-- Header -->
+    <header>
+        <div class="container">
             <div class="header-content">
-                <h1>Support</h1>
-                <p>Get help with BlueScore weather and travel app</p>
+                <a href="#" class="logo">
+                    <img src="BlueScore-iOS.png" alt="BlueScore App Icon">
+                    BlueScore
+                </a>
+                <a href="https://apps.apple.com/app/bluescore/id6744608825" class="download-btn" target="_blank" rel="noopener noreferrer">Download Now</a>
             </div>
         </div>
+    </header>
 
-        <!-- Main Content -->
-        <div class="content">
-            <h2>Getting Started</h2>
-            <p>BlueScore helps you find the perfect travel destination based on weather conditions. Here's how to get the most out of the app:</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Weather-Ranked Travel Destinations</h1>
+            <p>Stop guessing the weather. BlueScore finds and ranks destinations based on your perfect weather preferences – earning up to 100 points for the ideal match.</p>
             
-            <div class="support-section">
-                <h3>Quick Start Guide</h3>
-                <ol>
-                    <li>Set your travel dates (within the next 10 days)</li>
-                    <li>Define your ideal weather preferences for different times of day</li>
-                    <li>Select countries you're considering</li>
-                    <li>Apply filters for airports, beaches, or golf courses if needed</li>
-                    <li>Review the weather rankings and choose your destination</li>
-                </ol>
+            <div class="hero-image">
+                <div class="hero-mockup">
+                    <img src="iphone-mockup-of-a-man-listening-to-a-podcast-with-his-iphone-xs-max-24814.png" alt="BlueScore app running on iPhone showing weather-ranked travel destinations">
+                </div>
             </div>
-
-            <h2>Frequently Asked Questions</h2>
             
-            <div class="faq-item">
-                <div class="faq-question">How accurate are the weather forecasts?</div>
-                <div class="faq-answer">BlueScore uses multiple reliable weather data sources including MET Norway API, WeatherAPI.com, and other professional meteorological services. Weather forecasts are most accurate for the next 3-5 days and become less precise for longer periods.</div>
-            </div>
+            <a href="#download" class="download-btn">Find Your Perfect Weather</a>
+        </div>
+    </section>
 
-            <div class="faq-item">
-                <div class="faq-question">Why can I only search for dates within 10 days?</div>
-                <div class="faq-answer">Weather forecasts beyond 10 days become significantly less reliable. BlueScore focuses on providing accurate, actionable weather information for near-term travel planning.</div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">What's the difference between the free and Pro version?</div>
-                <div class="faq-answer">The Pro version includes extended search options, access to more destinations, advanced filtering capabilities, and additional customization features. You can upgrade through a one-time purchase in the App Store.</div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">How does BlueScore calculate weather scores?</div>
-                <div class="faq-answer">BlueScore analyzes your weather preferences (temperature, precipitation, wind, etc.) for different times of day and compares them against forecasted conditions for each destination. Locations that best match your criteria receive higher scores.</div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">Can I use BlueScore offline?</div>
-                <div class="faq-answer">BlueScore requires an internet connection to fetch current weather data and location information.</div>
-            </div>
-
-            <h2>Troubleshooting</h2>
-            
-            <h3>App Not Loading Weather Data</h3>
-            <ul>
-                <li>Check your internet connection</li>
-                <li>Ensure you have the latest version of the app</li>
-                <li>Try closing and reopening the app</li>
-                <li>Restart your device if the problem persists</li>
-            </ul>
-
-            <h3>Adding Custom Places Issues</h3>
-            <ul>
-                <li>When adding your own places, ensure they are within supported countries (Europe & Asia)</li>
-                <li>Try variations of city names or nearby major cities in the search</li>
-                <li>Custom place search works with Apple Maps database - very small towns may not be available</li>
-                <li>Search requires at least 2 characters to start finding locations</li>
-                <li>If a specific location isn't found, try searching for the nearest major city or well-known area</li>
-                <li>Added places will then be included in your weather rankings alongside curated destinations</li>
-            </ul>
-
-            <h3>Performance Issues</h3>
-            <ul>
-                <li>Clear the app cache in Settings</li>
-                <li>Ensure you have sufficient storage space</li>
-                <li>Close other apps running in the background</li>
-                <li>Update to the latest iOS version</li>
-            </ul>
-
-            <h2>Sharing Log Files for Support</h2>
-            <p>If you're experiencing technical issues, you can help us troubleshoot by sharing log files:</p>
-            <ol>
-                <li>Open BlueScore and go to Settings</li>
-                <li>Tap "Share log information"</li>
-                <li>The log files will be automatically attached</li>
-                <li>Describe your issue in the email</li>
-                <li>Send the email to our support team</li>
-            </ol>
-            <p><strong>Note:</strong> Log files contain only technical information and no personal data.</p>
-
-            <h2>Feature Requests and Feedback</h2>
-            <p>We love hearing from our users! If you have ideas for new features or improvements, please don't hesitate to reach out. Your feedback helps us make BlueScore better for everyone.</p>
-
-            <div class="contact-info">
-                <h3>Contact Support</h3>
-                <p>Need more help?</p>
-                <p><strong>Email:</strong> <a href="mailto:help@bluescore.cloud">help@bluescore.cloud</a></p>
+    <!-- App Icon Section -->
+    <section class="app-icon-section">
+        <div class="container">
+            <div class="app-icon-container">
+                <img src="BlueScore-iOS.png" alt="BlueScore App Icon" class="app-icon-large">
+                <div class="app-info">
+                    <h3>BlueScore for iOS</h3>
+                    <p>The intelligent way to discover your perfect travel destination based on weather preferences.</p>
+                </div>
             </div>
         </div>
-        
-        <!-- Footer -->
-        <div class="footer">
+    </section>
+
+    <!-- Languages Section -->
+    <section class="languages-section">
+        <div class="container">
+            <div class="languages-container">
+                <h3>Available in 8 Languages</h3>
+                <div class="languages-grid">
+                    <div class="language-item fade-in-up">
+                        <span class="language-flag">🇩🇰</span>
+                        <span>Dansk</span>
+                    </div>
+                    <div class="language-item fade-in-up">
+                        <span class="language-flag">🇩🇪</span>
+                        <span>Deutsch</span>
+                    </div>
+                    <div class="language-item fade-in-up">
+                        <span class="language-flag">🇺🇸</span>
+                        <span>English</span>
+                    </div>
+                    <div class="language-item fade-in-up">
+                        <span class="language-flag">🇪🇸</span>
+                        <span>Español</span>
+                    </div>
+                    <div class="language-item fade-in-up">
+                        <span class="language-flag">🇫🇷</span>
+                        <span>Français</span>
+                    </div>
+                    <div class="language-item fade-in-up">
+                        <span class="language-flag">🇮🇹</span>
+                        <span>Italiano</span>
+                    </div>
+                    <div class="language-item fade-in-up">
+                        <span class="language-flag">🇳🇴</span>
+                        <span>Norsk</span>
+                    </div>
+                    <div class="language-item fade-in-up">
+                        <span class="language-flag">🇸🇪</span>
+                        <span>Svenska</span>
+                    </div>
+                </div>
+                <p style="color: var(--medium-gray); font-style: italic;">BlueScore speaks your language, wherever you travel</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2>Why BlueScore Changes Everything</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Weather Scores Up to 100 Points</h3>
+                    <p>Every destination receives a precise score based on how well the forecast matches your detailed weather preferences: temperature, cloudiness, precipitation, wind speed, UV index, and humidity.</p>
+                </div>
+                
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>Make Decisions in Under a Minute</h3>
+                    <p>Browse the top-ranked list and book directly. No more 27 browser tabs or endless Googling.</p>
+                </div>
+                
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">🌤️</div>
+                    <h3>Smart Weather Filters</h3>
+                    <p>Maximum 2 m/s wind for golf? Low UV index for sensitive skin? Set detailed weather preferences including temperature, precipitation, cloudiness, and more for four different times of day.</p>
+                </div>
+                
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">📱</div>
+                    <h3>Everything in One Place</h3>
+                    <p>Public holidays, sunrise times, airports, beaches, and golf courses – all the information you need, seamlessly integrated.</p>
+                </div>
+                
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Curated Destinations</h3>
+                    <p>Hand-picked places across Europe & Asia – cultural cities, island paradises, vibrant metropolises, plus your own favorite locations.</p>
+                </div>
+                
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Free to Start, Pro to Excel</h3>
+                    <p>Begin for free – upgrade to PRO for advanced filters and extended forecasts when you're ready to take your planning to the next level.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step fade-in-up">
+                    <div class="step-number">1</div>
+                    <h3>Choose Your Travel Dates</h3>
+                    <p>Select your travel dates within the next 10 days</p>
+                </div>
+                
+                <div class="step fade-in-up">
+                    <div class="step-number">2</div>
+                    <h3>Set Your Dream Weather</h3>
+                    <p>Define your ideal weather conditions for morning, lunch, evening, and midnight</p>
+                </div>
+                
+                <div class="step fade-in-up">
+                    <div class="step-number">3</div>
+                    <h3>Select Your Target Countries</h3>
+                    <p>Choose which countries you're considering for your trip</p>
+                </div>
+                
+                <div class="step fade-in-up">
+                    <div class="step-number">4</div>
+                    <h3>Apply Intelligent Filters</h3>
+                    <p>Narrow down results by setting maximum driving time to airports, beaches, or golf courses</p>
+                </div>
+                
+                <div class="step fade-in-up">
+                    <div class="step-number">5</div>
+                    <h3>Get Instant Weather Rankings</h3>
+                    <p>BlueScore ranks all destinations by how well they match your weather preferences</p>
+                </div>
+                
+                <div class="step fade-in-up">
+                    <div class="step-number">6</div>
+                    <h3>Book with Complete Confidence</h3>
+                    <p>Armed with BlueScore's weather insights, confidently book your perfect destination through your preferred travel platform</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience -->
+    <section class="target-audience">
+        <div class="container">
+            <h2>Perfect For</h2>
+            <div class="audience-grid">
+                <div class="audience-card fade-in-up">
+                    <h3>🌹 Romantic Weekends</h3>
+                    <p>Warm evenings, clear skies – no umbrellas needed</p>
+                </div>
+                
+                <div class="audience-card fade-in-up">
+                    <h3>⛳ Golf Enthusiasts</h3>
+                    <p>Calm fairways, dry scorecards, perfect playing conditions</p>
+                </div>
+                
+                <div class="audience-card fade-in-up">
+                    <h3>💻 Digital Nomads</h3>
+                    <p>Find perfect beach weather in real-time and work from paradise</p>
+                </div>
+                
+                <div class="audience-card fade-in-up">
+                    <h3>👨‍👩‍👧‍👦 Families</h3>
+                    <p>Just-right temperatures and zero rain equals happy kids</p>
+                </div>
+                
+                <div class="audience-card fade-in-up">
+                    <h3>🎒 Backpackers</h3>
+                    <p>Skip the storms and island-hop with sunshine as your compass</p>
+                </div>
+                
+                <div class="audience-card fade-in-up">
+                    <h3>🌅 Weekend Escapees</h3>
+                    <p>Swap clouds for clarity – choose sunshine, spontaneity, and dinner under starlit skies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="features" style="background: var(--light-gray);">
+        <div class="container">
+            <h2>See BlueScore in Action</h2>
+            <div class="screenshots-grid">
+                <div class="screenshot-item fade-in-up">
+                    <img src="0d_Simulator Screenshot.png" alt="BlueScore welcome screen and onboarding">
+                </div>
+                <div class="screenshot-item fade-in-up">
+                    <img src="1c_Simulator Screenshot.png" alt="Travel dates and destination selection">
+                </div>
+                <div class="screenshot-item fade-in-up">
+                    <img src="2c_Simulator Screenshot.png" alt="Weather preferences configuration">
+                </div>
+                <div class="screenshot-item fade-in-up">
+                    <img src="3c_Simulator Screenshot.png" alt="Country and filter selection">
+                </div>
+                <div class="screenshot-item fade-in-up">
+                    <img src="4h_Simulator Screenshot.png" alt="Search results with weather scores">
+                </div>
+                <div class="screenshot-item fade-in-up">
+                    <img src="5c_Simulator Screenshot.png" alt="Detailed destination view with forecast">
+                </div>
+                <div class="screenshot-item fade-in-up">
+                    <img src="6h_Simulator Screenshot.png" alt="Destination details and amenities">
+                </div>
+                <div class="screenshot-item fade-in-up">
+                    <img src="7c_Simulator Screenshot.png" alt="Weather data and location information">
+                </div>
+                <div class="screenshot-item fade-in-up">
+                    <img src="8c_Simulator Screenshot.png" alt="Pro features and premium options">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="download">
+        <div class="container">
+            <h2>Travel on Weather's Terms, Not by Chance</h2>
+            <p>Download BlueScore now and discover the destination that scores full points – before your flight takes off!</p>
+            
+            <div class="cta-buttons">
+                <a href="https://apps.apple.com/app/bluescore/id6744608825" class="app-store-btn" target="_blank" rel="noopener noreferrer">
+                    <img src="app-store-badge.svg" alt="Download on the App Store" style="height: 60px; width: auto;">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
             <p>&copy; 2025 Anders Westin</p>
             <p>Email: hello@bluescore.cloud</p>
             <p>All rights reserved.</p>
             <p>
-                <a href="../">Home</a> •
-                <a href="https://www.bluescore.cloud/privacypolicy/">Privacy Policy</a> •
-                <a href="https://www.bluescore.cloud/terms/">Terms of Use</a> •
+                <a href="https://www.bluescore.cloud/privacypolicy/">Privacy Policy</a> • 
+                <a href="https://www.bluescore.cloud/terms/">Terms of Use</a> • 
                 <a href="https://www.bluescore.cloud/support/">Support</a>
             </p>
         </div>
-    </div>
+    </footer>
+
+    <script>
+        // Simple scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in-up elements
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
-</html>
+</html> 

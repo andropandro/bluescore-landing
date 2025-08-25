@@ -22,19 +22,14 @@
 
     <style>
         :root {
-            /* App-inspired blues */
-            --primary-blue: #2563EB;       /* Indigo-500 */
-            --secondary-blue: #60A5FA;     /* Sky-400 */
-            --deep-blue: #0B1E3A;          /* Night blue */
-            --midnight-blue: #0F2A52;      /* Deeper tone */
-            --hero-sky: #1E3A8A;           /* Indigo-700 */
+            --primary-blue: #007AFF;
+            --secondary-blue: #5AC8FA;
+            --dark-blue: #0051D5;
             --light-gray: #F2F2F7;
             --medium-gray: #8E8E93;
             --dark-gray: #1C1C1E;
             --white: #FFFFFF;
             --gradient: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
-            --hero-gradient: radial-gradient(1200px 600px at 50% -10%, rgba(96,165,250,0.18) 0%, rgba(96,165,250,0.06) 40%, transparent 70%),
-                              linear-gradient(180deg, var(--deep-blue) 0%, var(--midnight-blue) 45%, var(--hero-sky) 100%);
         }
 
         * {
@@ -112,34 +107,20 @@
         .hero {
             padding: 120px 0 80px;
             text-align: center;
-            background: var(--hero-gradient);
-            color: white;
+            background: linear-gradient(135deg, #f8faff 0%, #e8f4fd 100%);
+            color: var(--dark-gray);
             position: relative;
             overflow: hidden;
         }
 
         /* Subtle star field like the app welcome */
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image:
-                radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.7) 99%, transparent 100%),
-                radial-gradient(1px 1px at 30% 80%, rgba(255,255,255,0.6) 99%, transparent 100%),
-                radial-gradient(1.2px 1.2px at 60% 30%, rgba(255,255,255,0.65) 99%, transparent 100%),
-                radial-gradient(0.8px 0.8px at 80% 60%, rgba(255,255,255,0.6) 99%, transparent 100%),
-                radial-gradient(1px 1px at 45% 55%, rgba(255,255,255,0.55) 99%, transparent 100%);
-            background-repeat: repeat;
-            background-size: 400px 400px, 420px 420px, 460px 460px, 440px 440px, 480px 480px;
-            opacity: 0.35;
-            pointer-events: none;
-        }
+        .hero::before { display: none; }
 
         .hero h1 {
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 800;
             margin-bottom: 20px;
-            background: linear-gradient(180deg, #FFFFFF 0%, #E5ECFF 100%);
+            background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -163,7 +144,7 @@
             max-width: 100%;
             height: auto;
             border-radius: 20px;
-            box-shadow: 0 25px 70px rgba(16, 42, 106, 0.35);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
         }
 
         .hero-mockup {
@@ -189,7 +170,7 @@
         /* Features Section */
         .features {
             padding: 80px 0;
-            background: linear-gradient(135deg, #f8faff 0%, #e8f4fd 100%);
+            background: var(--white);
             position: relative;
         }
 
@@ -388,7 +369,7 @@
         /* CTA Section */
         .cta {
             padding: 80px 0;
-            background: linear-gradient(135deg, var(--deep-blue) 0%, var(--hero-sky) 100%);
+            background: var(--dark-gray);
             color: white;
             text-align: center;
         }

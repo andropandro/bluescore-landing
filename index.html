@@ -22,14 +22,19 @@
 
     <style>
         :root {
-            --primary-blue: #007AFF;
-            --secondary-blue: #5AC8FA;
-            --dark-blue: #0051D5;
+            /* App-inspired blues */
+            --primary-blue: #2563EB;       /* Indigo-500 */
+            --secondary-blue: #60A5FA;     /* Sky-400 */
+            --deep-blue: #0B1E3A;          /* Night blue */
+            --midnight-blue: #0F2A52;      /* Deeper tone */
+            --hero-sky: #1E3A8A;           /* Indigo-700 */
             --light-gray: #F2F2F7;
             --medium-gray: #8E8E93;
             --dark-gray: #1C1C1E;
             --white: #FFFFFF;
             --gradient: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            --hero-gradient: radial-gradient(1200px 600px at 50% -10%, rgba(96,165,250,0.18) 0%, rgba(96,165,250,0.06) 40%, transparent 70%),
+                              linear-gradient(180deg, var(--deep-blue) 0%, var(--midnight-blue) 45%, var(--hero-sky) 100%);
         }
 
         * {
@@ -107,14 +112,34 @@
         .hero {
             padding: 120px 0 80px;
             text-align: center;
-            background: linear-gradient(135deg, #f8faff 0%, #e8f4fd 100%);
+            background: var(--hero-gradient);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle star field like the app welcome */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.7) 99%, transparent 100%),
+                radial-gradient(1px 1px at 30% 80%, rgba(255,255,255,0.6) 99%, transparent 100%),
+                radial-gradient(1.2px 1.2px at 60% 30%, rgba(255,255,255,0.65) 99%, transparent 100%),
+                radial-gradient(0.8px 0.8px at 80% 60%, rgba(255,255,255,0.6) 99%, transparent 100%),
+                radial-gradient(1px 1px at 45% 55%, rgba(255,255,255,0.55) 99%, transparent 100%);
+            background-repeat: repeat;
+            background-size: 400px 400px, 420px 420px, 460px 460px, 440px 440px, 480px 480px;
+            opacity: 0.35;
+            pointer-events: none;
         }
 
         .hero h1 {
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 800;
             margin-bottom: 20px;
-            background: var(--gradient);
+            background: linear-gradient(180deg, #FFFFFF 0%, #E5ECFF 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -122,9 +147,9 @@
 
         .hero p {
             font-size: 1.25rem;
-            color: var(--medium-gray);
+            color: rgba(255,255,255,0.9);
             margin-bottom: 40px;
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -138,7 +163,7 @@
             max-width: 100%;
             height: auto;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 25px 70px rgba(16, 42, 106, 0.35);
         }
 
         .hero-mockup {
@@ -363,7 +388,7 @@
         /* CTA Section */
         .cta {
             padding: 80px 0;
-            background: var(--dark-gray);
+            background: linear-gradient(135deg, var(--deep-blue) 0%, var(--hero-sky) 100%);
             color: white;
             text-align: center;
         }
@@ -402,6 +427,66 @@
         .app-store-btn img {
             height: 60px;
             width: auto;
+        }
+
+        /* Coming Soon Section */
+        .coming-soon {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .coming-soon h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: var(--dark-gray);
+        }
+
+        .coming-subtitle {
+            text-align: center;
+            color: var(--medium-gray);
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+
+        .coming-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+        }
+
+        .coming-card {
+            background: rgba(255,255,255,0.95);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 18px;
+            padding: 28px 24px;
+            box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+        }
+
+        .coming-icon {
+            width: 60px;
+            height: 60px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            background: var(--gradient);
+            color: white;
+            font-size: 28px;
+            box-shadow: 0 8px 24px rgba(37,99,235,0.25);
+            margin-bottom: 14px;
+        }
+
+        .coming-card h3 { 
+            font-size: 1.35rem; 
+            margin-bottom: 10px; 
+            color: var(--dark-gray);
+        }
+
+        .coming-card p { 
+            color: #555; 
+            line-height: 1.7;
         }
 
         /* Footer */
@@ -865,6 +950,45 @@
                 <div class="audience-card fade-in-up">
                     <h3>🌅 Weekend Escapees</h3>
                     <p>Swap clouds for clarity – choose sunshine, spontaneity, and dinner under starlit skies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coming Soon -->
+    <section class="coming-soon">
+        <div class="container">
+            <h2>Coming soon</h2>
+            <p class="coming-subtitle">A few upgrades we're excited to ship next</p>
+            <div class="coming-grid">
+                <div class="coming-card fade-in-up">
+                    <div class="coming-icon">✈️</div>
+                    <h3>Flight-aware destination filtering</h3>
+                    <p>
+                        Filter your top weather‑ranked places by how easy they are to reach. Show destinations
+                        reachable by direct flights only, or with at most one connection — and even cap layovers to, say, 60 minutes.
+                        We’ll query live routes so results reflect what’s actually possible for your dates.
+                    </p>
+                    <p style="margin-top:10px; color: var(--medium-gray); font-size:0.98rem;">
+                        Under the hood we batch route lookups (via Kiwi Tequila API) for your shortlisted places and
+                        parse responses for number of stops, total travel time and layover durations.
+                    </p>
+                </div>
+                <div class="coming-card fade-in-up">
+                    <div class="coming-icon">🔗</div>
+                    <h3>Deep links to book flights</h3>
+                    <p>
+                        Jump straight from your chosen destination to booking — with prefilled routes and travel dates.
+                        Save time and keep momentum while the weather window is perfect.
+                    </p>
+                </div>
+                <div class="coming-card fade-in-up">
+                    <div class="coming-icon">🥾</div>
+                    <h3>Hiking trails nearby</h3>
+                    <p>
+                        Explore curated hiking options around each destination — distances, elevation and highlights —
+                        alongside beaches and golf courses. Perfect weather, perfect trails.
+                    </p>
                 </div>
             </div>
         </div>

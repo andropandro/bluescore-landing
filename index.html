@@ -412,8 +412,10 @@
 
         /* Coming Soon Section */
         .coming-soon {
-            padding: 80px 0;
-            background: var(--white);
+            padding: 100px 0;
+            background:
+                radial-gradient(800px 300px at 50% 0%, rgba(0,122,255,0.08) 0%, rgba(0,122,255,0.03) 40%, transparent 70%),
+                linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
         }
 
         .coming-soon h2 {
@@ -427,8 +429,8 @@
         .coming-subtitle {
             text-align: center;
             color: var(--medium-gray);
-            margin-bottom: 50px;
-            font-size: 1.1rem;
+            margin-bottom: 60px;
+            font-size: 1.12rem;
         }
 
         .coming-grid {
@@ -438,11 +440,17 @@
         }
 
         .coming-card {
-            background: rgba(255,255,255,0.95);
+            background: rgba(255,255,255,0.98);
             border: 1px solid rgba(0,0,0,0.06);
             border-radius: 18px;
-            padding: 28px 24px;
-            box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+            padding: 32px 26px;
+            box-shadow: 0 16px 44px rgba(0,0,0,0.08), 0 4px 14px rgba(0,0,0,0.05);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+        .coming-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 60px rgba(0,0,0,0.10), 0 8px 22px rgba(0,0,0,0.06);
+            border-color: rgba(0,122,255,0.12);
         }
 
         .coming-icon {
@@ -455,7 +463,7 @@
             background: var(--gradient);
             color: white;
             font-size: 28px;
-            box-shadow: 0 8px 24px rgba(37,99,235,0.25);
+            box-shadow: 0 12px 28px rgba(37,99,235,0.28), 0 0 0 6px rgba(0,122,255,0.08);
             margin-bottom: 14px;
         }
 
@@ -953,10 +961,10 @@
                 </div>
                 <div class="coming-card fade-in-up">
                     <div class="coming-icon">🔗</div>
-                    <h3>Deep links to book flights</h3>
+                    <h3>One‑tap to book your flight</h3>
                     <p>
-                        Jump straight from your chosen destination to booking — with prefilled routes and travel dates.
-                        Save time and keep momentum while the weather window is perfect.
+                        Go directly from your top match to the booking page with your route and dates prefilled.
+                        Faster checkout, fewer clicks, perfect timing when the weather looks ideal.
                     </p>
                 </div>
                 <div class="coming-card fade-in-up">

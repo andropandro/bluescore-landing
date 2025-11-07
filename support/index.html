@@ -279,10 +279,71 @@
                     <li>Set your travel dates (within the next 10 days)</li>
                     <li>Define your ideal weather preferences for different times of day</li>
                     <li>Select countries you're considering</li>
-                    <li>Apply filters for airports, beaches, or golf courses if needed</li>
+                    <li>Activate desired Points of Interest in Settings (see below)</li>
+                    <li>Apply filters to refine results if needed</li>
                     <li>Review the weather rankings and choose your destination</li>
                 </ol>
             </div>
+
+            <h2>Points of Interest (POI)</h2>
+            <p>BlueScore can show you relevant places and attractions near each destination. The app includes six different POI categories that help you plan activities at your destination.</p>
+
+            <h3>Available POI Categories</h3>
+            <ul>
+                <li><strong>Airports</strong> - Shows nearby airports with IATA/ICAO codes, airport type, operator information, and driving time from the destination</li>
+                <li><strong>Golf Courses</strong> - Displays golf courses with contact information and operator details when available</li>
+                <li><strong>Beaches</strong> - Find beaches near your destination with information about facilities and beach type (sand, pebbles, etc.)</li>
+                <li><strong>Hiking Trails</strong> - Discover hiking trails with network type, difficulty level, and length</li>
+                <li><strong>National Parks</strong> - Shows national parks and nature reserves with park type, IUCN category, and operator</li>
+                <li><strong>Camping Sites</strong> - Find camping sites and caravan parks with facility information</li>
+            </ul>
+
+            <h3>Activating New POI Categories</h3>
+            <p>The three newest categories (Hiking Trails, National Parks, and Camping Sites) must be activated in the app's settings before they appear:</p>
+            <ol>
+                <li>Open BlueScore and go to Settings</li>
+                <li>Scroll down to "Points of Interest"</li>
+                <li>Toggle on the categories you want to see</li>
+                <li>Return to a destination to see the new information</li>
+            </ol>
+
+            <h3>Data Sources for POI</h3>
+            <p>BlueScore uses several reliable data sources to provide comprehensive POI information:</p>
+            <ul>
+                <li><strong>OpenStreetMap (OSM)</strong> - A collaborative, open-source map database updated by millions of contributors worldwide. Used for all six POI categories</li>
+                <li><strong>GeoNames</strong> - A geographical database with millions of place names and coordinates. Primary source for airports and golf courses</li>
+                <li><strong>Apple Maps</strong> - Used as a backup source when other services are unavailable</li>
+            </ul>
+            <p><strong>Note:</strong> The quality and completeness of POI data varies by location. Popular tourist areas typically have more detailed information than remote regions.</p>
+
+            <h3>Progressive Loading & Extended Information</h3>
+            <p>When you open a destination for the first time, BlueScore uses a smart loading strategy:</p>
+            <ol>
+                <li><strong>Initial Load</strong> - Basic information (name, distance) appears quickly (2-4 seconds)</li>
+                <li><strong>Extended Information</strong> - Additional details load progressively in the background (phone numbers, websites, facilities, opening hours, etc.)</li>
+                <li><strong>Driving Times</strong> - Calculated automatically for airports and golf courses when you view those sections</li>
+                <li><strong>Apple Look Around</strong> - The app checks which locations support Apple's street-level imagery feature</li>
+            </ol>
+            <p>After the first visit, all information is stored locally on your device and appears instantly when you return.</p>
+
+            <h3>Smart Filters</h3>
+            <p>Many POI categories include horizontal scrollable filter chips that let you quickly refine the results:</p>
+            <ul>
+                <li><strong>Beaches</strong> - Filter by surface type (sand, pebbles, gravel, etc.)</li>
+                <li><strong>Hiking Trails</strong> - Filter by network type (International, National, Regional, Local)</li>
+                <li><strong>National Parks</strong> - Filter by park type (National Park, Nature Reserve, Protected Area)</li>
+                <li><strong>Camping Sites</strong> - Filter by site type (Camping Site, Caravan Site)</li>
+            </ul>
+
+            <h3>Understanding Timeout Messages</h3>
+            <p>Sometimes you might see a message saying "OpenStreetMap is currently unavailable":</p>
+            <ul>
+                <li>This happens when OpenStreetMap's servers take too long to respond (over 90 seconds)</li>
+                <li>It's usually temporary and resolves itself within minutes or hours</li>
+                <li>Your cached POI data from other destinations is unaffected</li>
+                <li>To try again: Use pull-to-refresh by dragging down on the destination page</li>
+            </ul>
+            <p><strong>Why this happens:</strong> OpenStreetMap is a free, community-run service that occasionally experiences high traffic. BlueScore respects their servers by implementing reasonable timeout limits.</p>
 
             <h2>Frequently Asked Questions</h2>
             
@@ -308,7 +369,32 @@
 
             <div class="faq-item">
                 <div class="faq-question">Can I use BlueScore offline?</div>
-                <div class="faq-answer">BlueScore requires an internet connection to fetch current weather data and location information.</div>
+                <div class="faq-answer">BlueScore requires an internet connection to fetch current weather data and location information. However, once you've visited a destination, the POI information is cached locally and will display instantly even without an internet connection.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Why don't I see hiking trails, national parks, or camping sites?</div>
+                <div class="faq-answer">These three categories must be activated in Settings before they appear. Go to Settings > Points of Interest and toggle on the categories you want to use.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Why is some information missing for certain locations?</div>
+                <div class="faq-answer">POI data comes from OpenStreetMap, which is maintained by volunteers worldwide. Popular tourist areas typically have comprehensive information, while remote or less-visited places may have limited details. You can contribute to OpenStreetMap to help improve data quality for everyone.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What does "Extended Information" mean?</div>
+                <div class="faq-answer">Extended Information includes additional details like phone numbers, websites, opening hours, facilities, and more. This information loads progressively after the basic POI data appears. You can toggle Extended Information on/off for each POI category using the switch at the top of each section.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I refresh POI information?</div>
+                <div class="faq-answer">Pull down on the destination page to refresh all information. This clears the cache and fetches fresh data from all sources. Use this if you encounter timeout messages or want to check for updated information.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What is Apple Look Around?</div>
+                <div class="faq-answer">Apple Look Around is a street-level imagery feature (similar to Google Street View) that lets you explore locations virtually. When available for a POI, you'll see a special icon. BlueScore automatically checks availability and caches this information for instant display.</div>
             </div>
 
             <h2>Troubleshooting</h2>
@@ -337,6 +423,31 @@
                 <li>Ensure you have sufficient storage space</li>
                 <li>Close other apps running in the background</li>
                 <li>Update to the latest iOS version</li>
+            </ul>
+
+            <h3>POI Data Not Loading</h3>
+            <ul>
+                <li>Check that you've activated the desired POI categories in Settings</li>
+                <li>Verify your internet connection (initial load requires connectivity)</li>
+                <li>If you see a timeout message, wait a few minutes and use pull-to-refresh</li>
+                <li>For persistent issues, clear the app cache and try again</li>
+                <li>Some remote locations may have limited POI data available</li>
+            </ul>
+
+            <h3>Extended Information Not Showing</h3>
+            <ul>
+                <li>Make sure Extended Information is toggled ON for that POI category</li>
+                <li>Wait a few seconds for the information to load progressively</li>
+                <li>Extended information is only shown when available from OpenStreetMap</li>
+                <li>Not all locations have complete information - this varies by region</li>
+            </ul>
+
+            <h3>Filters Not Working</h3>
+            <ul>
+                <li>Ensure the filter chips are scrollable (swipe left/right to see all options)</li>
+                <li>Tap "All" to reset filters and see all results</li>
+                <li>Some filters may show no results if there are no POIs matching that criteria</li>
+                <li>Filters work on cached data - no internet required after initial load</li>
             </ul>
 
             <h2>Sharing Log Files for Support</h2>

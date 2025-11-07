@@ -544,9 +544,9 @@
         /* Screenshots Section */
         .screenshots-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            max-width: 1200px;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 20px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -617,10 +617,24 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1400px) {
+            .screenshots-grid {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 20px;
+            }
+        }
+
         @media (max-width: 1024px) {
             .screenshots-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .screenshots-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
             }
         }
 
@@ -698,6 +712,13 @@
                 align-items: center;
             }
 
+            .screenshots-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
             .screenshots-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -1067,31 +1088,46 @@
             <h2>See BlueScore in Action</h2>
             <div class="screenshots-grid">
                 <div class="screenshot-item fade-in-up">
-                    <img src="0d_Simulator Screenshot.png" alt="BlueScore welcome screen and onboarding">
+                    <img src="p01-iphone_6_5.png" alt="BlueScore screenshot">
                 </div>
                 <div class="screenshot-item fade-in-up">
-                    <img src="1c_Simulator Screenshot.png" alt="Travel dates and destination selection">
+                    <img src="p02-iphone_6_5.png" alt="BlueScore screenshot">
                 </div>
                 <div class="screenshot-item fade-in-up">
-                    <img src="2c_Simulator Screenshot.png" alt="Weather preferences configuration">
+                    <img src="p03-iphone_6_5.png" alt="BlueScore screenshot">
                 </div>
                 <div class="screenshot-item fade-in-up">
-                    <img src="3c_Simulator Screenshot.png" alt="Country and filter selection">
+                    <img src="p04-iphone_6_5.png" alt="BlueScore screenshot">
                 </div>
                 <div class="screenshot-item fade-in-up">
-                    <img src="4h_Simulator Screenshot.png" alt="Search results with weather scores">
+                    <img src="p05-iphone_6_5.png" alt="BlueScore screenshot">
                 </div>
                 <div class="screenshot-item fade-in-up">
-                    <img src="5c_Simulator Screenshot.png" alt="Detailed destination view with forecast">
+                    <img src="p06-iphone_6_5.png" alt="BlueScore screenshot">
                 </div>
                 <div class="screenshot-item fade-in-up">
-                    <img src="6h_Simulator Screenshot.png" alt="Destination details and amenities">
+                    <img src="p07-iphone_6_5.png" alt="BlueScore screenshot">
                 </div>
                 <div class="screenshot-item fade-in-up">
-                    <img src="7c_Simulator Screenshot.png" alt="Weather data and location information">
+                    <img src="p08-iphone_6_5.png" alt="BlueScore screenshot">
                 </div>
                 <div class="screenshot-item fade-in-up">
-                    <img src="8c_Simulator Screenshot.png" alt="Pro features and premium options">
+                    <img src="p09-iphone_6_5.png" alt="BlueScore screenshot">
+                </div>
+                <div class="screenshot-item fade-in-up">
+                    <img src="p10-iphone_6_5.png" alt="BlueScore screenshot">
+                </div>
+                <div class="screenshot-item fade-in-up">
+                    <img src="p11-iphone_6_5.png" alt="BlueScore screenshot">
+                </div>
+                <div class="screenshot-item fade-in-up">
+                    <img src="p12-iphone_6_5.png" alt="BlueScore screenshot">
+                </div>
+                <div class="screenshot-item fade-in-up">
+                    <img src="p13-iphone_6_5.png" alt="BlueScore screenshot">
+                </div>
+                <div class="screenshot-item fade-in-up">
+                    <img src="p14-iphone_6_5.png" alt="BlueScore screenshot">
                 </div>
             </div>
         </div>

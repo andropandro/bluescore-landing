@@ -410,15 +410,15 @@
             width: auto;
         }
 
-        /* Coming Soon Section */
-        .coming-soon {
+        /* Points of Interest Section */
+        .poi-section {
             padding: 100px 0;
             background:
                 radial-gradient(800px 300px at 50% 0%, rgba(0,122,255,0.08) 0%, rgba(0,122,255,0.03) 40%, transparent 70%),
                 linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
         }
 
-        .coming-soon h2 {
+        .poi-section h2 {
             text-align: center;
             font-size: 2.5rem;
             font-weight: 700;
@@ -426,20 +426,20 @@
             color: var(--dark-gray);
         }
 
-        .coming-subtitle {
+        .poi-subtitle {
             text-align: center;
             color: var(--medium-gray);
             margin-bottom: 60px;
             font-size: 1.12rem;
         }
 
-        .coming-grid {
+        .poi-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 28px;
         }
 
-        .coming-card {
+        .poi-card {
             background: rgba(255,255,255,0.98);
             border: 1px solid rgba(0,0,0,0.06);
             border-radius: 18px;
@@ -447,13 +447,13 @@
             box-shadow: 0 16px 44px rgba(0,0,0,0.08), 0 4px 14px rgba(0,0,0,0.05);
             transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
         }
-        .coming-card:hover {
+        .poi-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 24px 60px rgba(0,0,0,0.10), 0 8px 22px rgba(0,0,0,0.06);
             border-color: rgba(0,122,255,0.12);
         }
 
-        .coming-icon {
+        .poi-icon {
             width: 60px;
             height: 60px;
             display: inline-flex;
@@ -467,13 +467,13 @@
             margin-bottom: 14px;
         }
 
-        .coming-card h3 { 
+        .poi-card h3 { 
             font-size: 1.35rem; 
             margin-bottom: 10px; 
             color: var(--dark-gray);
         }
 
-        .coming-card p { 
+        .poi-card p { 
             color: #555; 
             line-height: 1.7;
         }
@@ -826,49 +826,55 @@
                 <div class="feature-card fade-in-up">
                     <div class="feature-icon">🎯</div>
                     <h3>Weather Scores Up to 100 Points</h3>
-                    <p>Every destination receives a precise score based on how well the forecast matches your detailed weather preferences: temperature, cloudiness, precipitation, wind speed, UV index, and humidity.</p>
+                    <p>Every destination receives a precise score from 0 to 100 based on how well the forecast matches your detailed weather preferences. Set your ideal temperature, cloudiness, precipitation, wind speed, UV index, and humidity levels for morning, lunch, evening, and midnight. The highest score means the best weather match for your perfect trip.</p>
                 </div>
                 
                 <div class="feature-card fade-in-up">
                     <div class="feature-icon">⏱️</div>
                     <h3>Make Decisions in Under a Minute</h3>
-                    <p>Browse the top-ranked list and book directly. No more 27 browser tabs or endless Googling.</p>
+                    <p>Browse the top-ranked list sorted by weather score and book directly through your preferred platform. No more juggling 27 browser tabs comparing weather forecasts, or endless Googling trying to find the perfect destination. BlueScore does the heavy lifting for you.</p>
                 </div>
                 
                 <div class="feature-card fade-in-up">
                     <div class="feature-icon">🌤️</div>
                     <h3>Smart Weather Filters</h3>
-                    <p>Maximum 2 m/s wind for golf? Low UV index for sensitive skin? Set detailed weather preferences including temperature, precipitation, cloudiness, and more for four different times of day.</p>
+                    <p>Maximum 2 m/s wind for golf? Low UV index for sensitive skin? Prefer temperatures between 22-24°C? Set detailed weather preferences including temperature ranges, precipitation limits, cloudiness levels, wind speed thresholds, UV index caps, and humidity preferences for four different times of day.</p>
                 </div>
                 
                 <div class="feature-card fade-in-up">
                     <div class="feature-icon">📱</div>
                     <h3>Everything in One Place</h3>
-                    <p>Weather forecasts, public holidays, sunrise times, plus six categories of points of interest – airports, golf courses, beaches, hiking trails, national parks, and camping sites. All seamlessly integrated with maps, filters, and clickable contact information.</p>
+                    <p>Complete weather forecasts with detailed hourly data, public holidays, sunrise and sunset times, plus six categories of points of interest – airports, golf courses, beaches, hiking trails, national parks, and camping sites. All seamlessly integrated with interactive maps, smart filters, and clickable contact information for instant communication.</p>
                 </div>
                 
                 <div class="feature-card fade-in-up">
                     <div class="feature-icon">🌍</div>
                     <h3>Curated Destinations</h3>
-                    <p>Hand-picked places across Europe & Asia – cultural cities, island paradises, vibrant metropolises, plus your own favorite locations.</p>
+                    <p>Explore hand-picked places across Europe and Asia – romantic cultural cities like Barcelona and Rome, stunning island paradises like Santorini and Mallorca, vibrant metropolises, coastal gems, and golf meccas. With PRO you can add unlimited custom favorites to compare your own dream destinations.</p>
                 </div>
                 
                 <div class="feature-card fade-in-up">
                     <div class="feature-icon">📍</div>
                     <h3>Geographic Intelligence</h3>
-                    <p>Discover airports, golf courses, beaches, hiking trails, national parks, and camping sites near your destination. Complete with contact information, facilities, and Apple Look Around previews where available.</p>
+                    <p>Discover airports with IATA codes, golf courses with operator details, beaches with facility information, hiking trails with difficulty levels, national parks with protection categories, and camping sites with amenities. Complete with driving distances, contact information, opening hours, and websites where available.</p>
                 </div>
                 
                 <div class="feature-card fade-in-up">
                     <div class="feature-icon">🗺️</div>
                     <h3>Smart Maps & Filters</h3>
-                    <p>Visualize all locations on interactive maps with clear icons. Filter by beach type, trail difficulty, park category, and more. All information displayed automatically when available from data sources.</p>
+                    <p>Visualize all points of interest on interactive Apple Maps with clear, color-coded icons. Filter beaches by type (sand, pebble, rocky), trails by difficulty level (international, national, regional, local), parks by category, and more. Toggle categories on and off in Settings to customize your experience.</p>
+                </div>
+                
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">👁️</div>
+                    <h3>Apple Look Around</h3>
+                    <p>Preview your destination before you arrive with Apple's immersive Look Around feature. Virtually explore national parks, beaches, golf courses, and city locations with stunning street-level imagery. Available for thousands of locations worldwide, helping you make confident decisions about where to visit.</p>
                 </div>
                 
                 <div class="feature-card fade-in-up">
                     <div class="feature-icon">🚀</div>
                     <h3>Free to Start, Pro to Excel</h3>
-                    <p>Begin for free – upgrade to PRO for advanced filters and extended forecasts when you're ready to take your planning to the next level.</p>
+                    <p>Begin exploring for free with full access to weather rankings and basic features. Upgrade to PRO when you're ready for more places per country, unlimited custom favorites, extended weather parameters, more detailed 10-day forecasts, and up to 50 destinations in your search results.</p>
                 </div>
             </div>
         </div>
@@ -962,53 +968,53 @@
     </section>
 
     <!-- Points of Interest -->
-    <section class="coming-soon">
+    <section class="poi-section">
         <div class="container">
             <h2>Discover Places Near Your Destination</h2>
-            <p class="coming-subtitle">Six categories of points of interest with detailed information and smart filtering</p>
-            <div class="coming-grid">
-                <div class="coming-card fade-in-up">
-                    <div class="coming-icon">✈️</div>
+            <p class="poi-subtitle">Six categories of points of interest with detailed information and smart filtering</p>
+            <div class="poi-grid">
+                <div class="poi-card fade-in-up">
+                    <div class="poi-icon">✈️</div>
                     <h3>Airports</h3>
                     <p>
                         Find nearby airports with IATA codes, airport types, and driving distances. 
                         Includes contact information and operator details to help you plan your arrival and departure with confidence.
                     </p>
                 </div>
-                <div class="coming-card fade-in-up">
-                    <div class="coming-icon">⛳</div>
+                <div class="poi-card fade-in-up">
+                    <div class="poi-icon">⛳</div>
                     <h3>Golf Courses</h3>
                     <p>
                         Discover golf courses near your destination with contact information, operator details, and driving times.
                         Filter and sort to find the perfect course for your weather-perfect golf getaway.
                     </p>
                 </div>
-                <div class="coming-card fade-in-up">
-                    <div class="coming-icon">🏖️</div>
+                <div class="poi-card fade-in-up">
+                    <div class="poi-icon">🏖️</div>
                     <h3>Beaches</h3>
                     <p>
                         Explore nearby beaches with comprehensive facility information and filter by beach type – sand, pebble, rocky, or mixed.
                         Clickable phone numbers and addresses make it easy to get in touch.
                     </p>
                 </div>
-                <div class="coming-card fade-in-up">
-                    <div class="coming-icon">🥾</div>
+                <div class="poi-card fade-in-up">
+                    <div class="poi-icon">🥾</div>
                     <h3>Hiking Trails</h3>
                     <p>
                         Discover hiking trails with information about difficulty levels, trail length, and trail types.
                         Filter by international, national, regional, or local trails to match your adventure level.
                     </p>
                 </div>
-                <div class="coming-card fade-in-up">
-                    <div class="coming-icon">🌲</div>
+                <div class="poi-card fade-in-up">
+                    <div class="poi-icon">🌲</div>
                     <h3>National Parks & Nature Reserves</h3>
                     <p>
                         Explore protected natural areas with information about park types, management authorities, and protection categories.
                         Many parks feature Apple Look Around for virtual previews before you visit.
                     </p>
                 </div>
-                <div class="coming-card fade-in-up">
-                    <div class="coming-icon">🏕️</div>
+                <div class="poi-card fade-in-up">
+                    <div class="poi-icon">🏕️</div>
                     <h3>Camping Sites</h3>
                     <p>
                         Find camping and caravan sites with detailed facility information including electricity, water, showers, and toilets.

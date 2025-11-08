@@ -105,12 +105,102 @@
 
         /* Hero Section */
         .hero {
-            padding: 120px 0 80px;
-            text-align: center;
-            background: linear-gradient(135deg, #f8faff 0%, #e8f4fd 100%);
-            color: var(--dark-gray);
+          padding: 120px 0 80px;
+          text-align: center;
+          background: linear-gradient(135deg, #f8faff 0%, #e8f4fd 100%);
+          color: var(--dark-gray);
+          position: relative;
+          overflow: hidden;
+        }
+        
+        /* Desktop mockups: 2-3 random images */
+        .desktop-mockups {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 24px;
+          align-items: start;
+          justify-items: center;
+          margin: 60px 0;
+        }
+        
+        .desktop-mockups img {
+          width: 100%;
+          max-width: 360px;
+          height: auto;
+          border-radius: 20px;
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+          display: block;
+          object-fit: cover;
+          filter: drop-shadow(0 20px 40px rgba(0, 122, 255, 0.12));
+        }
+        
+        /* Mobile carousel: initially hidden */
+        .mobile-mockups {
+          display: none;
+        }
+        
+        /* Mobile only: Show carousel, hide desktop grid */
+        @media (max-width: 768px) {
+          .desktop-mockups {
+            display: none;
+          }
+          
+          .mobile-mockups {
+            display: block;
+            margin: 60px 0;
+          }
+          
+          .carousel-container {
             position: relative;
+            width: 100%;
+            max-width: 420px;
+            margin: 0 auto;
             overflow: hidden;
+            border-radius: 20px;
+          }
+          
+          .carousel-track {
+            display: flex;
+            transition: transform 0.3s ease-out;
+            touch-action: pan-y;
+          }
+          
+          .carousel-slide {
+            min-width: 100%;
+            flex-shrink: 0;
+          }
+          
+          .carousel-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            filter: drop-shadow(0 20px 40px rgba(0, 122, 255, 0.12));
+          }
+          
+          .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+          }
+          
+          .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--medium-gray);
+            opacity: 0.3;
+            cursor: pointer;
+            transition: all 0.3s ease;
+          }
+          
+          .carousel-dot.active {
+            opacity: 1;
+            background: var(--primary-blue);
+            transform: scale(1.2);
+          }
         }
 
         /* Subtle star field like the app welcome */
@@ -755,10 +845,38 @@
             
             <p><strong>It's backwards. It's brilliant.</strong><br>It's how travel planning should have worked from day one.</p>
             
-            <div class="hero-image">
-                <div class="hero-mockup">
-                    <img src="iphone-mockup-of-a-man-listening-to-a-podcast-with-his-iphone-xs-max-24814.png" alt="BlueScore app running on iPhone showing weather-ranked travel destinations">
+            <!-- Desktop: 2-3 random mockups, Mobile: swipeable carousel -->
+            <div class="hero-images desktop-mockups">
+                <!-- Desktop images populated by JavaScript -->
+            </div>
+            
+            <div class="hero-carousel mobile-mockups">
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <div class="carousel-slide">
+                            <img src="mockups/iphone-11-pro-mockup-featuring-blurred-lights-in-the-background-2125-el1.png" alt="BlueScore mockup 1">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="mockups/mockup-of-a-man-holding-an-iphone-11-pro-2157-el1.png" alt="BlueScore mockup 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="mockups/mockup-of-a-man-using-his-iphone-11-pro-at-the-office-2149-el1.png" alt="BlueScore mockup 3">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="mockups/mockup-of-a-young-man-holding-an-iphone-11-pro-2130-el1.png" alt="BlueScore mockup 4">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="mockups/mockup-of-the-over-shoulder-look-of-a-young-man-s-iphone-xs-25536.png" alt="BlueScore mockup 5">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="mockups/over-the-shoulder-iphone-xs-mockup-of-a-girl-sitting-on-a-minimalist-chair-25440.png" alt="BlueScore mockup 6">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="mockups/iphone-mockup-of-a-man-listening-to-a-podcast-with-his-iphone-xs-max-24814.png" alt="BlueScore mockup 7">
+                        </div>
+                    </div>
                 </div>
+                <div class="carousel-dots"></div>
             </div>
             
             <a href="#download" class="download-btn">Find Your Perfect Weather</a>
@@ -1067,49 +1185,49 @@
             <h2>See BlueScore in Action</h2>
             <div class="screenshots-grid">
                 <div class="screenshot-item fade-in-up">
-                    <img src="pc01-iphone_6_5.png" alt="BlueScore screenshot">
+                    <img src="screenshots/pc01-iphone_6_5.png" alt="BlueScore screenshot">
                 </div>
                 <div class="screenshot-item fade-in-up">
-                    <img src="pc02-iphone_6_5.png" alt="BlueScore screenshot">
+                    <img src="screenshots/pc02-iphone_6_5.png" alt="BlueScore screenshot">
                 </div>
                 <div class="screenshot-item fade-in-up">
-                    <img src="pc03-iphone_6_5.png" alt="BlueScore screenshot">
+                    <img src="screenshots/pc03-iphone_6_5.png" alt="BlueScore screenshot">
                 </div>
                 <div class="screenshot-item fade-in-up">
-                    <img src="pc04-iphone_6_5.png" alt="BlueScore screenshot">
+                    <img src="screenshots/pc04-iphone_6_5.png" alt="BlueScore screenshot">
                 </div>
                 <div class="screenshot-item fade-in-up">
-                    <img src="pc05-iphone_6_5.png" alt="BlueScore screenshot">
+                    <img src="screenshots/pc05-iphone_6_5.png" alt="BlueScore screenshot">
                 </div>
                 <div class="screenshot-item fade-in-up">
-                    <img src="pc06-iphone_6_5.png" alt="BlueScore screenshot">
+                    <img src="screenshots/pc06-iphone_6_5.png" alt="BlueScore screenshot">
                 </div>
                 <div class="screenshot-item fade-in-up">
-                    <img src="pc07-iphone_6_5.png" alt="BlueScore screenshot">
+                    <img src="screenshots/pc07-iphone_6_5.png" alt="BlueScore screenshot">
                 </div>
                 <div class="screenshot-item fade-in-up">
-                    <img src="pc08-iphone_6_5.png" alt="BlueScore screenshot">
+                    <img src="screenshots/pc08-iphone_6_5.png" alt="BlueScore screenshot">
                 </div>
                 <div class="screenshot-item fade-in-up">
-                    <img src="pc09-iphone_6_5.png" alt="BlueScore screenshot">
+                    <img src="screenshots/pc09-iphone_6_5.png" alt="BlueScore screenshot">
                 </div>
                 <div class="screenshot-item fade-in-up">
-                    <img src="pc10-iphone_6_5.png" alt="BlueScore screenshot">
+                    <img src="screenshots/pc10-iphone_6_5.png" alt="BlueScore screenshot">
                 </div>
                 <div class="screenshot-item fade-in-up">
-                    <img src="pc11-iphone_6_5.png" alt="BlueScore screenshot">
+                    <img src="screenshots/pc11-iphone_6_5.png" alt="BlueScore screenshot">
                 </div>
                 <div class="screenshot-item fade-in-up">
-                    <img src="pc12-iphone_6_5.png" alt="BlueScore screenshot">
+                    <img src="screenshots/pc12-iphone_6_5.png" alt="BlueScore screenshot">
                 </div>
                 <div class="screenshot-item fade-in-up">
-                    <img src="pc13-iphone_6_5.png" alt="BlueScore screenshot">
+                    <img src="screenshots/pc13-iphone_6_5.png" alt="BlueScore screenshot">
                 </div>
                 <div class="screenshot-item fade-in-up">
-                    <img src="pc14-iphone_6_5.png" alt="BlueScore screenshot">
+                    <img src="screenshots/pc14-iphone_6_5.png" alt="BlueScore screenshot">
                 </div>
                 <div class="screenshot-item fade-in-up">
-                    <img src="pc15-iphone_6_5.png" alt="BlueScore screenshot">
+                    <img src="screenshots/pc15-iphone_6_5.png" alt="BlueScore screenshot">
                 </div>                
             </div>
         </div>
@@ -1144,7 +1262,130 @@
     </footer>
 
     <script>
-        // Simple scroll animations
+        // === HERO MOCKUPS: Desktop Random Selection ===
+        const allMockups = [
+            'mockups/iphone-11-pro-mockup-featuring-blurred-lights-in-the-background-2125-el1.png',
+            'mockups/mockup-of-a-man-holding-an-iphone-11-pro-2157-el1.png',
+            'mockups/mockup-of-a-man-using-his-iphone-11-pro-at-the-office-2149-el1.png',
+            'mockups/mockup-of-a-young-man-holding-an-iphone-11-pro-2130-el1.png',
+            'mockups/mockup-of-the-over-shoulder-look-of-a-young-man-s-iphone-xs-25536.png',
+            'mockups/over-the-shoulder-iphone-xs-mockup-of-a-girl-sitting-on-a-minimalist-chair-25440.png',
+            'mockups/iphone-mockup-of-a-man-listening-to-a-podcast-with-his-iphone-xs-max-24814.png'
+        ];
+        
+        function getRandomMockups() {
+            const screenWidth = window.innerWidth;
+            let count = screenWidth > 1000 ? 3 : 2; // 3 images for large screens, 2 for medium
+            
+            const shuffled = [...allMockups].sort(() => Math.random() - 0.5);
+            return shuffled.slice(0, count);
+        }
+        
+        function loadDesktopMockups() {
+            const desktopContainer = document.querySelector('.desktop-mockups');
+            if (!desktopContainer) return;
+            
+            const selected = getRandomMockups();
+            desktopContainer.innerHTML = selected.map((src, i) => 
+                `<img src="${src}" alt="BlueScore mockup ${i + 1}">`
+            ).join('');
+        }
+        
+        // Load mockups on page load
+        loadDesktopMockups();
+        
+        // Reload on resize (debounced)
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(loadDesktopMockups, 250);
+        });
+        
+        // === MOBILE CAROUSEL ===
+        const carouselTrack = document.querySelector('.carousel-track');
+        const carouselDots = document.querySelector('.carousel-dots');
+        const slides = document.querySelectorAll('.carousel-slide');
+        let currentSlide = 0;
+        let startX = 0;
+        let currentX = 0;
+        let isDragging = false;
+        
+        // Create dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('carousel-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            carouselDots.appendChild(dot);
+        });
+        
+        function updateCarousel() {
+            const offset = -currentSlide * 100;
+            carouselTrack.style.transform = `translateX(${offset}%)`;
+            
+            // Update dots
+            document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+        
+        function goToSlide(index) {
+            currentSlide = Math.max(0, Math.min(index, slides.length - 1));
+            updateCarousel();
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateCarousel();
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateCarousel();
+        }
+        
+        // Touch events for swipe
+        carouselTrack.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+            carouselTrack.style.transition = 'none';
+        });
+        
+        carouselTrack.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            currentX = e.touches[0].clientX;
+            const diff = currentX - startX;
+            const offset = -currentSlide * 100 + (diff / carouselTrack.offsetWidth * 100);
+            carouselTrack.style.transform = `translateX(${offset}%)`;
+        });
+        
+        carouselTrack.addEventListener('touchend', () => {
+            if (!isDragging) return;
+            isDragging = false;
+            carouselTrack.style.transition = 'transform 0.3s ease-out';
+            
+            const diff = currentX - startX;
+            const threshold = carouselTrack.offsetWidth * 0.2; // 20% swipe threshold
+            
+            if (Math.abs(diff) > threshold) {
+                if (diff > 0) {
+                    prevSlide();
+                } else {
+                    nextSlide();
+                }
+            } else {
+                updateCarousel(); // Snap back
+            }
+        });
+        
+        // Auto-play carousel (optional, every 5 seconds)
+        setInterval(() => {
+            if (window.innerWidth <= 768) { // Only on mobile
+                nextSlide();
+            }
+        }, 5000);
+        
+        // === SCROLL ANIMATIONS ===
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1167,7 +1408,7 @@
             observer.observe(el);
         });
 
-        // Smooth scrolling for anchor links
+        // === SMOOTH SCROLLING ===
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();

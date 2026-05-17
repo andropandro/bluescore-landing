@@ -1,483 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support - BlueScore</title>
-    <meta name="description" content="BlueScore Support - Get help with the weather and travel app, troubleshooting, and contact information.">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.bluescore.cloud/support/">
-    <meta property="og:title" content="Support - BlueScore">
-    <meta property="og:description" content="BlueScore Support - Get help with the weather and travel app, troubleshooting, and contact information.">
-    <meta property="og:image" content="https://www.bluescore.cloud/BlueScore-iOS.png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Support &mdash; BlueScore</title>
+    <meta name="description" content="BlueScore support and help. Get started, troubleshoot common issues, and reach the developer." />
+    <meta name="theme-color" content="#061222" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.bluescore.cloud/support/">
-    <meta property="twitter:title" content="Support - BlueScore">
-    <meta property="twitter:description" content="BlueScore Support - Get help with the weather and travel app, troubleshooting, and contact information.">
-    <meta property="twitter:image" content="https://www.bluescore.cloud/BlueScore-iOS.png">
-
-    <style>
-        :root {
-            --primary-blue: #007AFF;
-            --secondary-blue: #5AC8FA;
-            --dark-blue: #0051D5;
-            --light-gray: #F2F2F7;
-            --medium-gray: #8E8E93;
-            --dark-gray: #1C1C1E;
-            --white: #FFFFFF;
-            --gradient: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: var(--dark-gray);
-            background: linear-gradient(135deg, #f8faff 0%, #e8f4fd 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Header */
-        .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 30px 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .app-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 16px;
-            box-shadow: 0 8px 25px rgba(0, 122, 255, 0.3);
-        }
-
-        .header-content h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 8px;
-        }
-
-        .header-content p {
-            color: var(--medium-gray);
-            font-size: 1.2rem;
-            font-weight: 500;
-        }
-
-        /* Main Content */
-        .content {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            margin-bottom: 30px;
-        }
-
-        .content h2 {
-            color: var(--primary-blue);
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 40px 0 20px 0;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--light-gray);
-        }
-
-        .content h2:first-child {
-            margin-top: 0;
-        }
-
-        .content h3 {
-            color: var(--dark-gray);
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin: 30px 0 15px 0;
-        }
-
-        .content p {
-            margin-bottom: 20px;
-            color: #555;
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        .content ul {
-            margin: 20px 0;
-            padding-left: 25px;
-        }
-
-        .content ol {
-            margin: 20px 0;
-            padding-left: 25px;
-        }
-
-        .content li {
-            margin-bottom: 10px;
-            color: #555;
-            line-height: 1.7;
-            font-size: 1.05rem;
-        }
-
-        .support-section {
-            background: var(--light-gray);
-            padding: 20px;
-            border-radius: 12px;
-            margin: 20px 0;
-            border-left: 4px solid var(--primary-blue);
-        }
-
-        .contact-info {
-            background: var(--gradient);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 12px;
-            margin-top: 15px;
-            line-height: 1.3;
-        }
-
-        .contact-info h3 {
-            margin-bottom: 3px;
-            color: white;
-            font-size: 1.1rem;
-            line-height: 1.2;
-        }
-
-        .contact-info a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            line-height: 1.2;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        .faq-item {
-            margin-bottom: 20px;
-            padding: 15px;
-            background: var(--light-gray);
-            border-radius: 8px;
-        }
-
-        .faq-question {
-            font-weight: 600;
-            color: var(--primary-blue);
-            margin-bottom: 8px;
-        }
-
-        .faq-answer {
-            color: #555;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--medium-gray);
-        }
-
-        .footer a {
-            color: var(--primary-blue);
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .footer a:hover {
-            color: var(--dark-blue);
-            text-decoration: underline;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                padding: 15px;
-            }
-
-            .header {
-                padding: 25px;
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .header-content h1 {
-                font-size: 2.2rem;
-            }
-
-            .content {
-                padding: 30px;
-            }
-
-            .content h2 {
-                font-size: 1.6rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header-content h1 {
-                font-size: 1.8rem;
-            }
-
-            .content {
-                padding: 25px;
-            }
-
-            .content h2 {
-                font-size: 1.4rem;
-            }
-        }
-    </style>
+    <link rel="icon" type="image/png" href="../BlueScore-iOS.png" />
+    <link rel="apple-touch-icon" href="../BlueScore-iOS.png" />
+    <link rel="stylesheet" href="../styles.css?v=3" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <img src="BlueScore-iOS.png" alt="BlueScore App Icon" class="app-icon">
-            <div class="header-content">
-                <h1>Support</h1>
-                <p>Get help with BlueScore weather and travel app</p>
-            </div>
-        </div>
+    <div class="grain"></div>
+    <div class="ambient ambient--sky"></div>
+    <div class="ambient ambient--deep"></div>
 
-        <!-- Main Content -->
-        <div class="content">
-            <h2>Getting Started</h2>
-            <p>BlueScore helps you find the perfect travel destination based on weather conditions. Here's how to get the most out of the app:</p>
-            
-            <div class="support-section">
-                <h3>Quick Start Guide</h3>
-                <ol>
-                    <li>Set your travel dates (within the next 10 days)</li>
-                    <li>Define your ideal weather preferences for different times of day</li>
-                    <li>Select countries you're considering</li>
-                    <li>Activate desired Points of Interest in Settings (see below)</li>
-                    <li>Apply filters to refine results if needed</li>
-                    <li>Review the weather rankings and choose your destination</li>
-                </ol>
-            </div>
+    <header class="nav">
+        <a href="../" class="nav__brand">
+            <img src="../BlueScore-iOS.png" alt="" class="nav__icon" />
+            <span class="nav__name">BlueScore</span>
+        </a>
+        <nav class="nav__links">
+            <a href="../">Home</a>
+            <a href="../privacypolicy/">Privacy</a>
+            <a href="../terms/">Terms</a>
+            <a href="https://apps.apple.com/app/bluescore/id6744608825" class="nav__cta" target="_blank" rel="noopener">Get the app</a>
+        </nav>
+    </header>
 
-            <h2>Points of Interest (POI)</h2>
-            <p>BlueScore can show you relevant places and attractions near each destination. The app includes six different POI categories that help you plan activities at your destination.</p>
+    <main class="legal">
+        <section class="legal__hero">
+            <p class="eyebrow eyebrow--center">Support</p>
+            <h1 class="legal__title">Help is one<br /><span class="legal__title-glow">email away.</span></h1>
+            <p class="legal__lede">
+                A short guide to getting started, the most common questions, and a direct line to the developer when you need a hand.
+            </p>
+            <p class="legal__updated">Last updated: May 2026</p>
+        </section>
 
-            <h3>Available POI Categories</h3>
-            <ul>
-                <li><strong>Airports</strong> - Shows nearby airports with IATA/ICAO codes, airport type, operator information, and driving time from the destination</li>
-                <li><strong>Golf Courses</strong> - Displays golf courses with contact information and operator details when available</li>
-                <li><strong>Beaches</strong> - Find beaches near your destination with information about facilities and beach type (sand, pebbles, etc.)</li>
-                <li><strong>Hiking Trails</strong> - Discover hiking trails with network type, difficulty level, and length</li>
-                <li><strong>National Parks</strong> - Shows national parks and nature reserves with park type, IUCN category, and operator</li>
-                <li><strong>Camping Sites</strong> - Find camping sites and caravan parks with facility information</li>
-            </ul>
+        <section class="legal__body">
 
-            <h3>Activating New POI Categories</h3>
-            <p>The three newest categories (Hiking Trails, National Parks, and Camping Sites) must be activated in the app's settings before they appear:</p>
+            <h2>Getting started</h2>
+            <p>BlueScore helps you find the perfect travel destination based on weather conditions. Here&rsquo;s how to get the most out of the app:</p>
+
+            <h3>Quick start</h3>
             <ol>
-                <li>Open BlueScore and go to Settings</li>
-                <li>Scroll down to "Points of Interest"</li>
-                <li>Toggle on the categories you want to see</li>
-                <li>Return to a destination to see the new information</li>
+                <li>Set your travel dates (within the next ten days).</li>
+                <li>Define your ideal weather preferences for different times of day.</li>
+                <li>Pick the countries you&rsquo;re considering.</li>
+                <li>Activate any Points of Interest you&rsquo;d like to see in Settings.</li>
+                <li>Apply filters to refine results if needed.</li>
+                <li>Review the rankings and choose your destination.</li>
             </ol>
 
-            <h3>Data Sources for POI</h3>
-            <p>BlueScore uses several reliable data sources to provide comprehensive POI information:</p>
-            <ul>
-                <li><strong>OpenStreetMap (OSM)</strong> - A collaborative, open-source map database updated by millions of contributors worldwide. Used for all six POI categories</li>
-                <li><strong>GeoNames</strong> - A geographical database with millions of place names and coordinates. Primary source for airports and golf courses</li>
-                <li><strong>Apple Maps</strong> - Used as a backup source when other services are unavailable</li>
-            </ul>
-            <p><strong>Note:</strong> The quality and completeness of POI data varies by location. Popular tourist areas typically have more detailed information than remote regions.</p>
+            <h2>Points of Interest (POI)</h2>
+            <p>BlueScore can show you relevant places and attractions near each destination. Six different POI categories help you plan activities at your destination.</p>
 
-            <h3>Progressive Loading & Extended Information</h3>
+            <h3>Available POI categories</h3>
+            <ul>
+                <li><strong>Airports</strong> &mdash; nearby airports with IATA/ICAO codes, airport type, operator information and driving time from the destination.</li>
+                <li><strong>Golf courses</strong> &mdash; with contact information and operator details when available.</li>
+                <li><strong>Beaches</strong> &mdash; near your destination with information about facilities and surface (sand, pebbles, etc.).</li>
+                <li><strong>Hiking trails</strong> &mdash; with network type, difficulty level and length.</li>
+                <li><strong>National parks</strong> &mdash; national parks and nature reserves with park type, IUCN category and operator.</li>
+                <li><strong>Camping sites</strong> &mdash; camping sites and caravan parks with facility information.</li>
+            </ul>
+
+            <h3>Activating new POI categories</h3>
+            <p>The three newest categories (hiking trails, national parks and camping sites) must be activated in the app&rsquo;s settings before they appear:</p>
+            <ol>
+                <li>Open BlueScore and go to Settings.</li>
+                <li>Scroll down to &ldquo;Points of Interest&rdquo;.</li>
+                <li>Toggle on the categories you want to see.</li>
+                <li>Return to a destination to see the new information.</li>
+            </ol>
+
+            <h3>Data sources for POI</h3>
+            <ul>
+                <li><strong>OpenStreetMap (OSM)</strong> &mdash; a collaborative, open-source map database updated by millions of contributors worldwide. Used for all six POI categories.</li>
+                <li><strong>GeoNames</strong> &mdash; a geographic database with millions of place names and coordinates. Primary source for airports and golf courses.</li>
+                <li><strong>Apple Maps</strong> &mdash; used as a backup source when other services are unavailable.</li>
+            </ul>
+            <p><strong>Note:</strong> the quality and completeness of POI data varies by location. Popular tourist areas typically have more detailed information than remote regions.</p>
+
+            <h3>Progressive loading and extended information</h3>
             <p>When you open a destination for the first time, BlueScore uses a smart loading strategy:</p>
             <ol>
-                <li><strong>Initial Load</strong> - Basic information (name, distance) appears quickly (2-4 seconds)</li>
-                <li><strong>Extended Information</strong> - Additional details load progressively in the background (phone numbers, websites, facilities, opening hours, etc.)</li>
-                <li><strong>Driving Times</strong> - Calculated automatically for airports and golf courses when you view those sections</li>
-                <li><strong>Apple Look Around</strong> - The app checks which locations support Apple's street-level imagery feature</li>
+                <li><strong>Initial load</strong> &mdash; basic information (name, distance) appears quickly (2&ndash;4 seconds).</li>
+                <li><strong>Extended information</strong> &mdash; additional details load progressively in the background (phone numbers, websites, facilities, opening hours, etc.).</li>
+                <li><strong>Driving times</strong> &mdash; calculated automatically for airports and golf courses when you view those sections.</li>
+                <li><strong>Apple Look Around</strong> &mdash; the app checks which locations support Apple&rsquo;s street-level imagery feature.</li>
             </ol>
             <p>After the first visit, all information is stored locally on your device and appears instantly when you return.</p>
 
-            <h3>Smart Filters</h3>
+            <h3>Smart filters</h3>
             <p>Many POI categories include horizontal scrollable filter chips that let you quickly refine the results:</p>
             <ul>
-                <li><strong>Beaches</strong> - Filter by surface type (sand, pebbles, gravel, etc.)</li>
-                <li><strong>Hiking Trails</strong> - Filter by network type (International, National, Regional, Local)</li>
-                <li><strong>National Parks</strong> - Filter by park type (National Park, Nature Reserve, Protected Area)</li>
-                <li><strong>Camping Sites</strong> - Filter by site type (Camping Site, Caravan Site)</li>
+                <li><strong>Beaches</strong> &mdash; filter by surface type (sand, pebbles, gravel, etc.).</li>
+                <li><strong>Hiking trails</strong> &mdash; filter by network type (international, national, regional, local).</li>
+                <li><strong>National parks</strong> &mdash; filter by park type (national park, nature reserve, protected area).</li>
+                <li><strong>Camping sites</strong> &mdash; filter by site type (camping site, caravan site).</li>
             </ul>
 
-            <h3>Understanding Timeout Messages</h3>
-            <p>Sometimes you might see a message saying "OpenStreetMap is currently unavailable":</p>
+            <h3>Understanding timeout messages</h3>
+            <p>Sometimes you might see a message saying &ldquo;OpenStreetMap is currently unavailable&rdquo;:</p>
             <ul>
-                <li>This happens when OpenStreetMap's servers take too long to respond (over 90 seconds)</li>
-                <li>It's usually temporary and resolves itself within minutes or hours</li>
-                <li>Your cached POI data from other destinations is unaffected</li>
-                <li>To try again: Use pull-to-refresh by dragging down on the destination page</li>
+                <li>This happens when OpenStreetMap&rsquo;s servers take too long to respond (over 90 seconds).</li>
+                <li>It&rsquo;s usually temporary and resolves itself within minutes or hours.</li>
+                <li>Your cached POI data from other destinations is unaffected.</li>
+                <li>To try again, pull-to-refresh on the destination page.</li>
             </ul>
             <p><strong>Why this happens:</strong> OpenStreetMap is a free, community-run service that occasionally experiences high traffic. BlueScore respects their servers by implementing reasonable timeout limits.</p>
 
-            <h2>Frequently Asked Questions</h2>
-            
-            <div class="faq-item">
-                <div class="faq-question">How accurate are the weather forecasts?</div>
-                <div class="faq-answer">BlueScore uses multiple reliable weather data sources including MET Norway API, WeatherAPI.com, and other professional meteorological services. Weather forecasts are most accurate for the next 3-5 days and become less precise for longer periods.</div>
-            </div>
+            <h2>Frequently asked questions</h2>
 
-            <div class="faq-item">
-                <div class="faq-question">Why can I only search for dates within 10 days?</div>
-                <div class="faq-answer">Weather forecasts beyond 10 days become significantly less reliable. BlueScore focuses on providing accurate, actionable weather information for near-term travel planning.</div>
-            </div>
+            <details>
+                <summary>How accurate are the weather forecasts?</summary>
+                <p>BlueScore uses multiple reliable weather data sources including MET Norway API, WeatherAPI.com and other professional meteorological services. Forecasts are most accurate for the next 3&ndash;5 days and become less precise for longer periods.</p>
+            </details>
 
-            <div class="faq-item">
-                <div class="faq-question">What's the difference between the free and Pro version?</div>
-                <div class="faq-answer">The Pro version includes extended search options, access to more destinations, advanced filtering capabilities, and additional customization features. You can upgrade through a one-time purchase in the App Store.</div>
-            </div>
+            <details>
+                <summary>Why can I only search for dates within ten days?</summary>
+                <p>Weather forecasts beyond ten days become significantly less reliable. BlueScore focuses on providing accurate, actionable weather information for near-term travel planning.</p>
+            </details>
 
-            <div class="faq-item">
-                <div class="faq-question">How does BlueScore calculate weather scores?</div>
-                <div class="faq-answer">BlueScore analyzes your weather preferences (temperature, precipitation, wind, etc.) for different times of day and compares them against forecasted conditions for each destination. Locations that best match your criteria receive higher scores.</div>
-            </div>
+            <details>
+                <summary>Are all features really free?</summary>
+                <p>Yes. Every feature in BlueScore is included for everyone, with no PRO version, no subscription and no in-app purchase. There is nothing to unlock.</p>
+            </details>
 
-            <div class="faq-item">
-                <div class="faq-question">Why don't I see hiking trails, national parks, or camping sites?</div>
-                <div class="faq-answer">These three categories must be activated in Settings before they appear. Go to Settings > Points of Interest and toggle on the categories you want to use.</div>
-            </div>
+            <details>
+                <summary>How does BlueScore calculate weather scores?</summary>
+                <p>BlueScore analyses your weather preferences (temperature, precipitation, wind, etc.) for different times of day and compares them against forecasted conditions for each destination. Locations that best match your criteria receive higher scores.</p>
+            </details>
 
-            <div class="faq-item">
-                <div class="faq-question">Why is some information missing for certain locations?</div>
-                <div class="faq-answer">POI data comes from OpenStreetMap, which is maintained by volunteers worldwide. Popular tourist areas typically have comprehensive information, while remote or less-visited places may have limited details. You can contribute to OpenStreetMap to help improve data quality for everyone.</div>
-            </div>
+            <details>
+                <summary>Why don&rsquo;t I see hiking trails, national parks or camping sites?</summary>
+                <p>These three categories must be activated in Settings before they appear. Go to Settings &rarr; Points of Interest and toggle on the categories you want to use.</p>
+            </details>
 
-            <div class="faq-item">
-                <div class="faq-question">What does "Extended Information" mean?</div>
-                <div class="faq-answer">Extended Information includes additional details like phone numbers, websites, opening hours, facilities, and more. This information loads progressively after the basic POI data appears. You can toggle Extended Information on/off for each POI category using the switch at the top of each section.</div>
-            </div>
+            <details>
+                <summary>Why is some information missing for certain locations?</summary>
+                <p>POI data comes from OpenStreetMap, which is maintained by volunteers worldwide. Popular tourist areas typically have comprehensive information, while remote or less-visited places may have limited details. You can contribute to OpenStreetMap to help improve data quality for everyone.</p>
+            </details>
 
-            <div class="faq-item">
-                <div class="faq-question">How do I refresh POI information?</div>
-                <div class="faq-answer">Pull down on the destination page to refresh all information. This clears the cache and fetches fresh data from all sources. Use this if you encounter timeout messages or want to check for updated information.</div>
-            </div>
+            <details>
+                <summary>What does &ldquo;Extended Information&rdquo; mean?</summary>
+                <p>Extended information includes additional details like phone numbers, websites, opening hours, facilities and more. It loads progressively after the basic POI data appears. You can toggle it on/off for each POI category using the switch at the top of each section.</p>
+            </details>
 
-            <div class="faq-item">
-                <div class="faq-question">What is Apple Look Around?</div>
-                <div class="faq-answer">Apple Look Around is a street-level imagery feature (similar to Google Street View) that lets you explore locations virtually. When available for a POI, you'll see a special icon. BlueScore automatically checks availability and caches this information for instant display.</div>
-            </div>
+            <details>
+                <summary>How do I refresh POI information?</summary>
+                <p>Pull down on the destination page to refresh all information. This clears the cache and fetches fresh data from all sources. Use this if you encounter timeout messages or want to check for updated information.</p>
+            </details>
+
+            <details>
+                <summary>What is Apple Look Around?</summary>
+                <p>Apple Look Around is a street-level imagery feature (similar to Google Street View) that lets you explore locations virtually. When available for a POI, you&rsquo;ll see a special icon. BlueScore automatically checks availability and caches this information for instant display.</p>
+            </details>
 
             <h2>Troubleshooting</h2>
-            
-            <h3>App Not Loading Weather Data</h3>
+
+            <h3>App not loading weather data</h3>
             <ul>
-                <li>Check your internet connection</li>
-                <li>Ensure you have the latest version of the app</li>
-                <li>Try closing and reopening the app</li>
-                <li>Restart your device if the problem persists</li>
+                <li>Check your internet connection.</li>
+                <li>Make sure you have the latest version of the app.</li>
+                <li>Try closing and reopening the app.</li>
+                <li>Restart your device if the problem persists.</li>
             </ul>
 
-            <h3>Adding Custom Places Issues</h3>
+            <h3>Issues adding custom places</h3>
             <ul>
-                <li>When adding your own places, ensure they are within supported countries (Europe & Asia)</li>
-                <li>Try variations of city names or nearby major cities in the search</li>
-                <li>Custom place search works with Apple Maps database - very small towns may not be available</li>
-                <li>Search requires at least 2 characters to start finding locations</li>
-                <li>If a specific location isn't found, try searching for the nearest major city or well-known area</li>
-                <li>Added places will then be included in your weather rankings alongside curated destinations</li>
+                <li>When adding your own places, make sure they are within supported countries (Europe and Asia).</li>
+                <li>Try variations of city names or nearby major cities in the search.</li>
+                <li>Custom place search uses Apple Maps&rsquo; database &mdash; very small towns may not be available.</li>
+                <li>Search requires at least two characters to start finding locations.</li>
+                <li>If a specific location isn&rsquo;t found, try searching for the nearest major city or well-known area.</li>
+                <li>Added places will then be included in your weather rankings alongside curated destinations.</li>
             </ul>
 
-            <h3>Performance Issues</h3>
+            <h3>Performance issues</h3>
             <ul>
-                <li>Clear the app cache in Settings</li>
-                <li>Ensure you have sufficient storage space</li>
-                <li>Close other apps running in the background</li>
-                <li>Update to the latest iOS version</li>
+                <li>Clear the app cache in Settings.</li>
+                <li>Make sure you have sufficient storage space.</li>
+                <li>Close other apps running in the background.</li>
+                <li>Update to the latest iOS version.</li>
             </ul>
 
-            <h3>POI Data Not Loading</h3>
+            <h3>POI data not loading</h3>
             <ul>
-                <li>Check that you've activated the desired POI categories in Settings</li>
-                <li>Verify your internet connection (initial load requires connectivity)</li>
-                <li>If you see a timeout message, wait a few minutes and use pull-to-refresh</li>
-                <li>For persistent issues, clear the app cache and try again</li>
-                <li>Some remote locations may have limited POI data available</li>
+                <li>Check that you&rsquo;ve activated the desired POI categories in Settings.</li>
+                <li>Verify your internet connection (initial load requires connectivity).</li>
+                <li>If you see a timeout message, wait a few minutes and use pull-to-refresh.</li>
+                <li>For persistent issues, clear the app cache and try again.</li>
+                <li>Some remote locations may have limited POI data available.</li>
             </ul>
 
-            <h3>Extended Information Not Showing</h3>
+            <h3>Extended information not showing</h3>
             <ul>
-                <li>Make sure Extended Information is toggled ON for that POI category</li>
-                <li>Wait a few seconds for the information to load progressively</li>
-                <li>Extended information is only shown when available from OpenStreetMap</li>
-                <li>Not all locations have complete information - this varies by region</li>
+                <li>Make sure Extended Information is toggled ON for that POI category.</li>
+                <li>Wait a few seconds for the information to load progressively.</li>
+                <li>Extended information is only shown when available from OpenStreetMap.</li>
+                <li>Not all locations have complete information &mdash; this varies by region.</li>
             </ul>
 
-            <h3>Filters Not Working</h3>
+            <h3>Filters not working</h3>
             <ul>
-                <li>Ensure the filter chips are scrollable (swipe left/right to see all options)</li>
-                <li>Tap "All" to reset filters and see all results</li>
-                <li>Some filters may show no results if there are no POIs matching that criteria</li>
-                <li>Filters work on cached data - no internet required after initial load</li>
+                <li>Make sure the filter chips are scrollable (swipe left/right to see all options).</li>
+                <li>Tap &ldquo;All&rdquo; to reset filters and see all results.</li>
+                <li>Some filters may show no results if there are no POIs matching that criteria.</li>
+                <li>Filters work on cached data &mdash; no internet required after the initial load.</li>
             </ul>
 
-            <h2>Sharing Log Files for Support</h2>
-            <p>If you're experiencing technical issues, you can help us troubleshoot by sharing log files:</p>
+            <h2>Sharing log files for support</h2>
+            <p>If you&rsquo;re experiencing technical issues, you can help us troubleshoot by sharing log files:</p>
             <ol>
-                <li>Open BlueScore and go to Settings</li>
-                <li>Tap "Share log information"</li>
-                <li>The log files will be automatically attached</li>
-                <li>Describe your issue in the email</li>
-                <li>Send the email to our support team</li>
+                <li>Open BlueScore and go to Settings.</li>
+                <li>Tap &ldquo;Share log information&rdquo;.</li>
+                <li>The log files will be attached automatically.</li>
+                <li>Describe your issue in the email.</li>
+                <li>Send the email to our support team.</li>
             </ol>
-            <p><strong>Note:</strong> Log files contain only technical information and no personal data.</p>
+            <p><strong>Note:</strong> log files contain only technical information and no personal data.</p>
 
-            <h2>Feature Requests and Feedback</h2>
-            <p>We love hearing from our users! If you have ideas for new features or improvements, please don't hesitate to reach out. Your feedback helps us make BlueScore better for everyone.</p>
+            <h2>Feature requests and feedback</h2>
+            <p>We love hearing from our users! If you have ideas for new features or improvements, please don&rsquo;t hesitate to reach out. Your feedback helps us make BlueScore better for everyone.</p>
 
-            <div class="contact-info">
-                <h3>Contact Support</h3>
-                <p>Need more help?</p>
-                <p><strong>Email:</strong> <a href="mailto:help@bluescore.cloud">help@bluescore.cloud</a></p>
+            <div class="support__contact-card">
+                <p class="support__contact-label">Need a hand?</p>
+                <a class="support__contact-email" href="mailto:hello@bluescore.cloud">hello@bluescore.cloud</a>
+                <p class="support__contact-hint">
+                    Replies usually come from a real human within a day or two. Include your iOS version and the version number from BlueScore&rsquo;s settings if you can.
+                </p>
             </div>
-        </div>
-        
-        <!-- Footer -->
-        <div class="footer">
-            <p>&copy; 2025 Anders Westin</p>
-            <p>Email: hello@bluescore.cloud</p>
-            <p>All rights reserved.</p>
-            <p>
-                <a href="../">Home</a> •
-                <a href="https://www.bluescore.cloud/privacypolicy/">Privacy Policy</a> •
-                <a href="https://www.bluescore.cloud/terms/">Terms of Use</a> •
-                <a href="https://www.bluescore.cloud/support/">Support</a>
+
+        </section>
+
+        <footer class="footer">
+            <p class="footer__copyright">&copy; 2026 BlueScore</p>
+            <p>Email: <a href="mailto:hello@bluescore.cloud">hello@bluescore.cloud</a></p>
+            <p class="footer__sub">All rights reserved.</p>
+            <p class="footer__links">
+                <a href="../">Home</a>
+                <span class="footer__sep">&middot;</span>
+                <a href="../privacypolicy/">Privacy Policy</a>
+                <span class="footer__sep">&middot;</span>
+                <a href="../terms/">Terms of Use</a>
+                <span class="footer__sep">&middot;</span>
+                <a href="../support/">Support</a>
             </p>
-        </div>
-    </div>
+        </footer>
+    </main>
+
+    <script src="../script.js" defer></script>
 </body>
 </html>

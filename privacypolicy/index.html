@@ -1,346 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - BlueScore</title>
-    <meta name="description" content="BlueScore Privacy Policy - Learn how we protect your privacy and handle data in our weather and travel app.">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.bluescore.cloud/privacypolicy/">
-    <meta property="og:title" content="Privacy Policy - BlueScore">
-    <meta property="og:description" content="BlueScore Privacy Policy - Learn how we protect your privacy and handle data in our weather and travel app.">
-    <meta property="og:image" content="https://www.bluescore.cloud/BlueScore-iOS.png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy &mdash; BlueScore</title>
+    <meta name="description" content="BlueScore Privacy Policy. Your searches and weather data stay on your device, nothing is collected by us." />
+    <meta name="theme-color" content="#061222" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.bluescore.cloud/privacypolicy/">
-    <meta property="twitter:title" content="Privacy Policy - BlueScore">
-    <meta property="twitter:description" content="BlueScore Privacy Policy - Learn how we protect your privacy and handle data in our weather and travel app.">
-    <meta property="twitter:image" content="https://www.bluescore.cloud/BlueScore-iOS.png">
-
-    <style>
-        :root {
-            --primary-blue: #007AFF;
-            --secondary-blue: #5AC8FA;
-            --dark-blue: #0051D5;
-            --light-gray: #F2F2F7;
-            --medium-gray: #8E8E93;
-            --dark-gray: #1C1C1E;
-            --white: #FFFFFF;
-            --gradient: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: var(--dark-gray);
-            background: linear-gradient(135deg, #f8faff 0%, #e8f4fd 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Header */
-        .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 30px 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .app-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 16px;
-            box-shadow: 0 8px 25px rgba(0, 122, 255, 0.3);
-        }
-
-        .header-content h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 8px;
-        }
-
-        .header-content p {
-            color: var(--medium-gray);
-            font-size: 1.2rem;
-            font-weight: 500;
-        }
-
-        /* Main Content */
-        .content {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            margin-bottom: 30px;
-        }
-
-        .content h2 {
-            color: var(--primary-blue);
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 40px 0 20px 0;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--light-gray);
-        }
-
-        .content h2:first-child {
-            margin-top: 0;
-        }
-
-        .content h3 {
-            color: var(--dark-gray);
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin: 30px 0 15px 0;
-        }
-
-        .content p {
-            margin-bottom: 20px;
-            color: #555;
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        .content ul {
-            margin: 20px 0;
-            padding-left: 25px;
-        }
-
-        .content li {
-            margin-bottom: 10px;
-            color: #555;
-            line-height: 1.7;
-            font-size: 1.05rem;
-        }
-
-        .last-updated {
-            background: var(--light-gray);
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            font-weight: 600;
-            color: var(--medium-gray);
-            text-align: center;
-        }
-
-        .contact-info {
-            background: var(--gradient);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 12px;
-            margin-top: 15px;
-            line-height: 1.3;
-        }
-
-        .contact-info h3 {
-            margin-bottom: 3px;
-            color: white;
-            font-size: 1.1rem;
-            line-height: 1.2;
-        }
-
-        .contact-info a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            line-height: 1.2;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--medium-gray);
-        }
-
-        .footer a {
-            color: var(--primary-blue);
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .footer a:hover {
-            color: var(--dark-blue);
-            text-decoration: underline;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                padding: 15px;
-            }
-
-            .header {
-                padding: 25px;
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .header-content h1 {
-                font-size: 2.2rem;
-            }
-
-            .content {
-                padding: 30px;
-            }
-
-            .content h2 {
-                font-size: 1.6rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header-content h1 {
-                font-size: 1.8rem;
-            }
-
-            .content {
-                padding: 25px;
-            }
-
-            .content h2 {
-                font-size: 1.4rem;
-            }
-        }
-    </style>
+    <link rel="icon" type="image/png" href="../BlueScore-iOS.png" />
+    <link rel="apple-touch-icon" href="../BlueScore-iOS.png" />
+    <link rel="stylesheet" href="../styles.css?v=3" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <img src="BlueScore-iOS.png" alt="BlueScore App Icon" class="app-icon">
-            <div class="header-content">
-                <h1>Privacy Policy</h1>
-                <p>Your privacy matters to us</p>
-            </div>
-        </div>
+    <div class="grain"></div>
+    <div class="ambient ambient--sky"></div>
+    <div class="ambient ambient--deep"></div>
 
-        <!-- Main Content -->
-        <div class="content">
-            <div class="last-updated">
-                Last updated: May 26, 2025
-            </div>
+    <header class="nav">
+        <a href="../" class="nav__brand">
+            <img src="../BlueScore-iOS.png" alt="" class="nav__icon" />
+            <span class="nav__name">BlueScore</span>
+        </a>
+        <nav class="nav__links">
+            <a href="../">Home</a>
+            <a href="../terms/">Terms</a>
+            <a href="../support/">Support</a>
+            <a href="https://apps.apple.com/app/bluescore/id6744608825" class="nav__cta" target="_blank" rel="noopener">Get the app</a>
+        </nav>
+    </header>
 
-            <h2>Overview</h2>
-            <p>BlueScore is developed with respect for your privacy. We only collect data that is necessary for the app's functionality and store all information locally on your device.</p>
+    <main class="legal">
+        <section class="legal__hero">
+            <p class="eyebrow eyebrow--center">Privacy policy</p>
+            <h1 class="legal__title">Your searches<br /><span class="legal__title-glow">stay on your phone.</span></h1>
+            <p class="legal__lede">
+                BlueScore is built around a simple promise: the searches you make and the data the app derives from them stay on your device.
+            </p>
+            <p class="legal__updated">Last updated: May 2026</p>
+        </section>
 
-            <h2>Information Collected</h2>
+        <section class="legal__body">
+
+            <p>
+                BlueScore (&ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;) respects your privacy. This Privacy Policy describes how we handle information when you use BlueScore (&ldquo;the App&rdquo;).
+            </p>
+
+            <h2>1. Overview</h2>
+            <p>
+                BlueScore is developed with respect for your privacy. We only process the data needed for the app&rsquo;s functionality and store all information locally on your device.
+            </p>
+
+            <h2>2. Information Stored on Your Device</h2>
             <ul>
-                <li>Location searches you make</li>
-                <li>Weather data for selected locations</li>
+                <li>Searches you make</li>
+                <li>Weather data fetched for the destinations you look at</li>
                 <li>App settings and preferences</li>
                 <li>Technical log data for troubleshooting and support</li>
             </ul>
 
-            <h2>Information Not Collected</h2>
+            <h2>3. Information We Do Not Collect</h2>
             <ul>
                 <li>Personally identifiable information</li>
-                <li>Account information or user data</li>
-                <li>Images, media files, or personal content</li>
+                <li>Account information &mdash; BlueScore has no accounts</li>
+                <li>Photos, media files or other personal content</li>
                 <li>Continuous background location tracking</li>
                 <li>Personal messages or communications</li>
             </ul>
 
-            <h2>Log Files and Troubleshooting</h2>
-            <p>The app automatically creates log files on your device to assist with troubleshooting and support. These log files contain:</p>
+            <h2>4. Log Files and Troubleshooting</h2>
+            <p>The App automatically writes log files on your device to help with troubleshooting and support. These log files contain:</p>
             <ul>
-                <li>Technical information about the app's functions</li>
+                <li>Technical information about the app&rsquo;s functions</li>
                 <li>Error messages and performance data</li>
                 <li>Timestamps of activities</li>
                 <li>Device information (iOS version, app version)</li>
             </ul>
-            <p>A new log file is created each time the app starts, and a maximum of five previous log files are automatically saved. The log files contain NO personal information such as names, places visited, or personal settings. Sensitive information such as API keys is automatically filtered out.</p>
+            <p>A new log file is created every time the app starts, and a maximum of five previous log files are kept automatically. The log files contain <strong>no</strong> personal information such as names, places visited or personal settings. Sensitive information such as API keys is filtered out automatically.</p>
 
-            <h2>Sharing Log Files</h2>
-            <p>You can voluntarily choose to share log files with our support team via the app's settings. This only happens when you actively choose to send an email with the log files attached. No log files are sent automatically or without your consent.</p>
+            <h2>5. Sharing Log Files</h2>
+            <p>You can voluntarily choose to share log files with our support team via the App&rsquo;s settings. This only happens when you actively choose to send an email with the log files attached. No log files are sent automatically or without your consent.</p>
 
-            <h2>Data Management</h2>
+            <h2>6. Data Management</h2>
             <p>All information is stored locally on your device. No data is sent to our servers or shared with third parties, except when you voluntarily choose to share log files for support.</p>
 
-            <h2>Third-Party Services</h2>
+            <h2>7. Third-Party Services</h2>
             <p>We use the following external services to fetch weather and location information:</p>
             <ul>
                 <li>MET Norway API (weather data)</li>
                 <li>GeoNames API (location information)</li>
-                <li>OpenStreetMap/Overpass API (geographic data)</li>
+                <li>OpenStreetMap / Overpass API (geographic data)</li>
                 <li>WeatherAPI.com (additional weather data)</li>
-                <li>Apple Maps & CoreLocation (location information)</li>
+                <li>Apple Maps &amp; CoreLocation (location and map data)</li>
                 <li>Other public data services</li>
             </ul>
-            <p>These requests are made without sharing your personal information. Only location names and coordinates are sent to retrieve public weather and geographic information.</p>
+            <p>These requests are made without sharing your personal information. Only place names and coordinates are sent in order to retrieve public weather and geographic information.</p>
 
-            <h2>Analytics and Statistics</h2>
-            <p>The app does NOT collect usage statistics, analytics, or telemetry. All information remains on your device.</p>
+            <h2>8. Analytics and Statistics</h2>
+            <p>The App does <strong>not</strong> collect usage statistics, analytics or telemetry. Everything stays on your device.</p>
 
-            <h2>Cache and Temporary Data</h2>
-            <p>To improve performance, the app temporarily stores weather data and location information locally. This cache:</p>
+            <h2>9. Cache and Temporary Data</h2>
+            <p>To improve performance the App temporarily caches weather and location data locally. This cache:</p>
             <ul>
                 <li>Is stored only on your device</li>
-                <li>Is automatically cleared after a certain time</li>
-                <li>Can be manually cleared via the app's settings</li>
+                <li>Is automatically cleared after a set time</li>
+                <li>Can be manually cleared via the App&rsquo;s settings</li>
                 <li>Contains no personal information</li>
             </ul>
 
-            <h2>Your Rights</h2>
+            <h2>10. Your Rights</h2>
             <ul>
-                <li>You can delete all stored information by uninstalling the app</li>
-                <li>You can clear cache and log files via the app's settings</li>
+                <li>You can delete all stored information by uninstalling the App</li>
+                <li>You can clear the cache and log files via the App&rsquo;s settings</li>
                 <li>You can choose not to share log files for support</li>
                 <li>You control what information is stored locally</li>
             </ul>
 
-            <div class="contact-info">
-                <h3>Contact</h3>
-                <p>For privacy-related questions or data management, please contact:</p>
-                <p><strong>Email:</strong> <a href="mailto:hello@bluescore.cloud">hello@bluescore.cloud</a></p>
-            </div>
-        </div>
+            <h2>11. Children&rsquo;s Privacy</h2>
+            <p>The App is not directed at children under the age of 13 and we do not knowingly collect data from children.</p>
 
-        <!-- Footer -->
-        <div class="footer">
-            <p>&copy; 2025 Anders Westin</p>
-            <p>Email: hello@bluescore.cloud</p>
-            <p>All rights reserved.</p>
+            <h2>12. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. The latest version is always available on this page.</p>
+
+            <h2>13. Contact</h2>
             <p>
-                <a href="../">Home</a> •
-                <a href="https://www.bluescore.cloud/privacypolicy/">Privacy Policy</a> •
-                <a href="https://www.bluescore.cloud/terms/">Terms of Use</a> •
-                <a href="https://www.bluescore.cloud/support/">Support</a>
+                If you have questions about this Privacy Policy or about how we handle data, please contact us at
+                <a href="mailto:hello@bluescore.cloud" class="legal__contact">hello@bluescore.cloud</a>.
             </p>
-        </div>
-    </div>
+
+        </section>
+
+        <footer class="footer">
+            <p class="footer__copyright">&copy; 2026 BlueScore</p>
+            <p>Email: <a href="mailto:hello@bluescore.cloud">hello@bluescore.cloud</a></p>
+            <p class="footer__sub">All rights reserved.</p>
+            <p class="footer__links">
+                <a href="../">Home</a>
+                <span class="footer__sep">&middot;</span>
+                <a href="../privacypolicy/">Privacy Policy</a>
+                <span class="footer__sep">&middot;</span>
+                <a href="../terms/">Terms of Use</a>
+                <span class="footer__sep">&middot;</span>
+                <a href="../support/">Support</a>
+            </p>
+        </footer>
+    </main>
+
+    <script src="../script.js" defer></script>
 </body>
-</html> 
+</html>

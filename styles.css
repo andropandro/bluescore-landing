@@ -567,15 +567,22 @@ a { color: inherit; text-decoration: none; }
     position: relative;
     width: clamp(220px, 24vw, 300px);
     aspect-ratio: 9 / 19.5;
-    background: linear-gradient(160deg, #1c2233, #0a0f1a);
+    /* Lighter, cooler metallic gradient so the bezel stays visible against
+       the dark navy page background instead of fading into it. */
+    background: linear-gradient(160deg, #3a4360 0%, #232a40 45%, #161b2a 100%);
     border-radius: 38px;
     padding: 10px;
     box-shadow:
+        /* Outer rim ring: clearly visible halo so the device silhouette
+           reads even when the page background is near-black. */
+        0 0 0 1px rgba(180, 200, 230, 0.18),
+        0 0 0 2px rgba(0, 0, 0, 0.55),
         0 40px 100px rgba(0, 0, 0, 0.55),
-        0 10px 30px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08),
-        0 0 0 1px rgba(255, 255, 255, 0.04);
-    overflow: hidden;
+        0 10px 30px rgba(0, 0, 0, 0.45),
+        /* Top-edge highlight gives the bezel a slight glassy curve. */
+        inset 0 1px 0 rgba(255, 255, 255, 0.18),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+    overflow: visible;
 }
 
 /* Side-button highlights */
@@ -585,8 +592,9 @@ a { color: inherit; text-decoration: none; }
     position: absolute;
     left: -2px;
     width: 3px;
-    background: linear-gradient(90deg, #2a3042, transparent);
+    background: linear-gradient(90deg, #4a536e, #2a3042 70%, transparent);
     border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
 }
 
 .phone-frame::before { top: 22%; height: 8%; }
@@ -607,6 +615,11 @@ a { color: inherit; text-decoration: none; }
     object-position: top center;
     background: #000;
     z-index: 2;
+    /* Inner bezel-to-glass seam keeps the screenshot from looking glued
+       directly onto the frame. */
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.85),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
 .phone-frame__placeholder {

@@ -1012,6 +1012,12 @@ a { color: inherit; text-decoration: none; }
     user-select: none;
 }
 
+/* ---------- UTILITIES ---------- */
+
+/* Keeps short tokens like "0&ndash;100" or "10-day" on a single line
+   so the dash never becomes a wrap point inside a feature title. */
+.nowrap { white-space: nowrap; }
+
 /* ---------- REVEAL ON SCROLL ---------- */
 
 .reveal {

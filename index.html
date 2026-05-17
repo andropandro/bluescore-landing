@@ -1,1433 +1,502 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlueScore - Weather-Ranked Travel Destinations</title>
-    <meta name="description" content="Find your perfect travel destination based on weather preferences. BlueScore ranks destinations up to 100 points based on how well the forecast matches your ideal weather conditions.">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.bluescore.cloud/">
-    <meta property="og:title" content="BlueScore - Weather-Ranked Travel Destinations">
-    <meta property="og:description" content="Find your perfect travel destination based on weather preferences. BlueScore ranks destinations up to 100 points based on how well the forecast matches your ideal weather conditions.">
-    <meta property="og:image" content="https://www.bluescore.cloud/images/og-image.png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BlueScore &mdash; Pick the weather. Find the place.</title>
+    <meta name="description" content="BlueScore flips travel planning. Describe the weather you want, and the app ranks destinations 0&ndash;100 against your ideal forecast up to ten days ahead. Free, ad-free, every feature included for everyone." />
+    <meta name="theme-color" content="#061222" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="BlueScore &mdash; Pick the weather. Find the place." />
+    <meta property="og:description" content="Describe the weather you want, and BlueScore ranks destinations 0&ndash;100 against your ideal forecast up to ten days ahead. All features included for everyone, no PRO upgrade." />
+    <meta property="og:image" content="https://www.bluescore.cloud/BlueScore-iOS.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.bluescore.cloud/" />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.bluescore.cloud/">
-    <meta property="twitter:title" content="BlueScore - Weather-Ranked Travel Destinations">
-    <meta property="twitter:description" content="Find your perfect travel destination based on weather preferences. BlueScore ranks destinations up to 100 points based on how well the forecast matches your ideal weather conditions.">
-    <meta property="twitter:image" content="https://www.bluescore.cloud/images/twitter-image.png">
-
-    <style>
-        :root {
-            --primary-blue: #007AFF;
-            --secondary-blue: #5AC8FA;
-            --dark-blue: #0051D5;
-            --light-gray: #F2F2F7;
-            --medium-gray: #8E8E93;
-            --dark-gray: #1C1C1E;
-            --white: #FFFFFF;
-            --gradient: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: var(--dark-gray);
-            background: var(--white);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            padding: 20px 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-blue);
-            text-decoration: none;
-        }
-
-        .logo img {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-        }
-
-        .download-btn {
-            background: var(--gradient);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 122, 255, 0.3);
-        }
-
-        /* Hero Section */
-        .hero {
-          padding: 120px 0 80px;
-          text-align: center;
-          background: linear-gradient(135deg, #f8faff 0%, #e8f4fd 100%);
-          color: var(--dark-gray);
-          position: relative;
-          overflow: hidden;
-        }
-        
-        /* Desktop mockups: 2-3 random images */
-        .desktop-mockups {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-          gap: 24px;
-          align-items: start;
-          justify-items: center;
-          margin: 60px 0;
-        }
-        
-        .desktop-mockups img {
-          width: 100%;
-          max-width: 360px;
-          height: auto;
-          border-radius: 20px;
-          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-          display: block;
-          object-fit: cover;
-          filter: drop-shadow(0 20px 40px rgba(0, 122, 255, 0.12));
-        }
-        
-        /* Mobile carousel: initially hidden */
-        .mobile-mockups {
-          display: none;
-        }
-        
-        /* Mobile only: Show carousel, hide desktop grid */
-        @media (max-width: 768px) {
-          .desktop-mockups {
-            display: none;
-          }
-          
-          .mobile-mockups {
-            display: block;
-            margin: 40px -20px;
-            width: calc(100% + 40px);
-          }
-          
-          .carousel-container {
-            position: relative;
-            width: 100%;
-            margin: 0;
-            overflow: hidden;
-            border-radius: 0;
-          }
-          
-          .carousel-track {
-            display: flex;
-            transition: transform 0.3s ease-out;
-            touch-action: pan-y;
-          }
-          
-          .carousel-slide {
-            min-width: 100%;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
-          
-          .carousel-slide img {
-            width: 100%;
-            height: 250px;
-            display: block;
-            border-radius: 0;
-            box-shadow: none;
-            object-fit: contain;
-          }
-          
-          .carousel-dots {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 20px;
-          }
-          
-          .carousel-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--medium-gray);
-            opacity: 0.3;
-            cursor: pointer;
-            transition: all 0.3s ease;
-          }
-          
-          .carousel-dot.active {
-            opacity: 1;
-            background: var(--primary-blue);
-            transform: scale(1.2);
-          }
-        }
-
-        /* Subtle star field like the app welcome */
-        .hero::before { display: none; }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            margin-bottom: 20px;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--medium-gray);
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-image {
-            margin: 60px 0;
-            position: relative;
-        }
-
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        }
-
-        .hero-mockup {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .hero-mockup img {
-            width: 100%;
-            height: auto;
-            filter: drop-shadow(0 20px 40px rgba(0, 122, 255, 0.2));
-        }
-
-        .placeholder-image {
-            background: var(--light-gray);
-            border: 2px dashed var(--medium-gray);
-            border-radius: 20px;
-            padding: 60px 20px;
-            color: var(--medium-gray);
-            font-style: italic;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #f8faff 0%, #e8f4fd 100%);
-            position: relative;
-        }
-
-        .features::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23007AFF" fill-opacity="0.02"><circle cx="30" cy="30" r="2"/></g></svg>') repeat;
-            pointer-events: none;
-        }
-
-        .features h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 60px;
-            color: var(--dark-gray);
-            position: relative;
-            z-index: 1;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0, 122, 255, 0.08), 0 5px 15px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px rgba(0, 122, 255, 0.15), 0 10px 30px rgba(0, 0, 0, 0.1);
-            background: rgba(255, 255, 255, 1);
-        }
-
-        .feature-card:hover::before {
-            opacity: 1;
-        }
-
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient);
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-            font-size: 28px;
-            box-shadow: 0 8px 25px rgba(0, 122, 255, 0.25);
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover .feature-icon {
-            transform: scale(1.05);
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: var(--dark-gray);
-            line-height: 1.3;
-        }
-
-        .feature-card p {
-            color: #555;
-            line-height: 1.7;
-            font-size: 1.05rem;
-        }
-
-        /* How it Works */
-        .how-it-works {
-            padding: 80px 0;
-            background: var(--light-gray);
-        }
-
-        .how-it-works h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 60px;
-            color: var(--dark-gray);
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .step {
-            text-align: center;
-            padding: 30px 20px;
-        }
-
-        .step-number {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin: 0 auto 20px;
-        }
-
-        .step h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--dark-gray);
-        }
-
-        .step p {
-            color: var(--medium-gray);
-        }
-
-        /* Target Audience */
-        .target-audience {
-            padding: 80px 0;
-            background: var(--white);
-        }
-
-        .target-audience h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 60px;
-            color: var(--dark-gray);
-        }
-
-        .audience-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .audience-card {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
-            color: white;
-            padding: 40px 30px;
-            border-radius: 20px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .audience-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .audience-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .audience-card p {
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-
-        /* CTA Section */
-        .cta {
-            padding: 80px 0;
-            background: var(--dark-gray);
-            color: white;
-            text-align: center;
-        }
-
-        .cta h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .cta p {
-            font-size: 1.25rem;
-            margin-bottom: 40px;
-            opacity: 0.8;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .app-store-btn {
-            display: inline-block;
-            transition: transform 0.2s ease;
-        }
-
-        .app-store-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .app-store-btn img {
-            height: 60px;
-            width: auto;
-        }
-
-        /* Points of Interest Section */
-        .poi-section {
-            padding: 100px 0;
-            background:
-                radial-gradient(800px 300px at 50% 0%, rgba(0,122,255,0.08) 0%, rgba(0,122,255,0.03) 40%, transparent 70%),
-                linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
-        }
-
-        .poi-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 18px;
-            color: var(--dark-gray);
-        }
-
-        .poi-subtitle {
-            text-align: center;
-            color: var(--medium-gray);
-            margin-bottom: 60px;
-            font-size: 1.12rem;
-        }
-
-        .poi-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 28px;
-        }
-
-        .poi-card {
-            background: rgba(255,255,255,0.98);
-            border: 1px solid rgba(0,0,0,0.06);
-            border-radius: 18px;
-            padding: 32px 26px;
-            box-shadow: 0 16px 44px rgba(0,0,0,0.08), 0 4px 14px rgba(0,0,0,0.05);
-            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-        }
-        .poi-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 24px 60px rgba(0,0,0,0.10), 0 8px 22px rgba(0,0,0,0.06);
-            border-color: rgba(0,122,255,0.12);
-        }
-
-        .poi-icon {
-            width: 60px;
-            height: 60px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 14px;
-            background: var(--gradient);
-            color: white;
-            font-size: 28px;
-            box-shadow: 0 12px 28px rgba(37,99,235,0.28), 0 0 0 6px rgba(0,122,255,0.08);
-            margin-bottom: 14px;
-        }
-
-        .poi-card h3 { 
-            font-size: 1.35rem; 
-            margin-bottom: 10px; 
-            color: var(--dark-gray);
-        }
-
-        .poi-card p { 
-            color: #555; 
-            line-height: 1.7;
-        }
-
-        /* Footer */
-        footer {
-            padding: 40px 0;
-            background: var(--dark-gray);
-            color: white;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        footer p {
-            opacity: 0.6;
-            margin-bottom: 10px;
-        }
-
-        footer a {
-            color: var(--secondary-blue);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* App Icon Section */
-        .app-icon-section {
-            padding: 60px 0;
-            background: var(--white);
-            text-align: center;
-        }
-
-        .app-icon-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .app-icon-large {
-            width: 120px;
-            height: 120px;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0, 122, 255, 0.2);
-        }
-
-        .app-info {
-            text-align: left;
-            max-width: 400px;
-        }
-
-        .app-info h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--dark-gray);
-            margin-bottom: 10px;
-        }
-
-        .app-info p {
-            color: var(--medium-gray);
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        /* Screenshots Section */
-        .screenshots-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .screenshot-item {
-            text-align: center;
-        }
-
-        .screenshot-item img {
-            width: 100%;
-            max-width: 250px;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 122, 255, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .screenshot-item img:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 50px rgba(0, 122, 255, 0.25);
-        }
-
-        /* Languages Section */
-        .languages-section {
-            padding: 60px 0;
-            background: var(--white);
-            text-align: center;
-        }
-
-        .languages-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .languages-container h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--dark-gray);
-            margin-bottom: 30px;
-        }
-
-        .languages-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .language-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 15px 10px;
-            background: var(--light-gray);
-            border-radius: 12px;
-            font-weight: 500;
-            color: var(--dark-gray);
-            transition: transform 0.2s ease, background-color 0.2s ease;
-        }
-
-        .language-item:hover {
-            transform: translateY(-2px);
-            background: rgba(0, 122, 255, 0.1);
-        }
-
-        .language-flag {
-            font-size: 1.2rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .screenshots-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .hero {
-                padding: 160px 0 60px;
-            }
-
-            .app-icon-container {
-                flex-direction: column;
-                gap: 30px;
-            }
-
-            .app-info {
-                text-align: center;
-            }
-
-            .features {
-                padding: 60px 0;
-            }
-
-            .features h2 {
-                font-size: 2rem;
-                margin-bottom: 40px;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-
-            .feature-card {
-                padding: 30px 25px;
-                margin: 0 10px;
-                box-shadow: 0 12px 35px rgba(0, 122, 255, 0.1), 0 4px 12px rgba(0, 0, 0, 0.08);
-            }
-
-            .feature-card:hover {
-                transform: translateY(-4px);
-            }
-
-            .feature-icon {
-                width: 65px;
-                height: 65px;
-                margin-bottom: 20px;
-                font-size: 26px;
-            }
-
-            .feature-card h3 {
-                font-size: 1.3rem;
-                margin-bottom: 12px;
-            }
-
-            .feature-card p {
-                font-size: 1rem;
-                line-height: 1.6;
-            }
-
-            .steps {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .audience-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .screenshots-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .languages-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="BlueScore &mdash; Pick the weather. Find the place." />
+    <meta name="twitter:description" content="Describe the weather you want, and BlueScore ranks destinations 0&ndash;100 against your ideal forecast. All features free for everyone." />
+    <meta name="twitter:image" content="https://www.bluescore.cloud/BlueScore-iOS.png" />
+    <meta name="twitter:url" content="https://www.bluescore.cloud/" />
+
+    <link rel="icon" type="image/png" href="BlueScore-iOS.png" />
+    <link rel="apple-touch-icon" href="BlueScore-iOS.png" />
+    <link rel="stylesheet" href="styles.css?v=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="#" class="logo">
-                    <img src="BlueScore-iOS.png" alt="BlueScore App Icon">
-                    BlueScore
-                </a>
-                <a href="https://apps.apple.com/app/bluescore/id6744608825" class="download-btn" target="_blank" rel="noopener noreferrer">Download Now</a>
-            </div>
-        </div>
+    <div class="grain"></div>
+    <div class="ambient ambient--sky"></div>
+    <div class="ambient ambient--deep"></div>
+
+    <header class="nav">
+        <a href="#top" class="nav__brand">
+            <img src="BlueScore-iOS.png" alt="" class="nav__icon" />
+            <span class="nav__name">BlueScore</span>
+        </a>
+        <nav class="nav__links">
+            <a href="#how-it-starts">How it starts</a>
+            <a href="#how-it-scores">How it scores</a>
+            <a href="#destinations">Destinations</a>
+            <a href="#beyond">Beyond weather</a>
+            <a href="https://apps.apple.com/app/bluescore/id6744608825" class="nav__cta" target="_blank" rel="noopener">Get the app</a>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>This Is Travel Planning,<br>Completely Backwards</h1>
-            <p>You don't choose where to go — you choose the weather you want.<br>Perfect 24°C sunshine? Calm 2 m/s winds for golf?<br>Dry evenings for romantic dinners?</p>
-            
-            <p>Set your dream conditions first, and BlueScore will show you every<br>destination where that weather actually exists right now.<br>Ranked 0-100 by perfect match.</p>
-            
-            <p><strong>It's backwards. It's brilliant.</strong><br>It's how travel planning should have worked from day one.</p>
-            
-            <!-- Desktop: 2-3 random mockups, Mobile: swipeable carousel -->
-            <div class="hero-images desktop-mockups">
-                <!-- Desktop images populated by JavaScript -->
-            </div>
-            
-            <div class="hero-carousel mobile-mockups">
-                <div class="carousel-container">
-                    <div class="carousel-track">
-                        <div class="carousel-slide">
-                            <img src="mockups/iphone-11-pro-mockup-featuring-blurred-lights-in-the-background-2125-el1.png" alt="BlueScore mockup 1">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="mockups/mockup-of-a-man-holding-an-iphone-11-pro-2157-el1.png" alt="BlueScore mockup 2">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="mockups/mockup-of-a-man-using-his-iphone-11-pro-at-the-office-2149-el1.png" alt="BlueScore mockup 3">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="mockups/mockup-of-a-young-man-holding-an-iphone-11-pro-2130-el1.png" alt="BlueScore mockup 4">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="mockups/mockup-of-the-over-shoulder-look-of-a-young-man-s-iphone-xs-25536.png" alt="BlueScore mockup 5">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="mockups/over-the-shoulder-iphone-xs-mockup-of-a-girl-sitting-on-a-minimalist-chair-25440.png" alt="BlueScore mockup 6">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="mockups/iphone-mockup-of-a-man-listening-to-a-podcast-with-his-iphone-xs-max-24814.png" alt="BlueScore mockup 7">
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-dots"></div>
-            </div>
-            
-            <a href="#download" class="download-btn">Find Your Perfect Weather</a>
-        </div>
-    </section>
+    <main id="top">
 
-    <!-- App Icon Section -->
-    <section class="app-icon-section">
-        <div class="container">
-            <div class="app-icon-container">
-                <img src="BlueScore-iOS.png" alt="BlueScore App Icon" class="app-icon-large">
-                <div class="app-info">
-                    <h3>BlueScore for iOS</h3>
-                    <p>The intelligent way to discover your perfect travel destination based on weather preferences.</p>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero__inner">
+                <img src="BlueScore-iOS.png" alt="BlueScore app icon" class="hero__icon" />
+                <p class="eyebrow">BlueScore</p>
+                <h1 class="hero__title">
+                    <span class="hero__title-line">Pick the weather.</span>
+                    <span class="hero__title-line hero__title-line--glow">Find the place.</span>
+                </h1>
+                <p class="hero__lede">
+                    BlueScore flips the script. Don&rsquo;t start with a destination &mdash; start with the weather you want. Every spot is scored from 0 to 100 against your ideal forecast, up to ten days ahead, across hundreds of curated places and any favourites you add yourself.
+                    <br /><br />
+                    Cleanest answer in travel planning. No spreadsheets. No tab-juggling.
+                </p>
+                <div class="cta-row">
+                    <a href="https://apps.apple.com/app/bluescore/id6744608825" class="app-store-badge" target="_blank" rel="noopener" aria-label="Download BlueScore on the App Store">
+                        <img src="app-store-badge.svg" alt="Download on the App Store" />
+                    </a>
                 </div>
+                <p class="hero__sub">Free &middot; Ad-free &middot; Every feature included for everyone</p>
             </div>
-        </div>
-    </section>
+            <div class="hero__rays" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+        </section>
 
-    <!-- Languages Section -->
-    <section class="languages-section">
-        <div class="container">
-            <div class="languages-container">
-                <h3>Available in 8 Languages</h3>
-                <div class="languages-grid">
-                    <div class="language-item fade-in-up">
-                        <span class="language-flag">🇩🇰</span>
-                        <span>Dansk</span>
-                    </div>
-                    <div class="language-item fade-in-up">
-                        <span class="language-flag">🇩🇪</span>
-                        <span>Deutsch</span>
-                    </div>
-                    <div class="language-item fade-in-up">
-                        <span class="language-flag">🇺🇸</span>
-                        <span>English</span>
-                    </div>
-                    <div class="language-item fade-in-up">
-                        <span class="language-flag">🇪🇸</span>
-                        <span>Español</span>
-                    </div>
-                    <div class="language-item fade-in-up">
-                        <span class="language-flag">🇫🇷</span>
-                        <span>Français</span>
-                    </div>
-                    <div class="language-item fade-in-up">
-                        <span class="language-flag">🇮🇹</span>
-                        <span>Italiano</span>
-                    </div>
-                    <div class="language-item fade-in-up">
-                        <span class="language-flag">🇳🇴</span>
-                        <span>Norsk</span>
-                    </div>
-                    <div class="language-item fade-in-up">
-                        <span class="language-flag">🇸🇪</span>
-                        <span>Svenska</span>
-                    </div>
-                </div>
-                <p style="color: var(--medium-gray); font-style: italic;">BlueScore speaks your language, wherever you travel</p>
-            </div>
-        </div>
-    </section>
+        <!-- SECTION: HOW IT STARTS -->
+        <section class="section section--label" id="how-it-starts">
+            <p class="section__label">How it starts</p>
+        </section>
 
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <h2>Why BlueScore Changes Everything</h2>
-            <div class="features-grid">
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Weather Scores Up to 100 Points</h3>
-                    <p>Every destination receives a precise score from 0 to 100 based on how well the forecast matches your detailed weather preferences. Set your ideal temperature, cloudiness, precipitation, wind speed, UV index, and humidity levels for morning, lunch, evening, and midnight. The highest score means the best weather match for your perfect trip.</p>
-                </div>
-                
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">⏱️</div>
-                    <h3>Make Decisions in Under a Minute</h3>
-                    <p>Browse the top-ranked list sorted by weather score and book directly through your preferred platform. No more juggling 27 browser tabs comparing weather forecasts, or endless Googling trying to find the perfect destination. BlueScore does the heavy lifting for you.</p>
-                </div>
-                
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">🌤️</div>
-                    <h3>Smart Weather Filters</h3>
-                    <p>Maximum 2 m/s wind for golf? Low UV index for sensitive skin? Prefer temperatures between 22-24°C? Set detailed weather preferences including temperature ranges, precipitation limits, cloudiness levels, wind speed thresholds, UV index caps, and humidity preferences for four different times of day.</p>
-                </div>
-                
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">📱</div>
-                    <h3>Everything in One Place</h3>
-                    <p>Complete weather forecasts with detailed hourly data, public holidays, sunrise and sunset times, plus six categories of points of interest – airports, golf courses, beaches, hiking trails, national parks, and camping sites. All seamlessly integrated with interactive maps, smart filters, and clickable contact information for instant communication.</p>
-                </div>
-                
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">🌍</div>
-                    <h3>Curated Destinations</h3>
-                    <p>Explore hand-picked places across Europe and Asia – romantic cultural cities like Barcelona and Rome, stunning island paradises like Santorini and Mallorca, vibrant metropolises, coastal gems, and golf meccas. With PRO you can add unlimited custom favorites to compare your own dream destinations.</p>
-                </div>
-                
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">📍</div>
-                    <h3>Geographic Intelligence</h3>
-                    <p>Discover airports with IATA codes, golf courses with operator details, beaches with facility information, hiking trails with difficulty levels, national parks with protection categories, and camping sites with amenities. Complete with driving distances, contact information, opening hours, and websites where available.</p>
-                </div>
-                
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">🗺️</div>
-                    <h3>Smart Maps & Filters</h3>
-                    <p>Visualize all points of interest on interactive Apple Maps with clear, color-coded icons. Filter beaches by type (sand, pebble, rocky), trails by difficulty level (international, national, regional, local), parks by category, and more. Toggle categories on and off in Settings to customize your experience.</p>
-                </div>
-                
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">👁️</div>
-                    <h3>Apple Look Around</h3>
-                    <p>Preview your destination before you arrive with Apple's immersive Look Around feature. Virtually explore national parks, beaches, golf courses, and city locations with stunning street-level imagery. Available for thousands of locations worldwide, helping you make confident decisions about where to visit.</p>
-                </div>
-                
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">🚀</div>
-                    <h3>Free to Start, Pro to Excel</h3>
-                    <p>Begin exploring for free with full access to weather rankings and basic features. Upgrade to PRO when you're ready for more places per country, unlimited custom favorites, extended weather parameters, more detailed 10-day forecasts, and up to 50 destinations in your search results.</p>
+        <section class="feature">
+            <div class="feature__visual">
+                <div class="phone-frame" data-screenshot="weather-profile">
+                    <img src="screenshots/pc01-iphone_6_5.png" alt="" onerror="this.style.display='none'" />
+                    <div class="phone-frame__placeholder">
+                        <div class="phone-frame__dot"></div>
+                        <strong>Weather profile</strong>
+                        <span>Screenshot placeholder</span>
+                        <small>pc01</small>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+            <div class="feature__copy">
+                <h2 class="feature__title">Describe the<br />weather you want.</h2>
+                <p class="feature__text">
+                    Set your ideal temperature, cloud cover, precipitation, wind, UV index and humidity for four moments of the day &mdash; morning, lunch, evening and midnight. Mix as many parameters as you like, on as many time slots as you like.
+                </p>
+                <p class="feature__text">
+                    There are no caps. Every weather parameter is unlocked for every user from the very first launch &mdash; no PRO upgrade required, ever.
+                </p>
+                <p class="feature__text feature__text--muted">
+                    Save the profile once. Let it shape every search.
+                </p>
+            </div>
+        </section>
 
-    <!-- How it Works -->
-    <section class="how-it-works">
-        <div class="container">
-            <h2>How It Works</h2>
-            <div class="steps">
-                <div class="step fade-in-up">
-                    <div class="step-number">1</div>
-                    <h3>Choose Your Travel Dates</h3>
-                    <p>Select your travel dates within the next 10 days and let BlueScore find destinations with perfect weather during your available window</p>
-                </div>
-                
-                <div class="step fade-in-up">
-                    <div class="step-number">2</div>
-                    <h3>Set Your Dream Weather</h3>
-                    <p>Define your ideal conditions for morning, lunch, evening, and midnight – temperature ranges, precipitation limits, wind speeds, UV levels, and cloudiness</p>
-                </div>
-                
-                <div class="step fade-in-up">
-                    <div class="step-number">3</div>
-                    <h3>Select Your Target Countries</h3>
-                    <p>Choose which countries you're considering for your trip – focus on specific regions or explore multiple destinations simultaneously</p>
-                </div>
-                
-                <div class="step fade-in-up">
-                    <div class="step-number">4</div>
-                    <h3>Apply Intelligent Filters</h3>
-                    <p>Narrow results by setting maximum driving time to airports, beaches, golf courses, hiking trails, or national parks for convenient access</p>
-                </div>
-                
-                <div class="step fade-in-up">
-                    <div class="step-number">5</div>
-                    <h3>Get Instant Weather Rankings</h3>
-                    <p>BlueScore calculates a 0-100 score for each destination showing how well the forecast matches your preferences – highest score equals best match</p>
-                </div>
-                
-                <div class="step fade-in-up">
-                    <div class="step-number">6</div>
-                    <h3>Review Detailed Information</h3>
-                    <p>Examine complete weather forecasts, sunrise/sunset times, public holidays, and hourly data to verify your top-ranked destinations</p>
-                </div>
-                
-                <div class="step fade-in-up">
-                    <div class="step-number">7</div>
-                    <h3>Explore Points of Interest</h3>
-                    <p>Discover nearby airports, golf courses, beaches, hiking trails, national parks, and camping sites with contact information and facility details</p>
-                </div>
-                
-                <div class="step fade-in-up">
-                    <div class="step-number">8</div>
-                    <h3>Preview with Apple Look Around</h3>
-                    <p>Virtually explore your destination before you go with immersive street-level imagery available for thousands of locations worldwide</p>
-                </div>
-                
-                <div class="step fade-in-up">
-                    <div class="step-number">9</div>
-                    <h3>Book with Complete Confidence</h3>
-                    <p>Armed with comprehensive weather insights and location intelligence, confidently book your perfect destination through your preferred platform</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- SECTION: HOW IT SCORES -->
+        <section class="section section--label" id="how-it-scores">
+            <p class="section__label">How it scores</p>
+        </section>
 
-    <!-- Target Audience -->
-    <section class="target-audience">
-        <div class="container">
-            <h2>Perfect For</h2>
-            <div class="audience-grid">
-                <div class="audience-card fade-in-up">
-                    <h3>🌹 Romantic Weekends</h3>
-                    <p>Find destinations with warm evenings perfect for outdoor dining, clear skies for starlit walks, and comfortable temperatures for exploring together. No umbrellas needed, just memories to make.</p>
-                </div>
-                
-                <div class="audience-card fade-in-up">
-                    <h3>⛳ Golf Enthusiasts</h3>
-                    <p>Discover courses with calm fairways, dry conditions, and light winds (max 2 m/s). Perfect playing weather with comfortable temperatures and clear skies means your best game every time.</p>
-                </div>
-                
-                <div class="audience-card fade-in-up">
-                    <h3>💻 Digital Nomads</h3>
-                    <p>Find perfect beach weather in real-time and work from paradise. Balance productivity with sunshine, combine reliable connectivity with inspiring environments, and escape everyday rain.</p>
-                </div>
-                
-                <div class="audience-card fade-in-up">
-                    <h3>👨‍👩‍👧‍👦 Families</h3>
-                    <p>Just-right temperatures between 20-25°C, zero rain, and stable conditions equal happy kids and stress-free parents. Find family-friendly beaches and activities with guaranteed good weather.</p>
-                </div>
-                
-                <div class="audience-card fade-in-up">
-                    <h3>🎒 Backpackers</h3>
-                    <p>Skip the storms and island-hop with sunshine as your compass. Maximize your adventure time with dry conditions, chase perfect beach weather even off-season, and make every day count.</p>
-                </div>
-                
-                <div class="audience-card fade-in-up">
-                    <h3>🥾 Outdoor Enthusiasts</h3>
-                    <p>Discover hiking trails with perfect conditions, explore national parks without rain, and find camping sites with stable weather. Dry trails, clear views, and comfortable temperatures for your adventures.</p>
-                </div>
-                
-                <div class="audience-card fade-in-up">
-                    <h3>☀️ Beach & Sun Seekers</h3>
-                    <p>Chase consistent sunshine with low UV protection when needed, find warm seas and sandy beaches with minimal wind. Escape cold weather at home and discover perfect tanning conditions year-round.</p>
-                </div>
-                
-                <div class="audience-card fade-in-up">
-                    <h3>🏛️ City & Culture Explorers</h3>
-                    <p>Explore cultural cities, museums, and historic sites in comfortable walking weather. Mild temperatures for outdoor sightseeing, dry conditions for café culture, and clear evenings for rooftop views.</p>
-                </div>
-                
-                <div class="audience-card fade-in-up">
-                    <h3>🌅 Weekend Escapees</h3>
-                    <p>Swap clouds for clarity and escape everyday rain with spontaneous weekend trips. Find destinations with sunshine, perfect temperatures for outdoor dining, and starlit skies just hours away.</p>
+        <section class="feature feature--reverse">
+            <div class="feature__visual">
+                <div class="phone-frame" data-screenshot="ranking">
+                    <img src="screenshots/pc02-iphone_6_5.png" alt="" onerror="this.style.display='none'" />
+                    <div class="phone-frame__placeholder">
+                        <div class="phone-frame__dot"></div>
+                        <strong>Ranked results</strong>
+                        <span>Screenshot placeholder</span>
+                        <small>pc02</small>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+            <div class="feature__copy">
+                <h2 class="feature__title">Every forecast,<br />scored 0&ndash;100.</h2>
+                <p class="feature__text">
+                    BlueScore reads the forecast for every destination across the next ten days, compares it to your profile and assigns a single, honest score from 0 to 100. Highest score wins.
+                </p>
+                <p class="feature__text">
+                    Tap into any destination to see the breakdown by day, by hour, by parameter &mdash; so you can spot the calm morning, the warm-evening dinner, or the dry-fairway afternoon at a glance.
+                </p>
+                <p class="feature__text feature__text--muted">
+                    No spreadsheets. No comparing ten apps. Just the answer.
+                </p>
+            </div>
+        </section>
 
-    <!-- Points of Interest -->
-    <section class="poi-section">
-        <div class="container">
-            <h2>Discover Places Near Your Destination</h2>
-            <p class="poi-subtitle">Six categories of points of interest with detailed information and smart filtering</p>
-            <div class="poi-grid">
-                <div class="poi-card fade-in-up">
-                    <div class="poi-icon">✈️</div>
-                    <h3>Airports</h3>
-                    <p>
-                        Find nearby airports with IATA codes, airport types, and driving distances. 
-                        Includes contact information and operator details to help you plan your arrival and departure with confidence.
-                    </p>
-                </div>
-                <div class="poi-card fade-in-up">
-                    <div class="poi-icon">⛳</div>
-                    <h3>Golf Courses</h3>
-                    <p>
-                        Discover golf courses near your destination with contact information, operator details, and driving times.
-                        Filter and sort to find the perfect course for your weather-perfect golf getaway.
-                    </p>
-                </div>
-                <div class="poi-card fade-in-up">
-                    <div class="poi-icon">🏖️</div>
-                    <h3>Beaches</h3>
-                    <p>
-                        Explore nearby beaches with comprehensive facility information and filter by beach type – sand, pebble, rocky, or mixed.
-                        Clickable phone numbers and addresses make it easy to get in touch.
-                    </p>
-                </div>
-                <div class="poi-card fade-in-up">
-                    <div class="poi-icon">🥾</div>
-                    <h3>Hiking Trails</h3>
-                    <p>
-                        Discover hiking trails with information about difficulty levels, trail length, and trail types.
-                        Filter by international, national, regional, or local trails to match your adventure level.
-                    </p>
-                </div>
-                <div class="poi-card fade-in-up">
-                    <div class="poi-icon">🌲</div>
-                    <h3>National Parks & Nature Reserves</h3>
-                    <p>
-                        Explore protected natural areas with information about park types, management authorities, and protection categories.
-                        Many parks feature Apple Look Around for virtual previews before you visit.
-                    </p>
-                </div>
-                <div class="poi-card fade-in-up">
-                    <div class="poi-icon">🏕️</div>
-                    <h3>Camping Sites</h3>
-                    <p>
-                        Find camping and caravan sites with detailed facility information including electricity, water, showers, and toilets.
-                        Perfect for planning outdoor adventures with all the amenities you need.
-                    </p>
-                </div>
-            </div>
-            <p style="text-align: center; margin-top: 40px; color: var(--medium-gray); font-size: 1.05rem; max-width: 800px; margin-left: auto; margin-right: auto;">
-                All additional information is displayed automatically when available from data sources. 
-                Enable or disable categories in Settings to customize your experience.
+        <!-- SECTION: DESTINATIONS -->
+        <section class="section section--label" id="destinations">
+            <p class="section__label">Where to go</p>
+        </section>
+
+        <section class="section section--center">
+            <h2 class="section__title">Curated picks &amp; your<br />own favourites.</h2>
+            <p class="section__lede">
+                Hundreds of hand-picked destinations are in the catalogue from day one &mdash; and you can add any place on the planet as a custom favourite. Both kinds compete in the same ranking.
             </p>
-        </div>
-    </section>
+        </section>
 
-    <!-- Screenshots Section -->
-    <section class="features" style="background: var(--light-gray);">
-        <div class="container">
-            <h2>See BlueScore in Action</h2>
-            <div class="screenshots-grid">
-                <div class="screenshot-item fade-in-up">
-                    <img src="screenshots/pc01-iphone_6_5.png" alt="BlueScore screenshot">
+        <section class="feature">
+            <div class="feature__visual">
+                <div class="phone-frame" data-screenshot="curated">
+                    <img src="screenshots/pc03-iphone_6_5.png" alt="" onerror="this.style.display='none'" />
+                    <div class="phone-frame__placeholder">
+                        <div class="phone-frame__dot"></div>
+                        <strong>Curated catalogue</strong>
+                        <span>Screenshot placeholder</span>
+                        <small>pc03</small>
+                    </div>
                 </div>
-                <div class="screenshot-item fade-in-up">
-                    <img src="screenshots/pc02-iphone_6_5.png" alt="BlueScore screenshot">
-                </div>
-                <div class="screenshot-item fade-in-up">
-                    <img src="screenshots/pc03-iphone_6_5.png" alt="BlueScore screenshot">
-                </div>
-                <div class="screenshot-item fade-in-up">
-                    <img src="screenshots/pc04-iphone_6_5.png" alt="BlueScore screenshot">
-                </div>
-                <div class="screenshot-item fade-in-up">
-                    <img src="screenshots/pc05-iphone_6_5.png" alt="BlueScore screenshot">
-                </div>
-                <div class="screenshot-item fade-in-up">
-                    <img src="screenshots/pc06-iphone_6_5.png" alt="BlueScore screenshot">
-                </div>
-                <div class="screenshot-item fade-in-up">
-                    <img src="screenshots/pc07-iphone_6_5.png" alt="BlueScore screenshot">
-                </div>
-                <div class="screenshot-item fade-in-up">
-                    <img src="screenshots/pc08-iphone_6_5.png" alt="BlueScore screenshot">
-                </div>
-                <div class="screenshot-item fade-in-up">
-                    <img src="screenshots/pc09-iphone_6_5.png" alt="BlueScore screenshot">
-                </div>
-                <div class="screenshot-item fade-in-up">
-                    <img src="screenshots/pc10-iphone_6_5.png" alt="BlueScore screenshot">
-                </div>
-                <div class="screenshot-item fade-in-up">
-                    <img src="screenshots/pc11-iphone_6_5.png" alt="BlueScore screenshot">
-                </div>
-                <div class="screenshot-item fade-in-up">
-                    <img src="screenshots/pc12-iphone_6_5.png" alt="BlueScore screenshot">
-                </div>
-                <div class="screenshot-item fade-in-up">
-                    <img src="screenshots/pc13-iphone_6_5.png" alt="BlueScore screenshot">
-                </div>
-                <div class="screenshot-item fade-in-up">
-                    <img src="screenshots/pc14-iphone_6_5.png" alt="BlueScore screenshot">
-                </div>
-                <div class="screenshot-item fade-in-up">
-                    <img src="screenshots/pc15-iphone_6_5.png" alt="BlueScore screenshot">
-                </div>                
             </div>
-        </div>
-    </section>
+            <div class="feature__copy">
+                <p class="kicker">Hand-picked</p>
+                <h2 class="feature__title">Hundreds of<br />destinations, ready.</h2>
+                <p class="feature__text">
+                    Santorini, Biarritz, Costa del Sol, Barcelona &mdash; alongside cultural cities, coastal gems, island paradises and golf meccas. Browse by continent, by country, or by gut feel.
+                </p>
+                <p class="feature__text feature__text--muted">
+                    Twice as many places per country as the old free tier &mdash; for everyone now, with no upgrade prompts.
+                </p>
+            </div>
+        </section>
 
-    <!-- CTA Section -->
-    <section class="cta" id="download">
-        <div class="container">
-            <h2>Travel on Weather's Terms, Not by Chance</h2>
-            <p>Download BlueScore now and discover the destination that scores full points – before your flight takes off!</p>
-            
-            <div class="cta-buttons">
-                <a href="https://apps.apple.com/app/bluescore/id6744608825" class="app-store-btn" target="_blank" rel="noopener noreferrer">
-                    <img src="app-store-badge.svg" alt="Download on the App Store" style="height: 60px; width: auto;">
+        <section class="feature feature--reverse">
+            <div class="feature__visual">
+                <div class="phone-frame" data-screenshot="favourites">
+                    <img src="screenshots/pc04-iphone_6_5.png" alt="" onerror="this.style.display='none'" />
+                    <div class="phone-frame__placeholder">
+                        <div class="phone-frame__dot"></div>
+                        <strong>Custom favourites</strong>
+                        <span>Screenshot placeholder</span>
+                        <small>pc04</small>
+                    </div>
+                </div>
+            </div>
+            <div class="feature__copy">
+                <p class="kicker">Or bring your own</p>
+                <h2 class="feature__title">Add anywhere<br />on the planet.</h2>
+                <p class="feature__text">
+                    Hometown, summer cabin, future move, that one beach you keep dreaming of? Drop it in as a favourite and BlueScore scores it on every search alongside the curated picks.
+                </p>
+                <p class="feature__text feature__text--muted">
+                    No limit on favourites. Add as many as you like &mdash; everyone gets the full set.
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTION: WHAT IS IN A FORECAST -->
+        <section class="section section--label">
+            <p class="section__label">Inside a forecast</p>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title section__title--left">Everything in a forecast.<br />Nothing missing.</h2>
+            <p class="section__lede section__lede--left">
+                Six parameters, four times of day, ten days ahead &mdash; all on one screen.
+            </p>
+            <div class="trio">
+                <div class="trio__card">
+                    <div class="trio__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/><path d="M12 3v1.5"/><path d="M12 19.5V21"/><path d="M3 12h1.5"/><path d="M19.5 12H21"/></svg>
+                    </div>
+                    <h3 class="trio__title">Four times of day</h3>
+                    <p class="trio__text">
+                        Morning, lunch, evening and midnight are scored separately so dinner-on-the-terrace evenings and crisp running mornings each get the weight they deserve. Pick which moments matter and BlueScore weighs them in.
+                    </p>
+                </div>
+                <div class="trio__card">
+                    <div class="trio__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10"/><path d="M18 7h2"/><circle cx="16" cy="7" r="2"/><path d="M4 12h4"/><path d="M12 12h8"/><circle cx="10" cy="12" r="2"/><path d="M4 17h12"/><path d="M20 17h0"/><circle cx="18" cy="17" r="2"/></svg>
+                    </div>
+                    <h3 class="trio__title">Six weather parameters</h3>
+                    <p class="trio__text">
+                        Temperature, clouds, precipitation, wind, UV index and humidity. Combine any number of them &mdash; plus a set of golf-specific parameters for fairway weather. Every parameter is unlocked for every user.
+                    </p>
+                </div>
+                <div class="trio__card">
+                    <div class="trio__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M8 3v4"/><path d="M16 3v4"/><circle cx="9" cy="14.5" r="1" fill="currentColor" stroke="none"/><circle cx="13" cy="14.5" r="1" fill="currentColor" stroke="none"/><circle cx="17" cy="14.5" r="1" fill="currentColor" stroke="none"/></svg>
+                    </div>
+                    <h3 class="trio__title">Ten-day window</h3>
+                    <p class="trio__text">
+                        Forecast from today up to ten days ahead, in detail. Plus sunrise, sunset and local public holidays for every destination &mdash; so you never plan a trip on a closed Monday.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: BEYOND WEATHER -->
+        <section class="section section--label" id="beyond">
+            <p class="section__label">Beyond the weather</p>
+        </section>
+
+        <section class="feature">
+            <div class="feature__visual">
+                <div class="phone-frame" data-screenshot="poi">
+                    <img src="screenshots/pc05-iphone_6_5.png" alt="" onerror="this.style.display='none'" />
+                    <div class="phone-frame__placeholder">
+                        <div class="phone-frame__dot"></div>
+                        <strong>Geographic intelligence</strong>
+                        <span>Screenshot placeholder</span>
+                        <small>pc05</small>
+                    </div>
+                </div>
+            </div>
+            <div class="feature__copy">
+                <h2 class="feature__title">Not just<br />a forecast.</h2>
+                <p class="feature__text">
+                    For every destination, BlueScore surfaces nearby points of interest in six categories &mdash; airports with IATA codes, golf courses with contact details, beaches and their facilities, hiking trails with difficulty levels, national parks and camping sites.
+                </p>
+                <ul class="feature__list">
+                    <li><strong>Filter</strong> by category, distance or amenities to focus on what you actually care about.</li>
+                    <li><strong>Apple Look Around</strong> opens a real-world preview of the surroundings without leaving the app.</li>
+                    <li><strong>Tap to call or email</strong> any place that ships its contact details &mdash; no copy-pasting.</li>
+                </ul>
+                <p class="feature__text feature__text--muted">
+                    Your destination, in context.
+                </p>
+            </div>
+        </section>
+
+        <section class="feature feature--reverse">
+            <div class="feature__visual">
+                <div class="phone-frame" data-screenshot="share">
+                    <img src="screenshots/pc06-iphone_6_5.png" alt="" onerror="this.style.display='none'" />
+                    <div class="phone-frame__placeholder">
+                        <div class="phone-frame__dot"></div>
+                        <strong>Share search</strong>
+                        <span>Screenshot placeholder</span>
+                        <small>pc06</small>
+                    </div>
+                </div>
+            </div>
+            <div class="feature__copy">
+                <h2 class="feature__title">Share a perfect<br />search.</h2>
+                <p class="feature__text">
+                    Found the configuration that always finds you the right week of beach, the right golfing weekend, the right city break? Share the whole search as a QR code or a file &mdash; weather profile, favourites, filters and all.
+                </p>
+                <p class="feature__text feature__text--muted">
+                    A friend imports it in one tap and sees exactly the same answer.
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTION: AUDIENCE -->
+        <section class="section section--center">
+            <h2 class="section__title">For every kind<br />of trip.</h2>
+            <p class="section__lede">
+                BlueScore is built for the moments when the weather is the deciding factor. Same app, ten different ways to use it.
+            </p>
+            <div class="audience">
+                <span class="audience__pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg>
+                    Couples chasing mild evenings
+                </span>
+                <span class="audience__pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4l9 2-3 3 3 3-9 2"/><circle cx="5" cy="22" r="1.4" fill="currentColor" stroke="none"/></svg>
+                    Golfers needing dry fairways
+                </span>
+                <span class="audience__pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="7" width="12" height="13" rx="3"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/><path d="M8 12h8"/></svg>
+                    Backpackers off-season
+                </span>
+                <span class="audience__pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="11" rx="2"/><path d="M2 20h20"/></svg>
+                    Digital nomads
+                </span>
+                <span class="audience__pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18l5-8 4 6 3-4 6 6"/><path d="M3 18h18"/></svg>
+                    Outdoor enthusiasts
+                </span>
+                <span class="audience__pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+                    Families wanting stable weather
+                </span>
+                <span class="audience__pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l18-9-7 18-2.5-7L3 12z"/></svg>
+                    Spontaneous travellers
+                </span>
+                <span class="audience__pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="3.5"/><path d="M12 2v2"/><path d="M12 14v2"/><path d="M5 9H3"/><path d="M21 9h-2"/><path d="M6.4 3.4l1.4 1.4"/><path d="M16.2 13.2l1.4 1.4"/><path d="M3 21c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg>
+                    Beach &amp; sun seekers
+                </span>
+                <span class="audience__pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="7" height="13"/><rect x="14" y="3" width="7" height="18"/><path d="M5.5 11h2"/><path d="M5.5 14h2"/><path d="M5.5 17h2"/><path d="M16.5 6h2"/><path d="M16.5 9h2"/><path d="M16.5 12h2"/><path d="M16.5 15h2"/></svg>
+                    City &amp; culture explorers
+                </span>
+                <span class="audience__pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M8 3v4"/><path d="M16 3v4"/><path d="M14.5 14.5l-3 3"/><path d="M11.5 14.5l3 3"/></svg>
+                    Weekend escapees
+                </span>
+            </div>
+        </section>
+
+        <!-- SECTION: LANGUAGES -->
+        <section class="section section--center">
+            <p class="eyebrow eyebrow--center">Eight languages</p>
+            <h2 class="section__title">Travel anywhere.<br />Read everywhere.</h2>
+            <p class="section__lede">
+                BlueScore speaks your language out of the box &mdash; whichever of these eight is set on your iPhone.
+            </p>
+            <div class="languages">
+                <span class="languages__item"><span class="languages__flag">&#127468;&#127463;</span> English</span>
+                <span class="languages__item"><span class="languages__flag">&#127466;&#127480;</span> Espa&ntilde;ol</span>
+                <span class="languages__item"><span class="languages__flag">&#127467;&#127479;</span> Fran&ccedil;ais</span>
+                <span class="languages__item"><span class="languages__flag">&#127465;&#127466;</span> Deutsch</span>
+                <span class="languages__item"><span class="languages__flag">&#127470;&#127481;</span> Italiano</span>
+                <span class="languages__item"><span class="languages__flag">&#127465;&#127472;</span> Dansk</span>
+                <span class="languages__item"><span class="languages__flag">&#127475;&#127476;</span> Norsk</span>
+                <span class="languages__item"><span class="languages__flag">&#127480;&#127466;</span> Svenska</span>
+            </div>
+        </section>
+
+        <!-- SECTION: EVERYTHING INSIDE (badges 5x2) -->
+        <section class="section section--center">
+            <h2 class="section__title">Everything that matters.<br />Nothing locked away.</h2>
+            <p class="section__lede">
+                Ten things BlueScore puts in every user&rsquo;s hands &mdash; all included, all from the first launch.
+            </p>
+            <div class="badges">
+                <div class="badge">
+                    <span class="badge__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13a9 9 0 1 1 18 0"/><path d="M12 13l5-5"/><circle cx="12" cy="13" r="1.6" fill="currentColor" stroke="none"/></svg>
+                    </span>
+                    <div class="badge__text">
+                        <span class="badge__label">Score 0&ndash;100</span>
+                        <p class="badge__desc">Every destination gets a single honest score against your weather profile. Highest match wins.</p>
+                    </div>
+                </div>
+                <div class="badge">
+                    <span class="badge__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/><path d="M12 3v1.5"/><path d="M12 19.5V21"/></svg>
+                    </span>
+                    <div class="badge__text">
+                        <span class="badge__label">Per time of day</span>
+                        <p class="badge__desc">Morning, lunch, evening and midnight are each scored separately and weighted to your priorities.</p>
+                    </div>
+                </div>
+                <div class="badge">
+                    <span class="badge__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10"/><circle cx="16" cy="7" r="2"/><path d="M4 12h4"/><circle cx="10" cy="12" r="2"/><path d="M12 12h8"/><path d="M4 17h12"/><circle cx="18" cy="17" r="2"/></svg>
+                    </span>
+                    <div class="badge__text">
+                        <span class="badge__label">Six parameters</span>
+                        <p class="badge__desc">Temperature, clouds, precipitation, wind, UV and humidity &mdash; combinable in any number, on any time slot.</p>
+                    </div>
+                </div>
+                <div class="badge">
+                    <span class="badge__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M8 3v4"/><path d="M16 3v4"/><circle cx="9" cy="14.5" r="1" fill="currentColor" stroke="none"/><circle cx="13" cy="14.5" r="1" fill="currentColor" stroke="none"/><circle cx="17" cy="14.5" r="1" fill="currentColor" stroke="none"/></svg>
+                    </span>
+                    <div class="badge__text">
+                        <span class="badge__label">Ten-day forecast</span>
+                        <p class="badge__desc">Plan from today up to ten days ahead, with detailed hourly data, sunrise/sunset and local holidays.</p>
+                    </div>
+                </div>
+                <div class="badge">
+                    <span class="badge__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.4 5.6L20 9.5l-4 4 1 5.5-5-2.7-5 2.7 1-5.5-4-4 5.6-.9z"/></svg>
+                    </span>
+                    <div class="badge__text">
+                        <span class="badge__label">Curated catalogue</span>
+                        <p class="badge__desc">Hand-picked destinations across every continent, browsable by region, country or country club.</p>
+                    </div>
+                </div>
+                <div class="badge">
+                    <span class="badge__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg>
+                    </span>
+                    <div class="badge__text">
+                        <span class="badge__label">Custom favourites</span>
+                        <p class="badge__desc">Add any place on Earth. BlueScore scores it on every search, side by side with the curated picks.</p>
+                    </div>
+                </div>
+                <div class="badge">
+                    <span class="badge__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-7-7-7-12a7 7 0 0 1 14 0c0 5-7 12-7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>
+                    </span>
+                    <div class="badge__text">
+                        <span class="badge__label">Geographic intelligence</span>
+                        <p class="badge__desc">Six POI categories &mdash; airports, golf, beaches, trails, national parks, camping &mdash; around every destination.</p>
+                    </div>
+                </div>
+                <div class="badge">
+                    <span class="badge__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3.2"/></svg>
+                    </span>
+                    <div class="badge__text">
+                        <span class="badge__label">Apple Look Around</span>
+                        <p class="badge__desc">Open a real-world preview of the surroundings of any supported destination, right inside the app.</p>
+                    </div>
+                </div>
+                <div class="badge">
+                    <span class="badge__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="3" height="3"/><rect x="18" y="18" width="3" height="3"/><rect x="14" y="18" width="3" height="3"/></svg>
+                    </span>
+                    <div class="badge__text">
+                        <span class="badge__label">Share via QR &amp; file</span>
+                        <p class="badge__desc">Send a complete search &mdash; profile, favourites, filters &mdash; to a friend in one tap. They import and search.</p>
+                    </div>
+                </div>
+                <div class="badge">
+                    <span class="badge__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18"/><path d="M12 3a14 14 0 0 0 0 18"/></svg>
+                    </span>
+                    <div class="badge__text">
+                        <span class="badge__label">Eight languages</span>
+                        <p class="badge__desc">English, Spanish, French, German, Italian, Danish, Norwegian and Swedish &mdash; localised end to end.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="cta" id="get">
+            <img src="BlueScore-iOS.png" alt="" class="cta__icon" />
+            <p class="eyebrow eyebrow--center">Get BlueScore</p>
+            <h2 class="cta__title">
+                All features.<br /><span class="cta__title-glow">For everyone.</span>
+            </h2>
+            <p class="cta__sub">
+                BlueScore is free for every user. Every feature that used to live behind the PRO upgrade &mdash; twice as many places per country, custom favourites, every weather parameter, expanded travel-day forecasts, larger search results, golf-specific parameters and QR/file sharing &mdash; is now included from the first launch. No subscription. No upgrade prompts. Just the app.
+            </p>
+            <div class="cta-row">
+                <a href="https://apps.apple.com/app/bluescore/id6744608825" class="app-store-badge" target="_blank" rel="noopener" aria-label="Download BlueScore on the App Store">
+                    <img src="app-store-badge.svg" alt="Download on the App Store" />
                 </a>
             </div>
-        </div>
-    </section>
+            <p class="cta__tag">You bring the trip. We bring the weather.</p>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Anders Westin</p>
-            <p>Email: hello@bluescore.cloud</p>
-            <p>All rights reserved.</p>
-            <p>
-                <a href="https://www.bluescore.cloud/privacypolicy/">Privacy Policy</a> • 
-                <a href="https://www.bluescore.cloud/terms/">Terms of Use</a> • 
-                <a href="https://www.bluescore.cloud/support/">Support</a>
+        <footer class="footer">
+            <p class="footer__copyright">&copy; 2026 BlueScore</p>
+            <p>Email: <a href="mailto:hello@bluescore.cloud">hello@bluescore.cloud</a></p>
+            <p class="footer__sub">All rights reserved.</p>
+            <p class="footer__links">
+                <a href="privacypolicy/">Privacy Policy</a>
+                <span class="footer__sep">&middot;</span>
+                <a href="terms/">Terms of Use</a>
+                <span class="footer__sep">&middot;</span>
+                <a href="support/">Support</a>
             </p>
-        </div>
-    </footer>
+        </footer>
+    </main>
 
-    <script>
-        // === HERO MOCKUPS: Desktop Random Selection ===
-        const allMockups = [
-            'mockups/iphone-11-pro-mockup-featuring-blurred-lights-in-the-background-2125-el1.png',
-            'mockups/mockup-of-a-man-holding-an-iphone-11-pro-2157-el1.png',
-            'mockups/mockup-of-a-man-using-his-iphone-11-pro-at-the-office-2149-el1.png',
-            'mockups/mockup-of-a-young-man-holding-an-iphone-11-pro-2130-el1.png',
-            'mockups/mockup-of-the-over-shoulder-look-of-a-young-man-s-iphone-xs-25536.png',
-            'mockups/over-the-shoulder-iphone-xs-mockup-of-a-girl-sitting-on-a-minimalist-chair-25440.png',
-            'mockups/iphone-mockup-of-a-man-listening-to-a-podcast-with-his-iphone-xs-max-24814.png'
-        ];
-        
-        function getRandomMockups() {
-            const screenWidth = window.innerWidth;
-            let count = screenWidth > 1000 ? 3 : 2; // 3 images for large screens, 2 for medium
-            
-            const shuffled = [...allMockups].sort(() => Math.random() - 0.5);
-            return shuffled.slice(0, count);
-        }
-        
-        function loadDesktopMockups() {
-            const desktopContainer = document.querySelector('.desktop-mockups');
-            if (!desktopContainer) return;
-            
-            const selected = getRandomMockups();
-            desktopContainer.innerHTML = selected.map((src, i) => 
-                `<img src="${src}" alt="BlueScore mockup ${i + 1}">`
-            ).join('');
-        }
-        
-        // Load mockups on page load
-        loadDesktopMockups();
-        
-        // Reload on resize (debounced)
-        let resizeTimer;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(loadDesktopMockups, 250);
-        });
-        
-        // === MOBILE CAROUSEL ===
-        const carouselTrack = document.querySelector('.carousel-track');
-        const carouselDots = document.querySelector('.carousel-dots');
-        const slides = document.querySelectorAll('.carousel-slide');
-        
-        // Only initialize carousel if elements exist
-        if (carouselTrack && carouselDots && slides.length > 0) {
-            let currentSlide = 0;
-            let startX = 0;
-            let currentX = 0;
-            let isDragging = false;
-            
-            // Create dots
-            slides.forEach((_, index) => {
-                const dot = document.createElement('div');
-                dot.classList.add('carousel-dot');
-                if (index === 0) dot.classList.add('active');
-                dot.addEventListener('click', () => goToSlide(index));
-                carouselDots.appendChild(dot);
-            });
-            
-            function updateCarousel() {
-                const offset = -currentSlide * 100;
-                carouselTrack.style.transform = `translateX(${offset}%)`;
-                
-                // Update dots
-                document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
-                    dot.classList.toggle('active', index === currentSlide);
-                });
-            }
-            
-            function goToSlide(index) {
-                currentSlide = Math.max(0, Math.min(index, slides.length - 1));
-                updateCarousel();
-            }
-            
-            function nextSlide() {
-                currentSlide = (currentSlide + 1) % slides.length;
-                updateCarousel();
-            }
-            
-            function prevSlide() {
-                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-                updateCarousel();
-            }
-            
-            // Touch events for swipe
-            carouselTrack.addEventListener('touchstart', (e) => {
-                startX = e.touches[0].clientX;
-                isDragging = true;
-                carouselTrack.style.transition = 'none';
-            });
-            
-            carouselTrack.addEventListener('touchmove', (e) => {
-                if (!isDragging) return;
-                currentX = e.touches[0].clientX;
-                const diff = currentX - startX;
-                const offset = -currentSlide * 100 + (diff / carouselTrack.offsetWidth * 100);
-                carouselTrack.style.transform = `translateX(${offset}%)`;
-            });
-            
-            carouselTrack.addEventListener('touchend', () => {
-                if (!isDragging) return;
-                isDragging = false;
-                carouselTrack.style.transition = 'transform 0.3s ease-out';
-                
-                const diff = currentX - startX;
-                const threshold = carouselTrack.offsetWidth * 0.2; // 20% swipe threshold
-                
-                if (Math.abs(diff) > threshold) {
-                    if (diff > 0) {
-                        prevSlide();
-                    } else {
-                        nextSlide();
-                    }
-                } else {
-                    updateCarousel(); // Snap back
-                }
-            });
-            
-            // Auto-play carousel (optional, every 5 seconds)
-            setInterval(() => {
-                if (window.innerWidth <= 768) { // Only on mobile
-                    nextSlide();
-                }
-            }, 5000);
-        }
-        
-        // === SCROLL ANIMATIONS ===
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all fade-in-up elements
-        document.querySelectorAll('.fade-in-up').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-
-        // === SMOOTH SCROLLING ===
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
+    <script src="script.js" defer></script>
 </body>
-</html> 
+</html>
